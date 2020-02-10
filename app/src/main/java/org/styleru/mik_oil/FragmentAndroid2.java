@@ -13,7 +13,9 @@ import android.widget.Toast;
 
 import java.util.Random;
 
-public class FragmentAndroid2 extends Fragment {
+public class FragmentAndroid2 extends Fragment implements MainView {
+
+    //extends MvpAppCompatFragment
 
     private void FragmentAndroid2() {
     }
