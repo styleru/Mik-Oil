@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_android_2">
+
+    <EditText
+        android:id="@+id/login"
+        android:background="@drawable/button"
+        android:layout_width="270dp"
+        android:layout_height="48dp"
+        android:hint="Логин/Телефон"
+        android:inputType="text"
+        android:textSize="18dp"
+        android:maxLines="1"
+        android:paddingLeft="8dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="146dp"/>
+
+    <EditText
+        android:id="@+id/password"
+        android:background="@drawable/button"
+        android:hint=" Пароль"
+        android:inputType="text"
+        android:textSize="18dp"
+        android:maxLines="1"
+        android:paddingLeft="8dp"
+        android:layout_width="270dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="50dp"/>
+
+    <Button
+        android:layout_width="130dp"
+        android:layout_height="20dp"
+        android:text="Восстановить"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="185dp"
+        android:background="#0000"/>
+
+    <Button
+        android:id="@+id/go"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:background="@drawable/button"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="153dp"
+        android:textSize="18dp"
+        android:text="GO"/>
+
+    <ProgressBar
+        android:id="@+id/progress_circular"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="-54dp"
+        android:visibility="invisible"/>
+
+</LinearLayout>

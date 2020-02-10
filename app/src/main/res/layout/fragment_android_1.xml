@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_android_1">
+
+    <Button
+        android:id="@+id/registration"
+        android:text="Регистрация"
+        android:textSize="18dp"
+        android:background="@drawable/button"
+        android:layout_width="270dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="146dp"
+        android:shadowDy="@android:integer/config_longAnimTime"/>
+
+    <Button
+        android:id="@+id/enter"
+        android:text="Вход"
+        android:textSize="18dp"
+        android:background="@drawable/button"
+        android:layout_width="270dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="70dp"/>
+
+</LinearLayout>
