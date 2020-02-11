@@ -7,7 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class FragmentAndroid1 extends Fragment {
+    @BindView(R.id.enter)
+    Button enter;
+
     private void FragmentAndroid1() {}
 
     public void onAttach(MainActivity activity) {
@@ -18,17 +24,17 @@ public class FragmentAndroid1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_android_1, container, false);
+        ButterKnife.bind(this, view);
 
         return view;
     }
 
     @Override
     public void onViewCreated (View view, Bundle saveInstanceState) {
-        final Button enter = (Button) view.findViewById(R.id.enter);
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity.setFragment2(MainActivity.fragment2, MainActivity.fragmentManager);
+                MainActivity.setFragment2(MainActivity.fragmentManager);
             }
         });
     }

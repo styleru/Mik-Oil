@@ -13,9 +13,21 @@ import android.widget.Toast;
 
 import java.util.Random;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class FragmentAndroid2 extends Fragment implements MainView {
 
     //extends MvpAppCompatFragment
+
+    @BindView(R.id.progress_circular)
+    ProgressBar progressBar;
+    @BindView(R.id.go)
+    Button goButton;
+    @BindView(R.id.login)
+    EditText login;
+    @BindView(R.id.password)
+    EditText password;
 
     private void FragmentAndroid2() {
     }
@@ -28,16 +40,13 @@ public class FragmentAndroid2 extends Fragment implements MainView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_android_2, container, false);
+        ButterKnife.bind(this, view);
 
         return view;
     }
 
     @Override
     public void onViewCreated(View view, Bundle saveInstanceState) {
-        final ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progress_circular);
-        final Button goButton = (Button) view.findViewById(R.id.go);
-        final EditText login = (EditText) view.findViewById(R.id.login);
-        final EditText password = (EditText) view.findViewById(R.id.password);
         final Handler handler = new Handler();
 
         goButton.setVisibility(View.VISIBLE);
@@ -54,7 +63,7 @@ public class FragmentAndroid2 extends Fragment implements MainView {
                             int rand = randInt.nextInt(2);
 
                             progressBar.setVisibility(View.INVISIBLE);
-                            MainActivity.setFragment1(MainActivity.fragment1, MainActivity.fragmentManager);
+                            MainActivity.setFragment1(MainActivity.fragmentManager);
 
                             if (rand == 1) {
                                 Toast toast = Toast.makeText(getActivity(),
