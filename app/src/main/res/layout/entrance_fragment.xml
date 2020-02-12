@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Button
+        android:id="@+id/RegisterButton"
+        android:layout_width="270dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="146dp"
+        android:text="@string/register_string"
+        style="@style/Widget.AppCompat.Button.Colored"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></Button>
+
+    <Button
+        android:id="@+id/EnterButton"
+        android:layout_width="270dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="22dp"
+        android:text="@string/enter_string"
+        style="@style/Widget.AppCompat.Button.Colored"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/RegisterButton"></Button>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
