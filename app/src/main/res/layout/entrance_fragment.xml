@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/EntranceFragment"
+    class="com.styleru.mik_oil.EntranceFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -9,12 +11,14 @@
         android:id="@+id/RegisterButton"
         android:layout_width="270dp"
         android:layout_height="48dp"
-        android:layout_marginTop="146dp"
+        android:layout_marginTop="46dp"
         android:text="@string/register_string"
         style="@style/Widget.AppCompat.Button.Colored"
+        app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></Button>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/EnterButton"/>
 
     <Button
         android:id="@+id/EnterButton"
@@ -25,7 +29,7 @@
         style="@style/Widget.AppCompat.Button.Colored"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/RegisterButton"></Button>
+        app:layout_constraintTop_toBottomOf="@id/RegisterButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

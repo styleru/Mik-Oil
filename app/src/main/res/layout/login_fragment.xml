@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--TODO chains in layout-->
+<!--TODO semi-opaque hints-->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/login_fragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <EditText
         android:id="@+id/LoginEditText"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="270dp"
         android:layout_height="48dp"
-        android:layout_marginTop="146dp"
-        android:text="@string/login_string"
-        style="@style/Widget.AppCompat.EditText"
+        android:layout_marginTop="46dp"
+        android:hint="@string/login_string"
+        app:layout_constraintBottom_toTopOf="@+id/PasswordEditText"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <EditText
         android:id="@+id/PasswordEditText"
         android:layout_width="270dp"
         android:layout_height="48dp"
         android:layout_marginTop="22dp"
-        android:text="@string/password_string"
+        android:hint="@string/password_string"
+        app:layout_constraintBottom_toTopOf="@+id/RecoveryLink"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/LoginEditText" />
+        app:layout_constraintTop_toBottomOf="@id/LoginEditText"
+        app:layout_constraintVertical_chainStyle="packed" />
 
 
     <TextView
@@ -34,18 +42,20 @@
         android:layout_marginTop="22dp"
         android:text="@string/recovery_string"
         app:layout_constraintRight_toRightOf="@id/PasswordEditText"
-        app:layout_constraintTop_toBottomOf="@id/PasswordEditText" />
+        app:layout_constraintTop_toBottomOf="@id/PasswordEditText"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
         android:id="@+id/GoButton"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="120dp"
         android:layout_height="48dp"
         android:layout_marginTop="22dp"
         android:text="@string/go_string"
-        style="@style/Widget.AppCompat.Button.Colored"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintVertical_chainStyle="packed" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
