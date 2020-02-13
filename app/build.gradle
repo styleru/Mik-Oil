@@ -35,7 +35,7 @@ dependencies {
     // Fragments
     implementation 'androidx.fragment:fragment:1.2.0'
 
-    // Butterfly
+    // Butterknife
     implementation 'com.jakewharton:butterknife:10.2.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
 
