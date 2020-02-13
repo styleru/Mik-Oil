@@ -1,5 +1,6 @@
 package org.styleru.mik_oil;
 
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,9 +29,16 @@ public class LoginFragment extends MvpAppCompatFragment implements EntranceView 
     Button GoButton;
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+//        setRetainInstance(true);  redundant, doesn't work with backstack
+    }
+
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.login_fragment, container, false);
         ButterKnife.bind(this, view);
+        RecoveryLink.setPaintFlags(RecoveryLink.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         return view;
     }
