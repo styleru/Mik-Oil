@@ -8,16 +8,4 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="CustomTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowNoTitle">false</item>
-        <item name="android:windowTitleBackgroundStyle">@style/WindowTitleStyle</item>
-        <item name="android:fontFamily">Muller</item>
-    </style>
-    <style name="WindowTitleStyle">
-        <item name="android:padding">0px</item>
-    </style>
-
 </resources>
