@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Mik-Oil</string>
+    <string name="app_name">mik-oil</string>
+    <string name="android_1_1">Регистрация</string>
+    <string name="android_1_2">Вход</string>
+    <string name="title_bar">mik-oil</string>
+    <string name="android_2_1">Логин/телефон</string>
+    <string name="android_2_2">Пароль</string>
+    <string name="android_2_3">восстановить</string>
+    <string name="android_2_4">GO</string>
+    <string name="toast_msg_succes">Ваще по кайфу</string>
+    <string name="toast_msg_not">Ну ты чето попутал</string>
 </resources>

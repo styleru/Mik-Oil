@@ -3,4 +3,6 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="tb_color_bg">#F7B500</color>
+    <color name="tb_color_text">#000000</color>
 </resources>
