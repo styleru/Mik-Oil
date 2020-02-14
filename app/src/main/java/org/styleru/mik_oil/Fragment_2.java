@@ -3,11 +3,14 @@ package org.styleru.mik_oil;
 import android.app.Fragment;
 import android.media.tv.TvContract;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -33,6 +36,9 @@ public class Fragment_2 extends MvpAppCompatFragment implements Android_2_View {
     @BindView(R.id.progressBar_2)
     ProgressBar progressBar;
 
+    @BindView(R.id.android_2_3)
+    TextView textView;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
@@ -55,6 +61,22 @@ public class Fragment_2 extends MvpAppCompatFragment implements Android_2_View {
 
             }
         });
+        textView.setText(
+            Html.fromHtml(
+                    "<u>"+textView.getText().toString()+"</u>"
+            )
+        );
+        button_4.setElevation(10);
+        button_4.setTranslationZ(10);
+        button_4.setOnTouchListener(
+                new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        return btn_clicked(v, event);
+                    }
+                }
+        );
+
     }
 
     @Override
@@ -71,5 +93,25 @@ public class Fragment_2 extends MvpAppCompatFragment implements Android_2_View {
         Toast toast = Toast.makeText(getContext(),
                 message, Toast.LENGTH_SHORT);
         toast.show();
+    }
+
+
+    interface Fragment_2_Navigation {
+        void goToFragment_2();
+    }
+
+    private boolean btn_clicked(View v, MotionEvent event){
+        if (event.getAction() == MotionEvent.ACTION_DOWN){
+            v.setElevation(0);
+            v.setTranslationZ(0);
+            return false;
+        }
+        if (event.getAction() == MotionEvent.ACTION_UP){
+            v.setElevation(10);
+            v.setTranslationZ(10);
+            v.performClick();
+            return true;
+        }
+        return false;
     }
 }

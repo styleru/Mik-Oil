@@ -10,23 +10,27 @@
         android:layout_width="273dp"
         android:layout_height="48dp"
         android:layout_marginBottom="22dp"
-        android:background="@drawable/shadowed_button"
         android:text="@string/android_1_1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@id/android_1_2"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="90dp"/>
+        android:layout_marginTop="90dp"
+        android:background="@drawable/rounded_button"
+        android:stateListAnimator="@null"
+
+        />
 
     <Button
         android:id="@+id/android_1_2"
         android:layout_width="271dp"
         android:layout_height="48dp"
-        android:background="@drawable/shadowed_button"
         android:text="@string/android_1_2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/android_1_1"
         android:layout_marginTop="22dp"
+        android:background="@drawable/rounded_button"
+        android:stateListAnimator="@null"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
