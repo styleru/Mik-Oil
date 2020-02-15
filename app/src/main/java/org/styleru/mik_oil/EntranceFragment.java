@@ -1,24 +1,22 @@
 package org.styleru.mik_oil;
 
-import android.app.Fragment;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import androidx.fragment.app.Fragment;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class FragmentAndroid1 extends Fragment {
+public class EntranceFragment extends Fragment {
     @BindView(R.id.enter)
     Button enter;
 
-    private void FragmentAndroid1() {}
-
-    public void onAttach(MainActivity activity) {
-        super.onAttach(activity);
-    }
+    private void EntranceFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,9 +32,15 @@ public class FragmentAndroid1 extends Fragment {
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity.setFragment2(MainActivity.fragmentManager);
+                Activity activity = getActivity();
+                if (activity instanceof LoginFragment.LoginFragmentNavigation)
+                    ((LoginFragment.LoginFragmentNavigation)activity).goToLoginFragment();
             }
         });
+    }
+
+    interface EntranceFragmentNavigation{
+        void goToEntranceFragment();
     }
 
     @Override
@@ -47,39 +51,6 @@ public class FragmentAndroid1 extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    public void onResume() { super.onResume(); }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
     }
 
 }

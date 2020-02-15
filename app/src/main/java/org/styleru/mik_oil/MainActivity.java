@@ -1,52 +1,40 @@
 package org.styleru.mik_oil;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements LoginFragment.LoginFragmentNavigation, EntranceFragment.EntranceFragmentNavigation {
 
-    static FragmentManager fragmentManager;
-    static FragmentTransaction fragmentTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        fragmentManager = getFragmentManager();
-        setFragment1(fragmentManager);
-    }
-    public static void setFragment1(FragmentManager fragmentManager) {
-        FragmentAndroid1 fragment = new FragmentAndroid1();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container, fragment, "1");
-        fragmentTransaction.commit();
+
+        goToEntranceFragment();
     }
 
-    public static void setFragment2(FragmentManager fragmentManager) {
-        FragmentAndroid2 fragment = new FragmentAndroid2();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container, fragment, "2");
-        fragmentTransaction.addToBackStack("2");
-        fragmentTransaction.commit();
-    }
-
-    public void findView() {
-        //
+    public void setFragment1() {
+        EntranceFragment fragment = new EntranceFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, fragment)
+                .commit();
     }
 
     @Override
-    public void onBackPressed() {
-        Fragment currentFragment = fragmentManager.findFragmentById(R.id.container);
-
-        if (currentFragment.getTag().equals("2"))
-            setFragment1(fragmentManager);
-        else
-        if (currentFragment.getTag().equals("1"))
-            finish();
+    public void goToLoginFragment(){
+        LoginFragment fragment = new LoginFragment();
+        getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.container, fragment)
+                                    .addToBackStack(null)
+                                    .commit();
     }
 
+    public void goToEntranceFragment(){
+        EntranceFragment fragment = new EntranceFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, fragment)
+                .commit();
+    }
 }
