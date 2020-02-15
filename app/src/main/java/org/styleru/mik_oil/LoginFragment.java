@@ -1,8 +1,9 @@
 package org.styleru.mik_oil;
 
-import android.app.Fragment;
+import android.app.Activity;
 import android.os.Bundle;
-import android.os.Handler;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,12 +12,19 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import java.util.Random;
+import androidx.annotation.NonNull;
+
+import com.arellomobile.mvp.MvpAppCompatFragment;
+import com.arellomobile.mvp.presenter.InjectPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class LoginFragment extends Fragment {
+public class LoginFragment extends MvpAppCompatFragment implements LoginView {
+
+    interface LoginFragmentNavigation{
+        void goToLoginFragment();
+    }
 
     @BindView(R.id.progress_circular)
     ProgressBar progressBar;
@@ -26,9 +34,13 @@ public class LoginFragment extends Fragment {
     EditText login;
     @BindView(R.id.password)
     EditText password;
+    @BindView(R.id.recovery)
+    Button recovery;
 
-    private void LoginFragment() {
-    }
+    @InjectPresenter
+    LoginPresenter presenter;
+
+    private void LoginFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,38 +51,55 @@ public class LoginFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, Bundle saveInstanceState) {
-        Handler handler = new Handler();
+    public void onViewCreated(@NonNull View view, Bundle saveInstanceState) {
         goButton.setVisibility(View.VISIBLE);
-        goButton.setOnClickListener(v -> {
-            if (notEmpty(login, password)) {
-                goButton.setVisibility(View.INVISIBLE);
-                progressBar.setVisibility(View.VISIBLE);
-                handler.postDelayed(() -> {
-                    Random randInt = new Random();
-                    int rand = randInt.nextInt(2);
-
-                    progressBar.setVisibility(View.INVISIBLE);
-                    MainActivity.setEntranceFragment(MainActivity.fragmentManager);
-                    if (rand == 1) {
-                        Toast toast = Toast.makeText(getActivity(),
-                                "Успешно", Toast.LENGTH_SHORT);
-                        toast.show();
-                    } else {
-                        Toast toast = Toast.makeText(getActivity(),
-                                "Неудачно", Toast.LENGTH_SHORT);
-                        toast.show();
-                    }
-                }, 2000);
-            } else {
-                Toast toast = Toast.makeText(getActivity(),
-                        "Введите логин и пароль", Toast.LENGTH_SHORT);
-                toast.show();
-            }
-        });
+        goButton.setOnClickListener(v ->
+                presenter.onLoginClicked(login.getText().toString(),
+                                         password.getText().toString()));
+        SpannableString spannableString =
+                new SpannableString("Восстановить");
+        spannableString.setSpan(new UnderlineSpan(),0, recovery.getText().length(),0);
+        recovery.setText(spannableString);
     }
 
-    public boolean notEmpty(EditText login, EditText password) {
-        return (login.getText().length() != 0) && (password.getText().length() != 0);
+    @Override
+    public void setProgressEnabled(boolean enabled) {
+        if (enabled)
+        {
+            goButton.setVisibility(View.INVISIBLE);
+            progressBar.setVisibility(View.VISIBLE);
+        }
+        else progressBar.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void setToast(String check) {
+        switch (check) {
+            case "Успех": {
+                Toast toast = Toast.makeText(getActivity(),
+                        "Успех!", Toast.LENGTH_SHORT);
+                toast.show();
+                break;
+            }
+            case "Провал": {
+                Toast toast = Toast.makeText(getActivity(),
+                        "Провал!", Toast.LENGTH_SHORT);
+                toast.show();
+                break;
+            }
+            case "Попробуй еще раз": {
+                Toast toast = Toast.makeText(getActivity(),
+                        "Попробуйте еще раз.", Toast.LENGTH_SHORT);
+                toast.show();
+                break;
+            }
+        }
+    }
+
+    @Override
+    public void goToMain() {
+        Activity activity = getActivity();
+        if (activity instanceof EntranceFragment.EntranceFragmentNavigation)
+            ((EntranceFragment.EntranceFragmentNavigation)activity).goToEntranceFragment();
     }
 }

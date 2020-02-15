@@ -1,16 +1,23 @@
 package org.styleru.mik_oil;
 
-import android.app.Fragment;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class EntranceFragment extends Fragment {
+
+    interface EntranceFragmentNavigation{
+        void goToEntranceFragment();
+    }
 
     @BindView(R.id.enter)
     Button enter;
@@ -26,7 +33,11 @@ public class EntranceFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated (View view, Bundle saveInstanceState) {
-        enter.setOnClickListener(v -> MainActivity.setLoginFragment(MainActivity.fragmentManager));
+    public void onViewCreated (@NonNull View view, Bundle saveInstanceState) {
+        enter.setOnClickListener(v -> {
+            Activity activity = getActivity();
+            if (activity instanceof LoginFragment.LoginFragmentNavigation)
+                ((LoginFragment.LoginFragmentNavigation)activity).goToLoginFragment();
+        });
     }
 }
