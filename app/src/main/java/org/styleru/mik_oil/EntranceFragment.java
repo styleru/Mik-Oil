@@ -9,17 +9,22 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
-import com.arellomobile.mvp.MvpAppCompatFragment;
+import androidx.fragment.app.Fragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class EntranceFragment extends MvpAppCompatFragment {
+public class EntranceFragment extends Fragment {
 
     //Entrance Fragment
     @BindView(R.id.EnterButton)
     Button EnterButton;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+//        setRetainInstance(true);  redundant, doesn't work with backstack
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.entrance_fragment, container, false);
