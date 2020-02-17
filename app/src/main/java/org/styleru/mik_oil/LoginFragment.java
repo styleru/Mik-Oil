@@ -1,10 +1,8 @@
 package org.styleru.mik_oil;
 
 import android.app.Activity;
-import android.content.Context;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,14 +17,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
+import com.arellomobile.mvp.presenter.InjectPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static java.lang.Math.random;
-import static java.lang.Math.round;
+public class LoginFragment extends MvpAppCompatFragment implements LoginView {
 
-public class LoginFragment extends MvpAppCompatFragment implements EntranceView {
+    @InjectPresenter
+    LoginPresenter presenter;
 
     @BindView(R.id.LoginEditText)
     EditText LoginEditText;
@@ -42,17 +41,19 @@ public class LoginFragment extends MvpAppCompatFragment implements EntranceView 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setRetainInstance(true);  redundant, doesn't work with backstack
+        setRetainInstance(true);
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.login_fragment, container, false);
         ButterKnife.bind(this, view);
+        //underline recovery button
         RecoveryLink.setPaintFlags(RecoveryLink.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         return view;
     }
+
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState){
         GoButton.setOnClickListener(new View.OnClickListener(){
@@ -63,66 +64,53 @@ public class LoginFragment extends MvpAppCompatFragment implements EntranceView 
         });
     }
 
-    private int progressStatus = 0;
-    Handler handler = new Handler();
-
-    private void imitateRequest(){
-        GoButton.setVisibility(View.INVISIBLE);
-        showProgressBar();
+    @Override
+    public void imitateRequest(){
+        presenter.showProgressBar();
     }
 
-    private void showProgressBar(){
-        circularProgressBar.setVisibility(View.VISIBLE);
+    @Override
+    public void changeVisibility(boolean isVisible){
+        int changedProgressBarVisibility, changedButtonVisibility;
 
-        new Thread(new Runnable() {
-            public void run() {
-                while (progressStatus < 100) {
-                    progressStatus += 1;
-                    // Update the progress bar and display the
-                    //current value in the text view
-                    handler.post(new Runnable() {
-                        public void run() {
-                            circularProgressBar.setProgress(progressStatus);
-                        }
-                    });
-                    try {
-                        // Sleep for 20 milliseconds.
-                        Thread.sleep(20);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-                stopProgressBar();
-            }
-        }).start();
-    }
+        if (isVisible) {
+            changedProgressBarVisibility = View.VISIBLE;
+            changedButtonVisibility = View.GONE;
+        } else {
+            changedProgressBarVisibility = View.GONE;
+            changedButtonVisibility = View.VISIBLE;
+        }
 
-    private void stopProgressBar(){
         Activity activity = getActivity();
         if (activity != null) {
             activity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    circularProgressBar.setVisibility(View.INVISIBLE);
-                    showToast();
+                    circularProgressBar.setVisibility(changedProgressBarVisibility);
+                    GoButton.setVisibility(changedButtonVisibility);
                 }
             });
         }
     }
 
-    private void showToast(){
-        int state = (int) round(random());
-        Context context = getContext();
-        if (context != null) {
-            if (state == 1) {
-                Toast toast = Toast.makeText(context,"Success!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.BOTTOM, 0, 50);
-                toast.show();
-            } else {
-                Toast toast = Toast.makeText(context,"Failed!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.BOTTOM, 0, 50);
-                toast.show();
-            }
+    @Override
+    public void increaseProgress(){
+        int progress = circularProgressBar.getProgress();
+        circularProgressBar.setProgress(++progress);
+    }
+
+    @Override
+    public void showToast(String toast_text){
+        Activity activity = getActivity();
+        if (activity != null) {
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast toast = Toast.makeText(activity, toast_text, Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.BOTTOM, 0, 50);
+                    toast.show();
+                }
+            });
         }
         closeFragment();
     }
