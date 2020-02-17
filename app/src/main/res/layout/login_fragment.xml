@@ -1,65 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/fragment_android_2"
+    android:id="@+id/login_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <EditText
         android:id="@+id/login"
-        android:background="@drawable/button"
-        android:fontFamily="Muller"
         android:layout_width="270dp"
         android:layout_height="48dp"
+        android:background="@drawable/button"
         android:hint="Логин/Телефон"
         android:inputType="text"
-        android:textSize="18dp"
         android:maxLines="1"
         android:paddingLeft="8dp"
-        android:layout_marginTop="146dp"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <EditText
         android:id="@+id/password"
-        android:background="@drawable/button"
-        android:fontFamily="Muller"
-        android:hint=" Пароль"
-        android:inputType="text"
-        android:textSize="18dp"
-        android:maxLines="1"
-        android:paddingLeft="8dp"
         android:layout_width="270dp"
         android:layout_height="48dp"
         android:layout_marginTop="50dp"
+        android:background="@drawable/button"
+        android:hint=" Пароль"
+        android:inputType="text"
+        android:maxLines="1"
+        android:paddingLeft="8dp"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/recovery"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login" />
+        app:layout_constraintTop_toBottomOf="@+id/login"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
         android:id="@+id/recovery"
         android:layout_width="130dp"
         android:layout_height="20dp"
-        android:fontFamily="Muller"
-        android:layout_marginLeft="185dp"
-        android:text="Восстановить"
+        android:layout_marginLeft="145dp"
         android:layout_marginTop="13dp"
         android:background="#0000"
-        app:layout_constraintRight_toRightOf="@+id/password"
-        app:layout_constraintTop_toBottomOf="@id/password" />
+        android:text="Восстановить"
+        app:layout_constraintBottom_toTopOf="@+id/progress_circular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
         android:id="@+id/go"
         android:layout_width="120dp"
         android:layout_height="48dp"
+        android:layout_marginBottom="25dp"
         android:background="@drawable/button"
+        android:elevation="7dp"
+        android:translationZ="10dp"
         android:fontFamily="Muller"
-        android:layout_marginTop="100dp"
-        android:textSize="18dp"
+        android:lineHeight="30dp"
         android:text="GO"
+        android:textFontWeight="500"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/recovery" />
 
@@ -68,9 +84,9 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:visibility="invisible"
-        app:layout_constraintTop_toTopOf="@+id/go"
         app:layout_constraintBottom_toBottomOf="@+id/go"
         app:layout_constraintEnd_toEndOf="@+id/go"
-        app:layout_constraintStart_toStartOf="@+id/go" />
+        app:layout_constraintStart_toStartOf="@+id/go"
+        app:layout_constraintTop_toTopOf="@+id/go" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

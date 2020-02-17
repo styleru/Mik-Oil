@@ -13,6 +13,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
@@ -44,14 +45,14 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.login_fragment, container, false);
         ButterKnife.bind(this, view);
         return view;
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, Bundle saveInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         goButton.setVisibility(View.VISIBLE);
         goButton.setOnClickListener(v ->
                 presenter.onLoginClicked(login.getText().toString(),
@@ -73,23 +74,23 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
     }
 
     @Override
-    public void setToast(String check) {
+    public void showToast(int check) {
         switch (check) {
-            case "Успех": {
+            case 1: {
                 Toast toast = Toast.makeText(getActivity(),
-                        "Успех!", Toast.LENGTH_SHORT);
+                        "Успешно", Toast.LENGTH_SHORT);
                 toast.show();
                 break;
             }
-            case "Провал": {
+            case 0: {
                 Toast toast = Toast.makeText(getActivity(),
-                        "Провал!", Toast.LENGTH_SHORT);
+                        "Что-то пошло не так", Toast.LENGTH_SHORT);
                 toast.show();
                 break;
             }
-            case "Попробуй еще раз": {
+            case 3: {
                 Toast toast = Toast.makeText(getActivity(),
-                        "Попробуйте еще раз.", Toast.LENGTH_SHORT);
+                        "Заполните все поля", Toast.LENGTH_SHORT);
                 toast.show();
                 break;
             }

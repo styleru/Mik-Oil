@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void goToLoginFragment(){
+    public void goToLoginFragment() {
         LoginFragment fragment = new LoginFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment)
@@ -24,10 +24,12 @@ public class MainActivity extends AppCompatActivity
                 .commit();
     }
 
-    public void goToEntranceFragment(){
-        EntranceFragment fragment = new EntranceFragment();
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container, fragment)
-                .commit();
+    public void goToEntranceFragment() {
+        if (getSupportFragmentManager().getBackStackEntryCount() == 0) { // Почитать внимательнее.
+            EntranceFragment fragment = new EntranceFragment();
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .commit();
+        }
     }
 }

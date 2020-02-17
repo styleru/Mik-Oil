@@ -5,9 +5,6 @@ import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleTagStrategy;
 import com.arellomobile.mvp.viewstate.strategy.OneExecutionStateStrategy;
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 
-/**
- * Интерфейс для контроля реализации методов обработки фрагментом своего интерфейса.
- */
 public interface LoginView extends MvpView {
 
     @StateStrategyType(AddToEndSingleTagStrategy.class)
@@ -17,5 +14,5 @@ public interface LoginView extends MvpView {
     void goToMain();
 
     @StateStrategyType(AddToEndSingleTagStrategy.class)
-    void setToast(String check);
+    void showToast(int check);
 }
