@@ -21,7 +21,7 @@ public class EntranceFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_android_1, container, false);
+        View view = inflater.inflate(R.layout.entrance_fragment, container, false);
         ButterKnife.bind(this, view);
 
         return view;
@@ -29,13 +29,10 @@ public class EntranceFragment extends Fragment {
 
     @Override
     public void onViewCreated (View view, Bundle saveInstanceState) {
-        enter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Activity activity = getActivity();
-                if (activity instanceof LoginFragment.LoginFragmentNavigation)
-                    ((LoginFragment.LoginFragmentNavigation)activity).goToLoginFragment();
-            }
+        enter.setOnClickListener(v -> {
+            Activity activity = getActivity();
+            if (activity instanceof LoginFragment.LoginFragmentNavigation)
+                ((LoginFragment.LoginFragmentNavigation)activity).goToLoginFragment();
         });
     }
 
@@ -46,11 +43,6 @@ public class EntranceFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
     }
 
 }

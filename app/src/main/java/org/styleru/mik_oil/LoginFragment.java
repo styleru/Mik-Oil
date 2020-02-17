@@ -2,6 +2,8 @@ package org.styleru.mik_oil;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +15,10 @@ import android.widget.Toast;
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 
-import java.io.Serializable;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class LoginFragment extends MvpAppCompatFragment implements LoginView, Serializable {
+public class LoginFragment extends MvpAppCompatFragment implements LoginView {
 
     //extends MvpAppCompatFragment
     @BindView(R.id.progress_circular)
@@ -29,32 +29,35 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView, Se
     EditText login;
     @BindView(R.id.password)
     EditText password;
+    @BindView(R.id.recovery)
+    Button recovery;
 
     @InjectPresenter
     LoginPresenter presenter;
 
-    private void LoginFragment() { }
+    private void LoginFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_android_2, container, false);
-        ButterKnife.bind(this, view);
+        View view = inflater.inflate(R.layout.login_fragmnet, container, false);
 
         return view;
     }
 
     @Override
     public void onViewCreated(View view, Bundle saveInstanceState) {
-        goButton.setVisibility(View.VISIBLE);
+        ButterKnife.bind(this, view);
 
-        goButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.onLoginClicked(login.getText().toString(), password.getText().toString());
-            }
-        });
+        goButton.setVisibility(View.VISIBLE);
+        SpannableString spannableString =
+                new SpannableString("Восстановить");
+        spannableString.setSpan(new UnderlineSpan(),0, recovery.getText().length(),0);
+        recovery.setText(spannableString);
+        goButton.setOnClickListener(v ->
+                presenter.onLoginClicked(login.getText().toString(),
+                        password.getText().toString()));
     }
 
     @Override
@@ -77,7 +80,7 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView, Se
     }
 
     @Override
-    public void setToast(String check) {
+    public void showToast(String check) {
         if (check.equals("Успех")) {
             Toast toast = Toast.makeText(getActivity(),
                     "Успех!", Toast.LENGTH_SHORT);

@@ -23,11 +23,11 @@ public class LoginPresenter extends MvpPresenter<LoginView> {
                 getViewState().goToMain();
 
                 if (rand == 1)
-                    getViewState().setToast("Успех");
-                else if (rand == 0) getViewState().setToast("Провал");
+                    getViewState().showToast("Успех");
+                else if (rand == 0) getViewState().showToast("Провал");
             }, 2000);
         }
-        else getViewState().setToast("Попробуй еще раз");
+        else getViewState().showToast("Попробуй еще раз");
     }
 
     private boolean checkNull(String login, String password) {
