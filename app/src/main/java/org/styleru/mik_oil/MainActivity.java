@@ -1,6 +1,7 @@
 package org.styleru.mik_oil;
 
 import android.os.Bundle;
+import android.view.Window;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +11,12 @@ public class MainActivity extends AppCompatActivity implements EntranceFragment.
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+        setContentView(R.layout.activity_main);  // Actual Layout Name
+        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
+                R.layout.toolbar); // Layoutname of Title Text
+
         goToEntranceFragment();
     }
 

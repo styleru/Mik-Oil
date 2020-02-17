@@ -1,11 +1,26 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
+        <item name="android:windowNoTitle">false</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">Muller</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:windowTitleBackgroundStyle">@style/WindowTitleStyle</item>
+    </style>
+
+    <style name="EditTextTheme" parent="Widget.AppCompat.EditText">
+        <!-- Customize your theme here. -->
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
+    <style name="WindowTitleStyle">
+        <item name="android:padding">0px</item>
     </style>
 
 </resources>
