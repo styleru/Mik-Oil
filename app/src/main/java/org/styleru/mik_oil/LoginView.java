@@ -19,5 +19,5 @@ public interface LoginView extends MvpView {
     void goToMain();
 
     @StateStrategyType(AddToEndSingleTagStrategy.class)
-    void setToast(String check);
+    void showToast(String check);
 }

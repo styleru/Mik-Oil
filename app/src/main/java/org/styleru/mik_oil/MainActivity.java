@@ -4,7 +4,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity implements LoginFragment.LoginFragmentNavigation, EntranceFragment.EntranceFragmentNavigation {
+public class MainActivity extends AppCompatActivity implements LoginFragment.LoginFragmentNavigation,
+        EntranceFragment.EntranceFragmentNavigation {
 
 
     @Override
@@ -13,13 +14,6 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.Log
         setContentView(R.layout.activity_main);
 
         goToEntranceFragment();
-    }
-
-    public void setFragment1() {
-        EntranceFragment fragment = new EntranceFragment();
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container, fragment)
-                .commit();
     }
 
     @Override
