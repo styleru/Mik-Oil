@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!--TODO chains in layout-->
-<!--TODO semi-opaque hints-->
 <!--TODO move edit text attributes to styles-->
 <!--TODO make cursor disappear on focus change-->
 <androidx.constraintlayout.widget.ConstraintLayout

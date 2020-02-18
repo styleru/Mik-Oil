@@ -9,4 +9,4 @@
     android:background="@color/colorPrimary"
     android:gravity="center"
     android:fontFamily="Muller"
-    android:textFontWeight="500" />
+    android:textSize="36sp" />

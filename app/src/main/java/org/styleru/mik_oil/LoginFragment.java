@@ -61,6 +61,16 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
                 imitateRequest();
             }
         });
+        LoginEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            public void onFocusChange(View v, boolean hasFocus) {
+                    LoginEditText.setCursorVisible(hasFocus);
+            }
+        });
+        PasswordEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            public void onFocusChange(View v, boolean hasFocus) {
+                PasswordEditText.setCursorVisible(hasFocus);
+            }
+        });
     }
 
     @Override

@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements EntranceFragment.
                 .replace(R.id.container, fragment)
                 // don't add to backstack initial fragment,
                 // cause you may face a blank screen
-                //TODO check whether it's initial, unless add to backstack
                 .commit();
     }
 
