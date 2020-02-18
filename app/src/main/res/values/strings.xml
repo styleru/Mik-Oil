@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">Mik-Oil</string>
+    <string name="app_name">mik-oil</string>
+    <string name="registration">Регистрация</string>
+    <string name="Enter">Вход</string>
+    <string name="Login">Логин/телефон</string>
+    <string name="Password">Пароль</string>
+    <string name="Reset"><u>восстановить</u></string>
+    <string name="Go">Go</string>
+    <string name="TextForToast">Not today, bro(</string>
 </resources>
