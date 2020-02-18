@@ -41,7 +41,6 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRetainInstance(true);
     }
 
     @Override

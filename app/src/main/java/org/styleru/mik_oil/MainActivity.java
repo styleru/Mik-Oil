@@ -17,7 +17,9 @@ public class MainActivity extends AppCompatActivity implements EntranceFragment.
         getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
                 R.layout.toolbar); // Layoutname of Title Text
 
-        goToEntranceFragment();
+        if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+            goToEntranceFragment();
+        }
     }
 
     @Override
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements EntranceFragment.
                 .replace(R.id.container, fragment)
                 // don't add to backstack initial fragment,
                 // cause you may face a blank screen
-                //TODO check wether it's initial, unless add to backstack
+                //TODO check whether it's initial, unless add to backstack
                 .commit();
     }
 
