@@ -20,14 +20,16 @@ public class LoginPresenter extends MvpPresenter<LoginView> {
                 int rand = randInt.nextInt(2);
 
                 getViewState().setProgressEnabled(false);
-                getViewState().goToMain();
 
-                if (rand == 1)
-                    getViewState().showToast("Успех");
-                else if (rand == 0) getViewState().showToast("Провал");
+                if (rand == 1) {
+                    getViewState().goToMain();
+                }
+                else if (rand == 0) {
+                    getViewState().showToast(R.string.fail);
+                }
             }, 2000);
         }
-        else getViewState().showToast("Попробуй еще раз");
+        else getViewState().showToast(R.string.try_again);
     }
 
     private boolean checkNull(String login, String password) {

@@ -16,19 +16,17 @@ public class EntranceFragment extends Fragment {
     @BindView(R.id.enter)
     Button enter;
 
-    private void EntranceFragment() {}
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.entrance_fragment, container, false);
-        ButterKnife.bind(this, view);
 
-        return view;
+        return inflater.inflate(R.layout.entrance_fragment, container, false);
     }
 
     @Override
     public void onViewCreated (View view, Bundle saveInstanceState) {
+        ButterKnife.bind(this, view);
+
         enter.setOnClickListener(v -> {
             Activity activity = getActivity();
             if (activity instanceof LoginFragment.LoginFragmentNavigation)
@@ -38,11 +36,6 @@ public class EntranceFragment extends Fragment {
 
     interface EntranceFragmentNavigation{
         void goToEntranceFragment();
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
     }
 
 }
