@@ -2,6 +2,7 @@ package org.styleru.mik_oil;
 
 import android.os.Bundle;
 import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,7 +39,7 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.login_fragmnet, container, false);
+        return inflater.inflate(R.layout.login_fragment, container, false);
     }
 
     @Override
@@ -47,7 +48,7 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
 
         SpannableString spannableString =
                 new SpannableString(recovery.getText());
-        spannableString.setSpan(new UnderlineSpan(),0, recovery.getText().length(),0);
+        spannableString.setSpan(new UnderlineSpan(),0, recovery.getText().length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
         recovery.setText(spannableString);
         goButton.setOnClickListener(v ->
                 presenter.onLoginClicked(login.getText().toString(),

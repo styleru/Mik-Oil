@@ -33,7 +33,7 @@ public class LoginPresenter extends MvpPresenter<LoginView> {
     }
 
     private boolean checkNull(String login, String password) {
-        return (login.length() != 0) && (password.length() != 0);
+        return !(login.isEmpty()) && !(password.isEmpty());
     }
 
 }
