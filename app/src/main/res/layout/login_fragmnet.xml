@@ -2,81 +2,75 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/login_fragment"
+    android:id="@+id/login_fragment_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <EditText
         android:id="@+id/login"
+
+
+
         android:layout_width="270dp"
         android:layout_height="48dp"
+        android:layout_marginTop="56dp"
         android:background="@drawable/button"
-        android:hint="Логин/Телефон"
+        android:hint="@string/hint_login"
         android:inputType="text"
         android:maxLines="1"
         android:paddingLeft="8dp"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintVertical_bias="0.39"
         app:layout_constraintVertical_chainStyle="packed" />
+
 
     <EditText
         android:id="@+id/password"
         android:layout_width="270dp"
         android:layout_height="48dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="22dp"
         android:background="@drawable/button"
-        android:hint=" Пароль"
+        android:hint="@string/password"
         android:inputType="text"
         android:maxLines="1"
         android:paddingLeft="8dp"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/recovery"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login"
-        app:layout_constraintVertical_bias="0.5"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintTop_toBottomOf="@+id/login" />
 
-    <Button
+    <TextView
         android:id="@+id/recovery"
-        android:layout_width="130dp"
-        android:layout_height="20dp"
-        android:layout_marginLeft="145dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="143dp"
         android:layout_marginTop="13dp"
+        android:textColor="#000000"
+        android:textSize="20sp"
         android:background="#0000"
-        android:text="Восстановить"
+        android:text="@string/recovery"
         app:layout_constraintBottom_toTopOf="@+id/progress_circular"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <Button
         android:id="@+id/go"
         android:layout_width="120dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="25dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/button"
         android:elevation="7dp"
-        android:translationZ="10dp"
-        android:fontFamily="Muller"
-        android:lineHeight="30dp"
-        android:stateListAnimator="@drawable/animator"
-        android:text="GO"
-        android:textFontWeight="500"
-        android:textSize="20dp"
+        android:stateListAnimator="@drawable/button_animator"
+        android:text="@string/go"
+        android:textSize="20sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/recovery" />
 

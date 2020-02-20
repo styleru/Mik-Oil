@@ -11,9 +11,12 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.Log
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
-        if (getSupportFragmentManager().getBackStackEntryCount() == 0){goToEntranceFragment();}
+        if (getSupportFragmentManager().getBackStackEntryCount() == 0){
+            goToEntranceFragment();
+        }
     }
 
     @Override
