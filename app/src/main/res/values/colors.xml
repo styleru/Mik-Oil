@@ -4,5 +4,5 @@
     <color name="colorPrimaryDark">#f67c01</color>
     <color name="colorAccent">#f45c51</color>
     <color name="black">#000000</color>
-    <color name="hintColor">#70000000</color>
+    <color name="hintColor">#40000000</color>
 </resources>
