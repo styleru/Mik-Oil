@@ -8,12 +8,11 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 public interface LoginFragmentView extends MvpView {
 
     @StateStrategyType(AddToEndSingleStrategy.class)
-    void Progress(boolean isGoing);
+    void progress(boolean isGoing);
 
     @StateStrategyType(OneExecutionStateStrategy.class)
     void showToast(String string);
 
     @StateStrategyType(OneExecutionStateStrategy.class)
-    void Return();
-
+    void resetFragment();
 }

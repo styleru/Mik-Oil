@@ -17,10 +17,10 @@ import butterknife.ButterKnife;
 
 public class HomeFragment extends Fragment {
 
-    @BindView(R.id.regButton)
+    @BindView(R.id.reg_button)
     Button regButton;
-    @BindView(R.id.entButton)
-    Button entButton;
+    @BindView(R.id.enter_button)
+    Button enterButton;
 
     interface HomeFragmentNavigator{
         void goToHomeFragment();
@@ -28,7 +28,7 @@ public class HomeFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View v = inflater.inflate(R.layout.screen1, container, false);
+        View v = inflater.inflate(R.layout.home_fragment, container, false);
         ButterKnife.bind(this, v);
         return v;
     }
@@ -36,7 +36,9 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        entButton.setOnClickListener(v -> {
+
+
+        enterButton.setOnClickListener(v -> {
             Activity activity = getActivity();
             if (activity instanceof LoginFragment.LoginFragmentNavigator)
                 ((LoginFragment.LoginFragmentNavigator)activity).goToLoginFragment();

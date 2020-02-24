@@ -1,7 +1,7 @@
 package org.styleru.mik_oil;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,16 +22,16 @@ import butterknife.ButterKnife;
 
 public class LoginFragment extends MvpAppCompatFragment implements LoginFragmentView {
 
-    @BindView(R.id.logEditText)
-    EditText logEditText;
-    @BindView(R.id.pasEditText)
-    EditText pasEditText;
+    @BindView(R.id.login_edit_text)
+    EditText loginEditText;
+    @BindView(R.id.pass_edit_text)
+    EditText passEditText;
     @BindView(R.id.reset)
-    TextView resView;
-    @BindView(R.id.Sc2GoBtn)
-    Button Sc2GoBtn;
-    @BindView(R.id.PBSc2)
-    ProgressBar PB;
+    TextView resetTextView;
+    @BindView(R.id.login_go_btn)
+    Button loginGoBtn;
+    @BindView(R.id.login_progress_bar)
+    ProgressBar loginProgressBar;
 
     @InjectPresenter
     LoginFragmentPresenter presenter;
@@ -42,18 +42,21 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginFragment
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        return inflater.inflate(R.layout.screen2, container, false);
+        return inflater.inflate(R.layout.login_fragment, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
-        Sc2GoBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.sendRequest(logEditText.getText().toString(), pasEditText.getText().toString());
-            }
+        loginGoBtn.setOnClickListener(v ->  {
+                Handler handler = new Handler();
+                presenter.sendRequest();
+                handler.postDelayed(() -> {
+                    presenter.showToast(loginEditText.getText().toString(), passEditText.getText().toString());
+                    presenter.resetFragment();
+                }, 2000);
+
         });
     }
 
@@ -65,22 +68,24 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginFragment
         toast.show();
     }
 
-    @Override
-    public void Return() {
-        Activity activity = getActivity();
-        if (activity instanceof HomeFragment.HomeFragmentNavigator)
-            ((HomeFragment.HomeFragmentNavigator)activity).goToHomeFragment();
-    }
-
 
     @Override
-    public void Progress(boolean isGoing) {
+    public void progress(boolean isGoing) {
         if (isGoing){
-            Sc2GoBtn.setVisibility(View.INVISIBLE);
-            PB.setVisibility(View.VISIBLE);
+            loginGoBtn.setVisibility(View.INVISIBLE);
+            loginGoBtn.setEnabled(false);
+            loginProgressBar.setVisibility(View.VISIBLE);
         }
         else {
-            PB.setVisibility(View.INVISIBLE);
+            loginProgressBar.setVisibility(View.INVISIBLE);
         }
     }
+
+    @Override
+    public void resetFragment() {
+        loginGoBtn.setVisibility(View.VISIBLE);
+        loginGoBtn.setEnabled(true);
+        passEditText.setText("");
+    }
+
 }

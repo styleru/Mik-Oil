@@ -11,22 +11,27 @@ import java.util.Random;
 @InjectViewState
 public class LoginFragmentPresenter extends MvpPresenter<LoginFragmentView> {
 
-    void sendRequest(final String login, final String password){
+    void sendRequest(){
 
         Handler handler = new Handler();
 
-        getViewState().Progress(true);
+        getViewState().progress(true);
         handler.postDelayed(() -> {
 
-            getViewState().Progress(false);
-            getViewState().Return();
-
-            getViewState().showToast(toastString(login, password));
+            getViewState().progress(false);
         }, 2000);
-
     }
 
-    private String toastString(String login, String password){
+    void showToast(final String login, final String password){
+        getViewState().showToast(passAndLoginCheck(login, password));
+    }
+
+    void resetFragment(){
+        getViewState().resetFragment();
+    }
+
+    private String passAndLoginCheck(String login, String password){
+
         if (login.equals("") || password.equals("")){
             return "Whyever don't ya enter anything?"; // Make this work with string.xml
         }
@@ -35,7 +40,7 @@ public class LoginFragmentPresenter extends MvpPresenter<LoginFragmentView> {
         if (i == 1){
             return "Not today, bro(, work is still in progress"; // Make this work with string.xml
         }
-        return "Maybe you should REMEMBER ALL YOUR PASSSWORDS???"; // Make this work with string.xml
+        return "Maybe you should REMEMBER ALL YOUR PASSWORDS???"; // Make this work with string.xml
     }
 
 

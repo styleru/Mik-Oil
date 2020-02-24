@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">mik-oil</string>
     <string name="registration">Регистрация</string>
-    <string name="Enter">Вход</string>
-    <string name="Login">Логин/телефон</string>
-    <string name="Password">Пароль</string>
-    <string name="Reset"><u>восстановить</u></string>
-    <string name="Go">Go</string>
-    <string name="TextForToast">Not today, bro(</string>
+    <string name="enter">Вход</string>
+    <string name="login">Логин/телефон</string>
+    <string name="password">Пароль</string>
+    <string name="reset"><u>восстановить</u></string>
+    <string name="go">Go</string>
+    <string name="text_for_toast">Not today, bro(</string>
+    <string name="text_for_toast_empty">Whyever don\'t ya enter anything?</string>
 </resources>
