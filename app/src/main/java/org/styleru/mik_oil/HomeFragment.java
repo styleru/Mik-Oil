@@ -11,20 +11,19 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.andreev.bvsru.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class Screen1 extends Fragment {
+public class HomeFragment extends Fragment {
 
     @BindView(R.id.regButton)
     Button regButton;
     @BindView(R.id.entButton)
     Button entButton;
 
-    interface Screen1Int{
-        void goToScreen1();
+    interface HomeFragmentNavigator{
+        void goToHomeFragment();
     }
 
     @Override
@@ -39,8 +38,8 @@ public class Screen1 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         entButton.setOnClickListener(v -> {
             Activity activity = getActivity();
-            if (activity instanceof Screen2.Screen2Int)
-                ((Screen2.Screen2Int)activity).goToScreen2();
+            if (activity instanceof LoginFragment.LoginFragmentNavigator)
+                ((LoginFragment.LoginFragmentNavigator)activity).goToLoginFragment();
         });
 
         regButton.setEnabled(false);

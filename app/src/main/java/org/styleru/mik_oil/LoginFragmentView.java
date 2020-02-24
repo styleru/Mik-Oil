@@ -5,7 +5,7 @@ import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy;
 import com.arellomobile.mvp.viewstate.strategy.OneExecutionStateStrategy;
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 
-public interface Screen2View extends MvpView {
+public interface LoginFragmentView extends MvpView {
 
     @StateStrategyType(AddToEndSingleStrategy.class)
     void Progress(boolean isGoing);

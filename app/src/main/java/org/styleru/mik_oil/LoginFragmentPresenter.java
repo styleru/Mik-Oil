@@ -9,7 +9,7 @@ import java.util.Random;
 
 
 @InjectViewState
-public class Screen2Presenter extends MvpPresenter<Screen2View> {
+public class LoginFragmentPresenter extends MvpPresenter<LoginFragmentView> {
 
     void sendRequest(final String login, final String password){
 

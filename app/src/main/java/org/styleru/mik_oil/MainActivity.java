@@ -7,9 +7,8 @@ import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 
-import com.andreev.bvsru.R;
 
-public class MainActivity extends AppCompatActivity implements Screen2.Screen2Int, Screen1.Screen1Int {
+public class MainActivity extends AppCompatActivity implements LoginFragment.LoginFragmentNavigator, HomeFragment.HomeFragmentNavigator {
 
     public FragmentManager fm;
 
@@ -23,35 +22,27 @@ public class MainActivity extends AppCompatActivity implements Screen2.Screen2In
         fm = getSupportFragmentManager();
         Fragment fragment = fm.findFragmentById(R.id.fragment_container);
         if (fragment == null){
-            fragment = new Screen1();
+            fragment = new HomeFragment();
             fm.beginTransaction()
-                    .add(R.id.fragment_container, fragment)
+                    .replace(R.id.fragment_container, fragment)
                     .commit();
         }
 
     }
 
     @Override
-    public void goToScreen1(){
-        Screen1 fragment = new Screen1();
-        FragmentManager f;
-        f = getSupportFragmentManager();
-        Fragment frgm = f.findFragmentById(R.id.fragment_container);
-        if (frgm != null){
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, fragment)
-                    .addToBackStack(null)
-                    .commit();
-        }else{
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, fragment)
-                    .commit();
-        }
+    public void goToHomeFragment() {
+        HomeFragment fragment = new HomeFragment();
+        fm = getSupportFragmentManager();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit();
     }
 
     @Override
-    public void goToScreen2(){
-        Screen2 fragment = new Screen2();
+    public void goToLoginFragment() {
+        LoginFragment fragment = new LoginFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, fragment)
                 .addToBackStack(null)

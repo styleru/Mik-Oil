@@ -1,6 +1,6 @@
 package org.styleru.mik_oil;
 
-import android.app.Activity;;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,14 +14,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.andreev.bvsru.R;
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class Screen2 extends MvpAppCompatFragment implements Screen2View {
+public class LoginFragment extends MvpAppCompatFragment implements LoginFragmentView {
 
     @BindView(R.id.logEditText)
     EditText logEditText;
@@ -35,10 +34,10 @@ public class Screen2 extends MvpAppCompatFragment implements Screen2View {
     ProgressBar PB;
 
     @InjectPresenter
-    Screen2Presenter presenter;
+    LoginFragmentPresenter presenter;
 
-    interface Screen2Int{
-        void goToScreen2();
+    interface LoginFragmentNavigator{
+        void goToLoginFragment();
     }
 
     @Override
@@ -69,8 +68,8 @@ public class Screen2 extends MvpAppCompatFragment implements Screen2View {
     @Override
     public void Return() {
         Activity activity = getActivity();
-        if (activity instanceof Screen1.Screen1Int)
-            ((Screen1.Screen1Int)activity).goToScreen1();
+        if (activity instanceof HomeFragment.HomeFragmentNavigator)
+            ((HomeFragment.HomeFragmentNavigator)activity).goToHomeFragment();
     }
 
 
