@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/login"
+        style="@style/EditTextTheme"
+        android:layout_width="270dp"
+        android:layout_height="48dp"
+        android:background="@drawable/edittext_rounded_corner"
+        android:cursorVisible="true"
+        android:hint="@string/login"
+        android:textColorHint="@color/hintColor"
+        android:textCursorDrawable="@null"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.300" />
+
+    <EditText
+        android:id="@+id/password"
+        style="@style/EditTextTheme"
+        android:layout_width="270dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/edittext_rounded_corner"
+        android:cursorVisible="true"
+        android:focusable="true"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:textColorHint="@color/hintColor"
+        android:textCursorDrawable="@null"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login" />
+
+    <TextView
+        android:id="@+id/recovery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recovery"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.761"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <com.victor.loading.rotate.RotateLoading
+        android:id="@+id/progress"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/go"
+        app:loading_color="@color/colorAccent" />
+
+    <Button
+        android:id="@+id/go"
+        style="@style/RoundedCornerAnimatedButton"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:background="@drawable/edittext_rounded_corner"
+        android:elevation="5dp"
+        android:text="@string/go"
+        android:textAppearance="@style/AppTheme"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:translationZ="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/password"
+        app:layout_constraintVertical_bias="0.200" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
