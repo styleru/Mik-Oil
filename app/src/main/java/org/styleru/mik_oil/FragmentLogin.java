@@ -51,8 +51,7 @@ public class FragmentLogin extends MvpAppCompatFragment implements ViewLogin {
     @Override
     public void onViewCreated (@NonNull View view, Bundle saveInstanceState) {
         unbinder = ButterKnife.bind(this, view);
-        if(go != null)
-        {
+        if(go != null) {
             go.setOnClickListener(v -> {
                 if (password != null) {
                     if (login != null) {
@@ -72,8 +71,7 @@ public class FragmentLogin extends MvpAppCompatFragment implements ViewLogin {
 
     @Override
     public void changeProgressState(boolean processing) {
-        if (processing)
-        {
+        if (processing) {
             if (go != null) {
                 go.setVisibility(View.INVISIBLE);
             }
@@ -99,10 +97,18 @@ public class FragmentLogin extends MvpAppCompatFragment implements ViewLogin {
     }
 
     @Override
+    public void showToast(int text) {
+        Toast toast = Toast.makeText(getActivity(),
+                text, Toast.LENGTH_LONG);
+        toast.show();
+    }
+
+    @Override
     public void goToEntrance() {
         Activity activity = getActivity();
-        if (activity instanceof FragmentEntrance.EntranceFragmentNavigation)
+        if (activity instanceof FragmentEntrance.EntranceFragmentNavigation) {
             ((FragmentEntrance.EntranceFragmentNavigation)activity).goToEntranceFragment();
+        }
     }
 
     interface LoginFragmentNavigation{

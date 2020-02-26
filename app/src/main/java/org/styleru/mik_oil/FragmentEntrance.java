@@ -32,12 +32,12 @@ public class FragmentEntrance extends Fragment {
     @Override
     public void onViewCreated (@NonNull View view, Bundle saveInstanceState) {
         unbinder = ButterKnife.bind(this, view);
-        if (enter != null)
-        {
+        if (enter != null) {
             enter.setOnClickListener(v -> {
                 Activity activity = getActivity();
-                if (activity instanceof FragmentLogin.LoginFragmentNavigation)
+                if (activity instanceof FragmentLogin.LoginFragmentNavigation) {
                     ((FragmentLogin.LoginFragmentNavigation)activity).goToLoginFragment();
+                }
             });
         }
     }

@@ -15,4 +15,7 @@ public interface ViewLogin extends MvpView {
 
     @StateStrategyType(AddToEndSingleTagStrategy.class)
     void showToast(String text);
+
+    @StateStrategyType(AddToEndSingleTagStrategy.class)
+    void showToast(int text);
 }

@@ -19,25 +19,23 @@ public class PresenterLogin extends MvpPresenter<ViewLogin> {
             handler.postDelayed(() -> {
                 Random randInt = new Random();
                 int rand = randInt.nextInt(2);
-                if(rand % 2 == 0)
-                {
-                    getViewState().showToast("Успешно!");
+                if(rand % 2 == 0) {
+                    getViewState().showToast(R.string.success);
                     getViewState().goToEntrance();
                 }
-                else{
+                else {
                     getViewState().changeProgressState(false);
-                    getViewState().showToast("Ошибка входа..");
+                    getViewState().showToast(R.string.login_error);
                 }
             }, 2000);
         }
-        else
-        {
+        else {
             getViewState().changeProgressState(false);
-            getViewState().showToast("Поля не заполнены!");
+            getViewState().showToast(R.string.empty_fields);
         }
     }
 
     private boolean ifDataNotNull(String login, String password) {
-        return (login.length() != 0) && (password.length() != 0);
+        return (!login.isEmpty()) && (!password.isEmpty());
     }
 }

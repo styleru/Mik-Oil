@@ -3,8 +3,11 @@
     <string name="mik_oil">mik-oil</string>
     <string name="register">Регистрация</string>
     <string name="enter">Вход</string>
-    <string name="login">Логин / Телефон</string>
     <string name="password">Пароль</string>
     <string name="recovery"><u>восстановить</u></string>
     <string name="go">Go</string>
+    <string name="login">Логин / Телефон</string>
+    <string name="success">Успешно!</string>
+    <string name="login_error">Ошибка входа..</string>
+    <string name="empty_fields">Поля не заполнены!</string>
 </resources>
