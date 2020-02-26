@@ -44,7 +44,7 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginFragment
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        return inflater.inflate(R.layout.login_fragment, container, false);
+        return inflater.inflate(R.layout.fragment_login, container, false);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginFragment
         ButterKnife.bind(this, view);
         loginGoBtn.setOnClickListener(v ->  {
                 Handler handler = new Handler(Looper.getMainLooper());
-                presenter.sendRequest();
+                presenter.sendRequest(loginEditText.getText().toString(), passEditText.getText().toString());
                 handler.postDelayed(() -> {
                     presenter.showToast(loginEditText.getText().toString(), passEditText.getText().toString());
                 }, 2000);
@@ -92,6 +92,5 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginFragment
             }, 2000);
         }
     }
-
 
 }

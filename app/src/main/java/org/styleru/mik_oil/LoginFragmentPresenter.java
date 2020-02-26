@@ -12,12 +12,16 @@ import java.util.Random;
 @InjectViewState
 public class LoginFragmentPresenter extends MvpPresenter<LoginFragmentView> {
 
-    void sendRequest(){
-        Handler handler = new Handler(Looper.getMainLooper());
-        getViewState().progress(true);
-        handler.postDelayed(() -> {
-            getViewState().progress(false);
-        }, 2000);
+    void sendRequest(final String login, final String password){
+        if (login.equals("") || password.equals("")){
+            showToast(login, password);
+        } else {
+            Handler handler = new Handler(Looper.getMainLooper());
+            getViewState().progress(true);
+            handler.postDelayed(() -> {
+                getViewState().progress(false);
+            }, 2000);
+        }
     }
 
     void showToast(final String login, final String password){
@@ -41,6 +45,5 @@ public class LoginFragmentPresenter extends MvpPresenter<LoginFragmentView> {
         }
         return R.string.text_for_toast_failure;
     }
-
 
 }
