@@ -2,6 +2,7 @@ package org.styleru.mik_oil;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
 
 public class LoginFragment extends MvpAppCompatFragment implements LoginFragmentView {
 
@@ -50,11 +52,10 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginFragment
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
         loginGoBtn.setOnClickListener(v ->  {
-                Handler handler = new Handler();
+                Handler handler = new Handler(Looper.getMainLooper());
                 presenter.sendRequest();
                 handler.postDelayed(() -> {
                     presenter.showToast(loginEditText.getText().toString(), passEditText.getText().toString());
-                    resetFragment();
                 }, 2000);
         });
     }
@@ -84,13 +85,13 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginFragment
         }
         else {
             loginProgressBar.setVisibility(View.INVISIBLE);
+            Handler handler = new Handler(Looper.getMainLooper());
+            handler.postDelayed(() -> {
+                loginGoBtn.setVisibility(View.VISIBLE);
+                loginGoBtn.setEnabled(true);
+            }, 2000);
         }
     }
 
-    private void resetFragment() {
-        loginGoBtn.setVisibility(View.VISIBLE);
-        loginGoBtn.setEnabled(true);
-        passEditText.setText("");
-    }
 
 }
