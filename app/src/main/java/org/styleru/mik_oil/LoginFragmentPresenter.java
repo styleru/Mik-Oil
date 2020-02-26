@@ -24,21 +24,22 @@ public class LoginFragmentPresenter extends MvpPresenter<LoginFragmentView> {
         getViewState().showToast(passAndLoginCheck(login, password));
     }
 
-    void resetFragment(){
-        getViewState().resetFragment();
+    void showToast(String string){
+        getViewState().showToast(string);
     }
 
-    private String passAndLoginCheck(String login, String password){
+
+    private int passAndLoginCheck(String login, String password){
 
         if (login.equals("") || password.equals("")){
-            return "Whyever don't ya enter anything?"; // Make this work with string.xml
+            return R.string.text_for_toast_empty;
         }
         Random random = new Random();
         int i = random.nextInt(2);
         if (i == 1){
-            return "Not today, bro(, work is still in progress"; // Make this work with string.xml
+            return R.string.text_for_toast_success;
         }
-        return "Maybe you should REMEMBER ALL YOUR PASSWORDS???"; // Make this work with string.xml
+        return R.string.text_for_toast_failure;
     }
 
 

@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.Log
     @Override
     public void goToHomeFragment() {
         HomeFragment fragment = new HomeFragment();
-        fm = getSupportFragmentManager();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, fragment)
                 .addToBackStack(null)

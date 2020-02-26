@@ -6,6 +6,7 @@
     <string name="password">Пароль</string>
     <string name="reset"><u>восстановить</u></string>
     <string name="go">Go</string>
-    <string name="text_for_toast">Not today, bro(</string>
+    <string name="text_for_toast_success">Not today, bro(</string>
+    <string name="text_for_toast_failure">Maybe you should\'ve REMEMBERED ALL YOUR PASSWORDS?</string>
     <string name="text_for_toast_empty">Whyever don\'t ya enter anything?</string>
 </resources>

@@ -54,10 +54,17 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginFragment
                 presenter.sendRequest();
                 handler.postDelayed(() -> {
                     presenter.showToast(loginEditText.getText().toString(), passEditText.getText().toString());
-                    presenter.resetFragment();
+                    resetFragment();
                 }, 2000);
-
         });
+    }
+
+    @Override
+    public void showToast(int a) {
+        Toast toast = Toast.makeText(getActivity(), a, Toast.LENGTH_SHORT);
+        View view = toast.getView();
+        view.setBackgroundResource(R.drawable.button);
+        toast.show();
     }
 
     @Override
@@ -67,7 +74,6 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginFragment
         view.setBackgroundResource(R.drawable.button);
         toast.show();
     }
-
 
     @Override
     public void progress(boolean isGoing) {
@@ -81,8 +87,7 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginFragment
         }
     }
 
-    @Override
-    public void resetFragment() {
+    private void resetFragment() {
         loginGoBtn.setVisibility(View.VISIBLE);
         loginGoBtn.setEnabled(true);
         passEditText.setText("");

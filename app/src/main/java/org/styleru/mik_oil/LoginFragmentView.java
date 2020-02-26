@@ -11,8 +11,9 @@ public interface LoginFragmentView extends MvpView {
     void progress(boolean isGoing);
 
     @StateStrategyType(OneExecutionStateStrategy.class)
-    void showToast(String string);
+    void showToast(int a);
 
     @StateStrategyType(OneExecutionStateStrategy.class)
-    void resetFragment();
+    void showToast(String string);
+
 }
