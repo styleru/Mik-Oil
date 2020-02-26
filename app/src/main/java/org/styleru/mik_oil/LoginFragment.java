@@ -13,6 +13,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.StringRes;
+
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 
@@ -39,7 +41,7 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.login_fragment, container, false);
+        return inflater.inflate(R.layout.fragment_login, container, false);
     }
 
     @Override
@@ -48,7 +50,7 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
 
         SpannableString spannableString =
                 new SpannableString(recovery.getText());
-        spannableString.setSpan(new UnderlineSpan(),0, recovery.getText().length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+        spannableString.setSpan(new UnderlineSpan(),0, recovery.getText().length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
         recovery.setText(spannableString);
         goButton.setOnClickListener(v ->
                 presenter.onLoginClicked(login.getText().toString(),
@@ -73,14 +75,14 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
     }
 
     @Override
-    public void showToast(int check) {
+    public void showToast(@StringRes int check) {
             Toast toast = Toast.makeText(getActivity(),
                     check, Toast.LENGTH_SHORT);
             toast.show();
     }
 
     @Override
-    public void showAuthError(int message) {
+    public void showAuthError(@StringRes int message) {
         Toast toast = Toast.makeText(getActivity(),
                 message, Toast.LENGTH_SHORT);
         toast.show();
