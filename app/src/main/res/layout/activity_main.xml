@@ -10,7 +10,7 @@
     <TextView
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="?attr/actionBarSize"
         android:textSize="36sp"
         android:textColor="#000000"
         android:gravity="center"
@@ -18,7 +18,7 @@
         android:text="@string/toolbar_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/container"
+        app:layout_constraintTop_toTopOf="@+id/container"
         />
     <FrameLayout
         android:id="@+id/container"
