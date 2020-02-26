@@ -21,6 +21,7 @@
         android:background="@drawable/edittext_rounded_corner"
         android:cursorVisible="true"
         android:hint="@string/login"
+        android:inputType="text"
         android:textColorHint="@color/hintColor"
         android:textCursorDrawable="@null"
         android:textSize="24sp"
@@ -30,7 +31,8 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.300" />
+        app:layout_constraintVertical_bias="0.300"
+        android:importantForAutofill="no"/>
 
     <EditText
         android:id="@+id/password"
@@ -49,7 +51,8 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login" />
+        app:layout_constraintTop_toBottomOf="@+id/login"
+        android:importantForAutofill="no"/>
 
     <TextView
         android:id="@+id/recovery"

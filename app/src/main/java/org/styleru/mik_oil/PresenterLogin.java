@@ -1,6 +1,7 @@
 package org.styleru.mik_oil;
 
 import android.os.Handler;
+import android.os.Looper;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
@@ -12,7 +13,7 @@ public class PresenterLogin extends MvpPresenter<ViewLogin> {
 
     void sendingRequest(String login, String password) {
         if(ifDataNotNull(login, password)) {
-            Handler handler = new Handler();
+            Handler handler = new Handler(Looper.getMainLooper());
 
             getViewState().changeProgressState(true);
             handler.postDelayed(() -> {
