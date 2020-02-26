@@ -23,8 +23,6 @@ public class FragmentEntrance extends Fragment {
     @BindView(R.id.enter)
     Button enter;
 
-    FragmentEntrance() {}
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {

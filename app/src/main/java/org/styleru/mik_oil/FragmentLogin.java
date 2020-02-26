@@ -42,8 +42,6 @@ public class FragmentLogin extends MvpAppCompatFragment implements ViewLogin {
     @InjectPresenter
     PresenterLogin presenter;
 
-     FragmentLogin() {}
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
