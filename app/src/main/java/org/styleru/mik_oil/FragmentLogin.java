@@ -42,7 +42,7 @@ public class FragmentLogin extends MvpAppCompatFragment implements ViewLogin {
     @InjectPresenter
     PresenterLogin presenter;
 
-     private FragmentLogin() {}
+     FragmentLogin() {}
 
     @Nullable
     @Override
