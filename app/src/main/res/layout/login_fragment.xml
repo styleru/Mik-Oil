@@ -35,7 +35,7 @@
         android:layout_marginTop="216dp"
         android:layout_marginBottom="376dp"
         android:background="@drawable/button"
-        android:fontFamily="@font/adamina"
+        android:fontFamily="@font/mullerregular"
         android:hint="@string/password"
         android:imeOptions="actionGo"
         android:inputType="textPassword"
