@@ -1,12 +1,9 @@
 package org.styleru.mik_oil;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import android.content.Context;
-import android.content.res.Resources;
 import android.os.Bundle;
 
 

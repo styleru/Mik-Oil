@@ -1,6 +1,7 @@
 package org.styleru.mik_oil;
 
 import android.os.Handler;
+import android.os.Looper;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
@@ -12,12 +13,9 @@ import java.util.Random;
 public class LoginFragmentPresenter extends MvpPresenter<LoginFragmentView> {
 
     void sendRequest(){
-
-        Handler handler = new Handler();
-
+        Handler handler = new Handler(Looper.getMainLooper());
         getViewState().progress(true);
         handler.postDelayed(() -> {
-
             getViewState().progress(false);
         }, 2000);
     }
