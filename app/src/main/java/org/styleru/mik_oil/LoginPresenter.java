@@ -25,10 +25,11 @@ public class LoginPresenter extends MvpPresenter<LoginView> {
                 if (rand == 1) {
                     getViewState().goToMain();
                 } else if (rand == 0) {
-                    getViewState().showToast(R.string.fail);
+                    String failStr = MikOilApplication.getAppContext().getString(R.string.fail);
+                    getViewState().showToast(failStr);
                 }
             }, 2000);
-        } else getViewState().showToast(R.string.try_again);
+        } else getViewState().showValidationError(LoginView.Field.ALL, R.string.try_again);
     }
 
     private boolean checkNull(String login, String password) {

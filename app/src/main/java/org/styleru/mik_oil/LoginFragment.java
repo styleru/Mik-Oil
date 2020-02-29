@@ -74,21 +74,20 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
     }
 
     @Override
-    public void showToast(@StringRes int check) {
-        Toast toast = Toast.makeText(getActivity(),
-                check, Toast.LENGTH_SHORT);
+    public void showToast(String text) {
+        Toast toast = Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT);
         toast.show();
     }
 
     @Override
-    public void showAuthError(@StringRes int message) {
-        Toast toast = Toast.makeText(getActivity(),
-                message, Toast.LENGTH_SHORT);
-        toast.show();
+    public void showValidationError(Field field, @StringRes int messageRes) {
+        String message = getString(messageRes);
+        showToast(message);
     }
 
     @Override
     public void goToMain() {
-        showToast(R.string.luck);
+        String message = getString(R.string.luck);
+        showToast(message);
     }
 }

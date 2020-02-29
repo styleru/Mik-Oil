@@ -12,12 +12,15 @@ public interface LoginView extends MvpView {
     @StateStrategyType(AddToEndSingleStrategy.class)
     void setProgressEnabled(boolean enabled);
 
+    enum Field {
+        LOGIN, PASSWORD, ALL
+    }
     @StateStrategyType(OneExecutionStateStrategy.class)
-    void showAuthError(@StringRes int message);
+    void showValidationError(Field field, @StringRes int messageRes);
 
     @StateStrategyType(OneExecutionStateStrategy.class)
     void goToMain();
 
     @StateStrategyType(OneExecutionStateStrategy.class)
-    void showToast(@StringRes int check);
+    void showToast(String text);
 }
