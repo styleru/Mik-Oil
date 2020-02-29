@@ -10,7 +10,6 @@
         android:id="@+id/registration"
         android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="146dp"
         android:background="@drawable/button"
         android:elevation="7dp"
         android:paddingTop="11dp"
@@ -22,7 +21,9 @@
         app:layout_constraintBottom_toTopOf="@+id/enter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_bias="0.3"/>
 
     <Button
         android:id="@+id/enter"
@@ -39,6 +40,7 @@
         android:textSize="27sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/registration" />
+        app:layout_constraintTop_toBottomOf="@id/registration"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
