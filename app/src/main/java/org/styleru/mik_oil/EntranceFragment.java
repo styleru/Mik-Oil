@@ -25,17 +25,17 @@ public class EntranceFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated (@NonNull View view, Bundle saveInstanceState) {
+    public void onViewCreated(@NonNull View view, Bundle saveInstanceState) {
         ButterKnife.bind(this, view);
 
         enter.setOnClickListener(v -> {
             Activity activity = getActivity();
             if (activity instanceof LoginFragment.LoginFragmentNavigation)
-                ((LoginFragment.LoginFragmentNavigation)activity).goToLoginFragment();
+                ((LoginFragment.LoginFragmentNavigation) activity).goToLoginFragment();
         });
     }
 
-    interface EntranceFragmentNavigation{
+    interface EntranceFragmentNavigation {
         void goToEntranceFragment();
     }
 

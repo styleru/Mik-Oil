@@ -14,21 +14,21 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.Log
 
         setContentView(R.layout.activity_main);
 
-        if (getSupportFragmentManager().getBackStackEntryCount() == 0){
+        if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
             goToEntranceFragment();
         }
     }
 
     @Override
-    public void goToLoginFragment(){
+    public void goToLoginFragment() {
         LoginFragment fragment = new LoginFragment();
         getSupportFragmentManager().beginTransaction()
-                                    .replace(R.id.container, fragment)
-                                    .addToBackStack(null)
-                                    .commit();
+                .replace(R.id.container, fragment)
+                .addToBackStack(null)
+                .commit();
     }
 
-    public void goToEntranceFragment(){
+    public void goToEntranceFragment() {
         EntranceFragment fragment = new EntranceFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment)

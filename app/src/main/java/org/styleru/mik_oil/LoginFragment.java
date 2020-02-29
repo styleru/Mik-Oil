@@ -51,25 +51,23 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
 
         SpannableString spannableString =
                 new SpannableString(recovery.getText());
-        spannableString.setSpan(new UnderlineSpan(),0, recovery.getText().length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new UnderlineSpan(), 0, recovery.getText().length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
         recovery.setText(spannableString);
         goButton.setOnClickListener(v ->
                 presenter.onLoginClicked(login.getText().toString(),
                         password.getText().toString()));
     }
 
-    interface LoginFragmentNavigation{
+    interface LoginFragmentNavigation {
         void goToLoginFragment();
     }
 
     @Override
     public void setProgressEnabled(boolean enabled) {
-        if (enabled)
-        {
+        if (enabled) {
             goButton.setVisibility(View.INVISIBLE);
             progressBar.setVisibility(View.VISIBLE);
-        }
-        else {
+        } else {
             progressBar.setVisibility(View.INVISIBLE);
             goButton.setVisibility(View.VISIBLE);
         }
@@ -77,9 +75,9 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
 
     @Override
     public void showToast(@StringRes int check) {
-            Toast toast = Toast.makeText(getActivity(),
-                    check, Toast.LENGTH_SHORT);
-            toast.show();
+        Toast toast = Toast.makeText(getActivity(),
+                check, Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     @Override

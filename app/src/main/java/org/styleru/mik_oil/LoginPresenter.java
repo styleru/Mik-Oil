@@ -12,7 +12,7 @@ import java.util.Random;
 public class LoginPresenter extends MvpPresenter<LoginView> {
 
     void onLoginClicked(String login, String password) {
-        if(checkNull(login, password)) {
+        if (checkNull(login, password)) {
             Handler handler = new Handler(Looper.getMainLooper());
 
             getViewState().setProgressEnabled(true);
@@ -24,13 +24,11 @@ public class LoginPresenter extends MvpPresenter<LoginView> {
 
                 if (rand == 1) {
                     getViewState().goToMain();
-                }
-                else if (rand == 0) {
+                } else if (rand == 0) {
                     getViewState().showToast(R.string.fail);
                 }
             }, 2000);
-        }
-        else getViewState().showToast(R.string.try_again);
+        } else getViewState().showToast(R.string.try_again);
     }
 
     private boolean checkNull(String login, String password) {
