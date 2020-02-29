@@ -6,7 +6,7 @@ public class MikOilApplication extends Application {
 
     private static Application INSTANCE;
 
-    public static Application getINSTANCE() {
+    public static Application getInstance() {
         return INSTANCE;
     }
 
