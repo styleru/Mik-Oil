@@ -13,6 +13,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
@@ -45,7 +46,7 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
     }
 
     @Override
-    public void onViewCreated(View view, Bundle saveInstanceState) {
+    public void onViewCreated(@NonNull View view, Bundle saveInstanceState) {
         ButterKnife.bind(this, view);
 
         SpannableString spannableString =

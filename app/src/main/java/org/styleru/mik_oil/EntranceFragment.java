@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import butterknife.BindView;
@@ -24,7 +25,7 @@ public class EntranceFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated (View view, Bundle saveInstanceState) {
+    public void onViewCreated (@NonNull View view, Bundle saveInstanceState) {
         ButterKnife.bind(this, view);
 
         enter.setOnClickListener(v -> {
