@@ -5,7 +5,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements LoginFragment.LoginFragmentNavigation,
-        EntranceFragment.EntranceFragmentNavigation {
+        EntranceFragment.EntranceFragmentNavigation, RegistrationFragment.RegistrationFragmentNavigation{
 
 
     @Override
@@ -22,6 +22,15 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.Log
     @Override
     public void goToLoginFragment() {
         LoginFragment fragment = new LoginFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, fragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    @Override
+    public void goToRegistrationFragment() {
+        RegistrationFragment fragment = new RegistrationFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment)
                 .addToBackStack(null)
