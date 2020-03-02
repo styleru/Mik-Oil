@@ -10,4 +10,8 @@
     <string name="hint_login">Логин/Телефон</string>
     <string name="password">Пароль</string>
     <string name="toolbar_text">mik-oil</string>
+    <string name="hint_name">Имя</string>
+    <string name="hint_phone">Телефон</string>
+    <string name="hint_password">Пароль</string>
+    <string name="hint_repeating_password">Повторить пароль</string>
 </resources>

@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity implements LoginFragment.LoginFragmentNavigation,
         EntranceFragment.EntranceFragmentNavigation {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,7 +14,7 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.Log
         setContentView(R.layout.activity_main);
 
         if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
-            goToEntranceFragment();
+            goToRegistrationFragment();// По умолчанию стоит goToEntranceFragment().
         }
     }
 
@@ -30,6 +29,13 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.Log
 
     public void goToEntranceFragment() {
         EntranceFragment fragment = new EntranceFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, fragment)
+                .commit();
+    }
+
+    public void goToRegistrationFragment() {
+        RegistrationFragment fragment = new RegistrationFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment)
                 .commit();
