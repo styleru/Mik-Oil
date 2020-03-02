@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/registration_fragment_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/name_field"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:hint="@string/hint_name"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingStart="17dp"
+            android:paddingTop="11dp"
+            android:paddingEnd="17dp"
+            android:paddingBottom="10dp"
+            android:textSize="27sp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/phone_field"
+            app:layout_constraintVertical_bias="0.2"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <EditText
+            android:id="@+id/phone_field"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:hint="@string/hint_phone"
+            android:inputType="phone"
+            android:importantForAutofill="no"
+            android:maxLines="1"
+            android:paddingStart="17dp"
+            android:paddingTop="11dp"
+            android:paddingEnd="17dp"
+            android:paddingBottom="10dp"
+            android:textSize="27sp"
+            android:layout_marginTop="22dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name_field"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/password_field" />
+
+        <EditText
+            android:id="@+id/password_field"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:hint="@string/hint_password"
+            android:inputType="textPassword"
+            android:importantForAutofill="no"
+            android:maxLines="1"
+            android:paddingStart="17dp"
+            android:paddingTop="11dp"
+            android:paddingEnd="17dp"
+            android:paddingBottom="10dp"
+            android:textSize="27sp"
+            android:layout_marginTop="22dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phone_field"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/repeating_password_field" />
+
+        <EditText
+            android:id="@+id/repeating_password_field"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:hint="@string/hint_repeating_password"
+            android:inputType="textPassword"
+            android:importantForAutofill="no"
+            android:maxLines="1"
+            android:paddingStart="17dp"
+            android:paddingTop="11dp"
+            android:paddingEnd="17dp"
+            android:paddingBottom="10dp"
+            android:textSize="27sp"
+            android:layout_marginTop="22dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password_field"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/go" />
+
+        <Button
+            android:id="@+id/go"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="46dp"
+            android:background="@drawable/button"
+            android:elevation="7dp"
+            android:stateListAnimator="@drawable/button_animator"
+            android:text="@string/go"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/repeating_password_field" />
+
+        <ProgressBar
+            android:id="@+id/progress_circular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/go"
+            app:layout_constraintEnd_toEndOf="@+id/go"
+            app:layout_constraintStart_toStartOf="@+id/go"
+            app:layout_constraintTop_toTopOf="@+id/go" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
