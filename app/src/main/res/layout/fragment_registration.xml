@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/registration_fragment_view"
+    android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:fillViewport="true">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/registration_fragment_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         <EditText
             android:id="@+id/name_field"
@@ -112,5 +116,5 @@
             app:layout_constraintEnd_toEndOf="@+id/go"
             app:layout_constraintStart_toStartOf="@+id/go"
             app:layout_constraintTop_toTopOf="@+id/go" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
