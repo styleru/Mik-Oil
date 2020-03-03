@@ -11,28 +11,28 @@ import java.util.Random;
 @InjectViewState
 public class LoginPresenter extends MvpPresenter<LoginView> {
 
-    void onLoginClicked(String login, String password) {
-        if (checkNull(login, password)) {
+    void onGoClicked(String login, String password) {
+        if (isFieldsNotEmpty(login, password)) {
             Handler handler = new Handler(Looper.getMainLooper());
 
-            getViewState().setProgressEnabled(true);
+            getViewState().changeProgressState(true);
             handler.postDelayed(() -> {
                 Random randInt = new Random();
                 int rand = randInt.nextInt(2);
 
-                getViewState().setProgressEnabled(false);
+                getViewState().changeProgressState(false);
 
-                if (rand == 1) {
+                if (rand % 2 == 0) {
                     getViewState().goToMain();
-                } else if (rand == 0) {
-                    String failStr = MikOilApplication.getAppContext().getString(R.string.fail);
+                } else {
+                    String failStr = MikOilApplication.getAppContext().getString(R.string.login_fail);
                     getViewState().showToast(failStr);
                 }
             }, 2000);
-        } else getViewState().showValidationError(LoginView.Field.ALL, R.string.try_again);
+        } else getViewState().showValidationError(LoginView.Field.ALL, R.string.empty_fields);
     }
 
-    private boolean checkNull(String login, String password) {
+    private boolean isFieldsNotEmpty(String login, String password) {
         return !(login.isEmpty()) && !(password.isEmpty());
     }
 

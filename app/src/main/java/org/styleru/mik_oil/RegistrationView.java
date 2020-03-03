@@ -7,19 +7,19 @@ import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy;
 import com.arellomobile.mvp.viewstate.strategy.OneExecutionStateStrategy;
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 
-public interface LoginView extends MvpView {
+public interface RegistrationView extends MvpView {
+
+    @StateStrategyType(OneExecutionStateStrategy.class)
+    void goToPhoneNumberChecking();
+
+    enum Field {
+        USER_NAME, USER_PHONE_NUMBER, USER_PASSWORD, USER_REPEAT_PASSWORD, ALL
+    }
+    @StateStrategyType(OneExecutionStateStrategy.class)
+    void showValidationError(RegistrationView.Field field, @StringRes int messageRes);
 
     @StateStrategyType(AddToEndSingleStrategy.class)
     void changeProgressState(boolean processing);
-
-    enum Field {
-        LOGIN, PASSWORD, ALL
-    }
-    @StateStrategyType(OneExecutionStateStrategy.class)
-    void showValidationError(Field field, @StringRes int messageRes);
-
-    @StateStrategyType(OneExecutionStateStrategy.class)
-    void goToMain();
 
     @StateStrategyType(OneExecutionStateStrategy.class)
     void showToast(String text);

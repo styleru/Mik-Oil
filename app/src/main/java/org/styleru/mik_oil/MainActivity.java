@@ -4,16 +4,14 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity implements LoginFragment.LoginFragmentNavigation,
-        EntranceFragment.EntranceFragmentNavigation {
+public class MainActivity extends AppCompatActivity implements LoginViewFragment.LoginFragmentNavigation,
+        EntranceFragment.EntranceFragmentNavigation, RegistrationViewFragment.RegistrationFragmentNavigation {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
-
         if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
             goToEntranceFragment();
         }
@@ -21,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.Log
 
     @Override
     public void goToLoginFragment() {
-        LoginFragment fragment = new LoginFragment();
+        LoginViewFragment fragment = new LoginViewFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment)
                 .addToBackStack(null)
@@ -32,6 +30,14 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.Log
         EntranceFragment fragment = new EntranceFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment)
+                .commit();
+    }
+
+    public void goToRegistrationFragment() {
+        EntranceFragment fragment = new EntranceFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, fragment)
+                .addToBackStack(null)
                 .commit();
     }
 }

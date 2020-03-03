@@ -1,13 +1,19 @@
 <resources>
     <string name="app_name">Mik-Oil</string>
     <string name="recovery">восстановить</string>
-    <string name="fail">Провал!</string>
+    <string name="login_fail">Ошибка входа..</string>
     <string name="luck">Успех!</string>
-    <string name="try_again">Поля не должны быть пустыми.</string>
+    <string name="empty_fields">Заполните все поля!</string>
     <string name="registration">Регистрация</string>
     <string name="entrance">Вход</string>
     <string name="go">GO</string>
-    <string name="hint_login">Логин/Телефон</string>
+    <string name="login">Логин / Телефон</string>
     <string name="password">Пароль</string>
     <string name="toolbar_text">mik-oil</string>
+    <string name="phone_number_checking">Переходим к проверке по номеру телефона..</string>
+    <string name="user_name">Имя</string>
+    <string name="user_phone_number">Телефон</string>
+    <string name="user_password">Пароль</string>
+    <string name="user_repeat_password">Повторить пароль</string>
+    <string name="registration_fail">Ошибка регистрации..</string>
 </resources>
