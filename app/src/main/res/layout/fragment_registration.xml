@@ -92,16 +92,17 @@
         android:id="@+id/goButton"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
         android:background="@drawable/rounded_corners"
         android:elevation="5dp"
         android:stateListAnimator="@animator/animator_button"
         android:text="@string/go"
         android:textSize="30sp"
         android:translationZ="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userRepeatPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/userRepeatPassword"
+        app:layout_constraintVertical_bias="0.6"/>
 
     <ProgressBar
         android:id="@+id/progressBar"
