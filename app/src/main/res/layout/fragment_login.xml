@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/button"
         android:elevation="7dp"
-        android:stateListAnimator="@drawable/button_animator"
+        android:stateListAnimator="@animator/animator_button"
         android:text="@string/go"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
