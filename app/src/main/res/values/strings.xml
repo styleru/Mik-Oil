@@ -8,6 +8,9 @@
     <string name="entrance">Вход</string>
     <string name="go">GO</string>
     <string name="hint_login">Логин/Телефон</string>
-    <string name="password">Пароль</string>
+    <string name="hint_password">Пароль</string>
+    <string name="hint_phone_number">Телефон</string>
+    <string name="hint_name">Имя</string>
+    <string name="hint_password_repeat">Повторить пароль</string>
     <string name="toolbar_text">mik-oil</string>
 </resources>
