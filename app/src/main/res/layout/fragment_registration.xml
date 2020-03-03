@@ -2,7 +2,6 @@
 <androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:fillViewport="true">
@@ -21,8 +20,10 @@
             android:hint="@string/name"
             android:importantForAutofill="no"
             android:inputType="text"
-            android:padding="7dp"
             android:paddingStart="17dp"
+            android:paddingTop="11dp"
+            android:paddingEnd="17dp"
+            android:paddingBottom="10dp"
             android:textColorHint="@color/hintColor"
             android:textCursorDrawable="@null"
             android:textSize="27sp"
@@ -31,8 +32,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.2"
-            app:layout_constraintVertical_chainStyle="packed"
-            tools:ignore="RtlSymmetry" />
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <EditText
             android:id="@+id/userPhoneNumber"
@@ -44,14 +44,15 @@
             android:hint="@string/phone_number"
             android:importantForAutofill="no"
             android:inputType="phone"
-            android:padding="7dp"
             android:paddingStart="17dp"
+            android:paddingTop="11dp"
+            android:paddingEnd="17dp"
+            android:paddingBottom="10dp"
             android:textColorHint="@color/hintColor"
             android:textCursorDrawable="@null"
             android:textSize="27sp"
             app:layout_constraintStart_toStartOf="@+id/userName"
-            app:layout_constraintTop_toBottomOf="@+id/userName"
-            tools:ignore="RtlSymmetry" />
+            app:layout_constraintTop_toBottomOf="@+id/userName" />
 
         <EditText
             android:id="@+id/userPassword"
@@ -63,15 +64,16 @@
             android:hint="@string/password"
             android:importantForAutofill="no"
             android:inputType="textPassword"
-            android:padding="7dp"
             android:paddingStart="17dp"
+            android:paddingTop="11dp"
+            android:paddingEnd="17dp"
+            android:paddingBottom="10dp"
             android:textColorHint="@color/hintColor"
             android:textCursorDrawable="@null"
             android:textSize="27sp"
             app:layout_constraintStart_toStartOf="@+id/userPhoneNumber"
             app:layout_constraintTop_toBottomOf="@+id/userPhoneNumber"
-            app:layout_constraintVertical_chainStyle="packed"
-            tools:ignore="RtlSymmetry" />
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <EditText
             android:id="@+id/userRepeatPassword"
@@ -83,14 +85,15 @@
             android:hint="@string/repeat_password"
             android:importantForAutofill="no"
             android:inputType="textPassword"
-            android:padding="7dp"
             android:paddingStart="17dp"
+            android:paddingTop="11dp"
+            android:paddingEnd="17dp"
+            android:paddingBottom="10dp"
             android:textColorHint="@color/hintColor"
             android:textCursorDrawable="@null"
             android:textSize="27sp"
             app:layout_constraintStart_toStartOf="@+id/userPassword"
-            app:layout_constraintTop_toBottomOf="@+id/userPassword"
-            tools:ignore="RtlSymmetry" />
+            app:layout_constraintTop_toBottomOf="@+id/userPassword" />
 
         <Button
             android:id="@+id/goButton"
@@ -98,7 +101,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/button"
             android:elevation="5dp"
-            android:stateListAnimator="@drawable/button_animator"
+            android:stateListAnimator="@animator/animator_button"
             android:text="@string/go"
             android:textSize="30sp"
             android:translationZ="3dp"
