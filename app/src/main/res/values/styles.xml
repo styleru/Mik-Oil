@@ -9,4 +9,19 @@
         <item name="fontFamily">@font/muller</item>
     </style>
 
+    <style name="Button" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:background">@drawable/button</item>
+        <item name="android:elevation">7dp</item>
+        <item name="android:stateListAnimator">@animator/animator_button</item>
+    </style>
+
+    <style name="GoButton" parent="Button">
+        <!-- Customize your theme here. -->
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/go</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
 </resources>

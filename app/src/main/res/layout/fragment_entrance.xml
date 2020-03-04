@@ -8,13 +8,11 @@
 
     <Button
         android:id="@+id/registration"
+        style="@style/Button"
         android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/button"
-        android:elevation="7dp"
         android:paddingTop="11dp"
         android:paddingBottom="10dp"
-        android:stateListAnimator="@animator/animator_button"
         android:text="@string/registration"
         android:textAllCaps="false"
         android:textSize="27sp"
@@ -27,14 +25,12 @@
 
     <Button
         android:id="@+id/enter"
+        style="@style/Button"
         android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="22dp"
-        android:background="@drawable/button"
-        android:elevation="7dp"
         android:paddingTop="11dp"
         android:paddingBottom="10dp"
-        android:stateListAnimator="@animator/animator_button"
         android:text="@string/entrance"
         android:textAllCaps="false"
         android:textSize="27sp"

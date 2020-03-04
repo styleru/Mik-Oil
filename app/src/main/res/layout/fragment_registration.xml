@@ -96,13 +96,7 @@
 
         <Button
             android:id="@+id/goButton"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button"
-            android:elevation="7dp"
-            android:stateListAnimator="@animator/animator_button"
-            android:text="@string/go"
-            android:textSize="30sp"
+            style="@style/GoButton"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
