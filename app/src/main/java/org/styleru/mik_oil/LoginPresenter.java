@@ -12,7 +12,7 @@ import java.util.Random;
 public class LoginPresenter extends MvpPresenter<LoginView> {
 
     void onLoginClicked(String login, String password) {
-        if (checkNull(login, password)) {
+        if (isFieldsNotEmpty(login, password)) {
             Handler handler = new Handler(Looper.getMainLooper());
 
             getViewState().setProgressEnabled(true);
@@ -25,14 +25,14 @@ public class LoginPresenter extends MvpPresenter<LoginView> {
                 if (rand == 1) {
                     getViewState().goToMain();
                 } else if (rand == 0) {
-                    String failStr = MikOilApplication.getAppContext().getString(R.string.fail);
+                    String failStr = MikOilApplication.getAppContext().getString(R.string.login_fail);
                     getViewState().showToast(failStr);
                 }
             }, 2000);
-        } else getViewState().showValidationError(LoginView.Field.ALL, R.string.try_again);
+        } else getViewState().showValidationError(LoginView.Field.ALL, R.string.empty_fields);
     }
 
-    private boolean checkNull(String login, String password) {
+    private boolean isFieldsNotEmpty(String login, String password) {
         return !(login.isEmpty()) && !(password.isEmpty());
     }
 

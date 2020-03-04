@@ -53,6 +53,7 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
                 new SpannableString(recovery.getText());
         spannableString.setSpan(new UnderlineSpan(), 0, recovery.getText().length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
         recovery.setText(spannableString);
+
         goButton.setOnClickListener(v ->
                 presenter.onLoginClicked(login.getText().toString(),
                         password.getText().toString()));

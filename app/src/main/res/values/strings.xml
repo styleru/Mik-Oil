@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Mik-Oil</string>
     <string name="recovery">восстановить</string>
-    <string name="fail">Провал!</string>
+    <string name="login_fail">Ошибка входа..</string>
     <string name="luck">Успех!</string>
-    <string name="try_again">Поля не должны быть пустыми.</string>
+    <string name="empty_fields">Заполните все поля!</string>
     <string name="registration">Регистрация</string>
     <string name="entrance">Вход</string>
     <string name="go">GO</string>
