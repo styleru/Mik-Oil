@@ -18,8 +18,11 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 public class RegistrationFragment extends MvpAppCompatFragment implements RegistrationView {
+
+    private Unbinder unbinder;
 
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
@@ -50,7 +53,7 @@ public class RegistrationFragment extends MvpAppCompatFragment implements Regist
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle saveInstanceState) {
-        ButterKnife.bind(this, view);
+        unbinder = ButterKnife.bind(this, view);
 
         goButton.setOnClickListener(v ->
                 presenter.onRegisterClicked(userName.getText().toString(),
@@ -87,5 +90,12 @@ public class RegistrationFragment extends MvpAppCompatFragment implements Regist
     public void goToPhoneNumberChecking() {
         String message = getString(R.string.go_to_phone_number_checking);
         showToast(message);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+        unbinder.unbind();
     }
 }
