@@ -59,10 +59,6 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
                         password.getText().toString()));
     }
 
-    interface LoginFragmentNavigation {
-        void goToLoginFragment();
-    }
-
     @Override
     public void setProgressEnabled(boolean enabled) {
         if (enabled) {

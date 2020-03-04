@@ -59,10 +59,6 @@ public class RegistrationFragment extends MvpAppCompatFragment implements Regist
                         userRepeatPassword.getText().toString()));
     }
 
-    interface RegistrationFragmentNavigation {
-        void goToRegistrationFragment();
-    }
-
     @Override
     public void setProgressEnabled(boolean enabled) {
         if (enabled) {
