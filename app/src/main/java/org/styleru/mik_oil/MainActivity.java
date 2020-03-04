@@ -4,8 +4,11 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity implements LoginFragment.LoginFragmentNavigation,
-        EntranceFragment.EntranceFragmentNavigation {
+public class MainActivity
+        extends AppCompatActivity
+        implements LoginFragment.LoginFragmentNavigation,
+                   EntranceFragment.EntranceFragmentNavigation,
+                   RegistrationFragment.RegistrationFragmentNavigation {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.Log
         setContentView(R.layout.activity_main);
 
         if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
-            goToRegistrationFragment();// По умолчанию стоит goToEntranceFragment().
+            goToEntranceFragment();
         }
     }
 
@@ -38,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.Log
         RegistrationFragment fragment = new RegistrationFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment)
+                .addToBackStack(null)
                 .commit();
     }
 }

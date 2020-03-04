@@ -9,10 +9,11 @@ import com.arellomobile.mvp.MvpPresenter;
 import java.util.Random;
 
 @InjectViewState
-public class LoginPresenter extends MvpPresenter<LoginView> {
+public class RegistrationPresenter extends MvpPresenter<RegistrationView> {
 
-    void onLoginClicked(String login, String password) {
-        if (isNotNull(login, password)) {
+    void onRegistrationClicked(String name, String phone,
+                               String password, String repeatingPassword) {
+        if (isNotNull(name, phone, password, repeatingPassword)) {
             Handler handler = new Handler(Looper.getMainLooper());
 
             getViewState().setProgressEnabled(true);
@@ -29,11 +30,12 @@ public class LoginPresenter extends MvpPresenter<LoginView> {
                     getViewState().showToast(failStr);
                 }
             }, 2000);
-        } else getViewState().showValidationError(LoginView.Field.ALL, R.string.try_again);
+        } else getViewState().showValidationError(RegistrationView.Field.ALL, R.string.try_again);
     }
 
-    private boolean isNotNull(String login, String password) {
-        return !(login.isEmpty()) && !(password.isEmpty());
+    private boolean isNotNull(String name, String phone,
+                              String password, String repeatingPassword) {
+        return !(name.isEmpty()) && !(phone.isEmpty()) &&
+                !(password.isEmpty()) && !(repeatingPassword.isEmpty());
     }
-
 }
