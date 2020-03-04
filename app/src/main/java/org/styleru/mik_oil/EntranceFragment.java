@@ -14,8 +14,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class EntranceFragment extends Fragment {
+
     @BindView(R.id.enter)
     Button enter;
+
+    @BindView(R.id.registration)
+    Button registration;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,6 +36,12 @@ public class EntranceFragment extends Fragment {
             Activity activity = getActivity();
             if (activity instanceof LoginFragment.LoginFragmentNavigation)
                 ((LoginFragment.LoginFragmentNavigation) activity).goToLoginFragment();
+        });
+
+        registration.setOnClickListener(v -> {
+            Activity activity = getActivity();
+            if (activity instanceof RegistrationFragment.RegistrationFragmentNavigation)
+                ((RegistrationFragment.RegistrationFragmentNavigation) activity).goToRegistrationFragment();
         });
     }
 

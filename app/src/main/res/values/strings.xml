@@ -13,4 +13,6 @@
     <string name="name">Имя</string>
     <string name="phone_number">Телефон</string>
     <string name="repeat_password">Повторить пароль</string>
+    <string name="go_to_phone_number_checking">Переходим к проверке по номеру телефона..</string>
+    <string name="registration_fail">Ошибка регистрации..</string>
 </resources>
