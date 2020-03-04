@@ -24,4 +24,18 @@
         <item name="android:textSize">30sp</item>
     </style>
 
+    <style name="EditText" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:layout_width">270dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/button</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:paddingStart">15dp</item>
+        <item name="android:paddingTop">11dp</item>
+        <item name="android:paddingEnd">15dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textSize">27sp</item>
+        <item name="android:textColorHint">@color/colorHint</item>
+    </style>
+
 </resources>
