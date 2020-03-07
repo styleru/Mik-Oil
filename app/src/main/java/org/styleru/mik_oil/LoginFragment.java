@@ -21,6 +21,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 public class LoginFragment extends MvpAppCompatFragment implements LoginView {
 
@@ -35,6 +36,8 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
     @BindView(R.id.recovery)
     TextView recovery;
 
+    private Unbinder unbinder;
+
     @InjectPresenter
     LoginPresenter presenter;
 
@@ -47,7 +50,7 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle saveInstanceState) {
-        ButterKnife.bind(this, view);
+        unbinder = ButterKnife.bind(this, view);
 
         SpannableString spannableString =
                 new SpannableString(recovery.getText());
@@ -56,6 +59,12 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
         goButton.setOnClickListener(v ->
                 presenter.onLoginClicked(login.getText().toString(),
                         password.getText().toString()));
+    }
+
+    @Override
+    public void onDestroyView() {
+        unbinder.unbind();
+        super.onDestroyView();
     }
 
     @Override

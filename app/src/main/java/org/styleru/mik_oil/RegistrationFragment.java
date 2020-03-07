@@ -16,6 +16,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 public class RegistrationFragment extends MvpAppCompatFragment implements RegistrationView {
 
@@ -32,6 +33,8 @@ public class RegistrationFragment extends MvpAppCompatFragment implements Regist
     @BindView(R.id.repeating_password_field)
     EditText repeatingPassword;
 
+    private Unbinder unbinder;
+
     @InjectPresenter
     RegistrationPresenter presenter;
 
@@ -44,11 +47,17 @@ public class RegistrationFragment extends MvpAppCompatFragment implements Regist
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle saveInstanceState) {
-        ButterKnife.bind(this, view);
+        unbinder = ButterKnife.bind(this, view);
         goButton.setOnClickListener(v ->
                 presenter.onRegistrationClicked(name.getText().toString(),
                         phone.getText().toString(), password.getText().toString(),
                         repeatingPassword.getText().toString()));
+    }
+
+    @Override
+    public void onDestroyView() {
+        unbinder.unbind();
+        super.onDestroyView();
     }
 
     @Override

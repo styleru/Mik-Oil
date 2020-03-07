@@ -12,12 +12,16 @@ import androidx.fragment.app.Fragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 public class EntranceFragment extends Fragment {
+
     @BindView(R.id.enter)
     Button enter;
     @BindView(R.id.registration)
     Button registration;
+
+    private Unbinder unbinder;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -28,7 +32,7 @@ public class EntranceFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle saveInstanceState) {
-        ButterKnife.bind(this, view);
+        unbinder = ButterKnife.bind(this, view);
 
         enter.setOnClickListener(v -> {
             Activity activity = getActivity();
@@ -40,5 +44,11 @@ public class EntranceFragment extends Fragment {
             assert activity != null;
             ((FragmentNavigator) activity).goToRegistrationFragment();
         });
+    }
+
+    @Override
+    public void onDestroyView() {
+        unbinder.unbind();
+        super.onDestroyView();
     }
 }
