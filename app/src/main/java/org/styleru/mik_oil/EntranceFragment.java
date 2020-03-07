@@ -32,22 +32,26 @@ public class EntranceFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle saveInstanceState) {
+
         unbinder = ButterKnife.bind(this, view);
 
         enter.setOnClickListener(v -> {
             Activity activity = getActivity();
-            assert activity != null;
-            ((FragmentNavigator) activity).goToLoginFragment();
+            if (activity != null) {
+                ((FragmentNavigator) activity).goToLoginFragment();
+            }
         });
         registration.setOnClickListener(v -> {
             Activity activity = getActivity();
-            assert activity != null;
-            ((FragmentNavigator) activity).goToRegistrationFragment();
+            if (activity != null) {
+                ((FragmentNavigator) activity).goToRegistrationFragment();
+            }
         });
     }
 
     @Override
     public void onDestroyView() {
+
         unbinder.unbind();
         super.onDestroyView();
     }
