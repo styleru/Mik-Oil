@@ -33,12 +33,12 @@ public class EntranceFragment extends Fragment {
         enter.setOnClickListener(v -> {
             Activity activity = getActivity();
             assert activity != null;
-            ((FragmentNavigation) activity).goToLoginFragment();
+            ((FragmentNavigator) activity).goToLoginFragment();
         });
         registration.setOnClickListener(v -> {
             Activity activity = getActivity();
             assert activity != null;
-            ((FragmentNavigation) activity).goToRegistrationFragment();
+            ((FragmentNavigator) activity).goToRegistrationFragment();
         });
     }
 }
