@@ -1,6 +1,6 @@
 package org.styleru.mik_oil;
 
-public interface FragmentNavigation {
+public interface FragmentNavigator {
     void goToEntranceFragment();
 
     void goToLoginFragment();
