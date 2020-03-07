@@ -32,19 +32,13 @@ public class EntranceFragment extends Fragment {
 
         enter.setOnClickListener(v -> {
             Activity activity = getActivity();
-            if (activity instanceof LoginFragment.LoginFragmentNavigation)
-                ((LoginFragment.LoginFragmentNavigation) activity).goToLoginFragment();
+            assert activity != null;
+            ((FragmentNavigation) activity).goToLoginFragment();
         });
         registration.setOnClickListener(v -> {
             Activity activity = getActivity();
-            if (activity instanceof RegistrationFragment.RegistrationFragmentNavigation)
-                ((RegistrationFragment.RegistrationFragmentNavigation) activity).
-                        goToRegistrationFragment();
+            assert activity != null;
+            ((FragmentNavigation) activity).goToRegistrationFragment();
         });
     }
-
-    interface EntranceFragmentNavigation {
-        void goToEntranceFragment();
-    }
-
 }

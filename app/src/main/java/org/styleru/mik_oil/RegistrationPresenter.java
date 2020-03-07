@@ -30,7 +30,8 @@ public class RegistrationPresenter extends MvpPresenter<RegistrationView> {
                     getViewState().showToast(failStr);
                 }
             }, 2000);
-        } else getViewState().showValidationError(RegistrationView.Field.ALL, R.string.try_again);
+        } else getViewState().showValidationError(RegistrationView.Field.ALL,
+                R.string.try_again);
     }
 
     private boolean isNotNull(String name, String phone,
