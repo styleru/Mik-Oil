@@ -4,11 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity
-        extends AppCompatActivity
-        implements LoginFragment.LoginFragmentNavigation,
-                   EntranceFragment.EntranceFragmentNavigation,
-                   RegistrationFragment.RegistrationFragmentNavigation {
+public class MainActivity extends AppCompatActivity implements FragmentNavigation {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
