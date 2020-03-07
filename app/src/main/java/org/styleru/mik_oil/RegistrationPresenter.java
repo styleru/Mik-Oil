@@ -19,13 +19,13 @@ public class RegistrationPresenter extends MvpPresenter<RegistrationView> {
             getViewState().setProgressEnabled(true);
             handler.postDelayed(() -> {
                 Random randInt = new Random();
-                int rand = randInt.nextInt(2);
+                int rand = randInt.nextInt(10);
 
                 getViewState().setProgressEnabled(false);
 
-                if (rand == 1) {
+                if (rand == 0) {
                     getViewState().goToMain();
-                } else if (rand == 0) {
+                } else {
                     String failStr = MikOilApplication.getAppContext().getString(R.string.fail);
                     getViewState().showToast(failStr);
                 }
