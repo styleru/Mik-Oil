@@ -9,12 +9,12 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 
 public interface RegistrationView extends MvpView {
 
-    @StateStrategyType(AddToEndSingleStrategy.class)
-    void setProgressEnabled(boolean enabled);
-
     enum Field {
         NAME, PHONE, PASSWORD, REPEATING_PASSWORD, ALL
     }
+
+    @StateStrategyType(AddToEndSingleStrategy.class)
+    void setProgressEnabled(boolean enabled);
 
     @StateStrategyType(OneExecutionStateStrategy.class)
     void showValidationError(RegistrationView.Field field, @StringRes int messageRes);

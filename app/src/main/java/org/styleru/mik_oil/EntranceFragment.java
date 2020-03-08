@@ -15,7 +15,6 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public class EntranceFragment extends Fragment {
-
     @BindView(R.id.enter)
     Button enter;
     @BindView(R.id.registration)
@@ -26,13 +25,11 @@ public class EntranceFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         return inflater.inflate(R.layout.fragment_entrance, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle saveInstanceState) {
-
         unbinder = ButterKnife.bind(this, view);
 
         enter.setOnClickListener(v -> {
@@ -51,7 +48,6 @@ public class EntranceFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
-
         unbinder.unbind();
         super.onDestroyView();
     }

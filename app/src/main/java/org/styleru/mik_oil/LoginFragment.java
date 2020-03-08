@@ -44,7 +44,6 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         return inflater.inflate(R.layout.fragment_login, container, false);
     }
 
@@ -52,10 +51,10 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
     public void onViewCreated(@NonNull View view, Bundle saveInstanceState) {
         unbinder = ButterKnife.bind(this, view);
 
-        SpannableString spannableString =
-                new SpannableString(recovery.getText());
+        SpannableString spannableString = new SpannableString(recovery.getText());
         spannableString.setSpan(new UnderlineSpan(), 0, recovery.getText().length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
         recovery.setText(spannableString);
+
         goButton.setOnClickListener(v ->
                 presenter.onLoginClicked(login.getText().toString(),
                         password.getText().toString()));
