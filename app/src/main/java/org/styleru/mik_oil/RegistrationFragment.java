@@ -85,4 +85,10 @@ public class RegistrationFragment extends MvpAppCompatFragment implements Regist
         String message = getString(R.string.luck);
         showToast(message);
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
+    }
 }
