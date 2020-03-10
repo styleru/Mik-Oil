@@ -15,6 +15,7 @@
         <EditText
             android:id="@+id/name"
             style="@style/EditTextStyle"
+            android:layout_marginTop="23dp"
             android:importantForAutofill="no"
             android:inputType="text"
             android:hint="@string/hint_name"
