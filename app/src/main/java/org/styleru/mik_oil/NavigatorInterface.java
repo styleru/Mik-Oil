@@ -5,4 +5,6 @@ public interface NavigatorInterface {
     void goToLoginFragment();
 
     void goToEntranceFragment();
+
+    void goToRegistrationFragment();
 }

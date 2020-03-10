@@ -1,16 +1,12 @@
 package org.styleru.mik_oil;
 
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,44 +19,43 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class LoginFragment extends MvpAppCompatFragment implements LoginView {
+public class RegistrationFragment extends MvpAppCompatFragment implements RegistrationView {
 
-    @BindView(R.id.progress_bar_login)
+    @BindView(R.id.progress_bar_registration)
     ProgressBar progressBar;
-    @BindView(R.id.go_login)
+    @BindView(R.id.name)
+    EditText name;
+    @BindView(R.id.phone_number)
+    EditText phoneNumber;
+    @BindView(R.id.password_registration)
+    EditText passwordRegistration;
+    @BindView(R.id.password_repeat)
+    EditText passwordRepeat;
+    @BindView(R.id.go_registration)
     Button goButton;
-    @BindView(R.id.login)
-    EditText login;
-    @BindView(R.id.password)
-    EditText password;
-    @BindView(R.id.recovery)
-    TextView recovery;
 
     private Unbinder unbinder;
 
     @InjectPresenter
-    LoginPresenter presenter;
+    RegistrationPresenter presenter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_login, container, false);
+        return inflater.inflate(R.layout.fragment_registration, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle saveInstanceState) {
         unbinder = ButterKnife.bind(this, view);
-
-        SpannableString spannableString =
-                new SpannableString(recovery.getText());
-        spannableString.setSpan(new UnderlineSpan(), 0, recovery.getText().length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-        recovery.setText(spannableString);
         goButton.setOnClickListener(v ->
-                presenter.onLoginClicked(login.getText().toString(),
-                        password.getText().toString()));
+                presenter.onRegistrationClicked(name.getText().toString(),
+                        phoneNumber.getText().toString(),
+                        passwordRegistration.getText().toString(),
+                        passwordRepeat.getText().toString()
+                        ));
     }
-
 
     @Override
     public void setProgressEnabled(boolean enabled) {
@@ -80,7 +75,7 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
     }
 
     @Override
-    public void showValidationError(Field field, @StringRes int messageRes) {
+    public void showRegistrationError(RegistrationView.Field field, @StringRes int messageRes) {
         String message = getString(messageRes);
         showToast(message);
     }
@@ -89,11 +84,5 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
     public void goToMain() {
         String message = getString(R.string.luck);
         showToast(message);
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        unbinder.unbind();
     }
 }

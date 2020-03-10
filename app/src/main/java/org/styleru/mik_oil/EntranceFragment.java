@@ -19,6 +19,8 @@ import butterknife.Unbinder;
 public class EntranceFragment extends Fragment {
     @BindView(R.id.enter)
     Button enter;
+    @BindView(R.id.registration)
+    Button registration;
 
     private Unbinder unbinder;
 
@@ -37,6 +39,11 @@ public class EntranceFragment extends Fragment {
             Activity activity = getActivity();
             if (activity instanceof NavigatorInterface)
                 ((NavigatorInterface) activity).goToLoginFragment();
+        });
+        registration.setOnClickListener(v -> {
+            Activity activity = getActivity();
+            if (activity instanceof NavigatorInterface)
+                ((NavigatorInterface) activity).goToRegistrationFragment();
         });
     }
 

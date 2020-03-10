@@ -33,4 +33,12 @@ public class MainActivity extends AppCompatActivity implements NavigatorInterfac
                 .replace(R.id.container, fragment)
                 .commit();
     }
+
+    public void goToRegistrationFragment() {
+        RegistrationFragment fragment = new RegistrationFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, fragment)
+                .addToBackStack(null)
+                .commit();
+    }
 }

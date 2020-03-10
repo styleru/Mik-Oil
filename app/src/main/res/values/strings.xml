@@ -12,5 +12,6 @@
     <string name="hint_phone_number">Телефон</string>
     <string name="hint_name">Имя</string>
     <string name="hint_password_repeat">Повторить пароль</string>
+    <string name="passwords_error">Пароли должны совпадать</string>
     <string name="toolbar_text">mik-oil</string>
 </resources>
