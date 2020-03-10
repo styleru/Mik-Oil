@@ -9,4 +9,18 @@
         <item name="fontFamily">@font/muller</item>
     </style>
 
+    <style name="EditTextStyle">
+        <item name="android:layout_width">270dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/button</item>
+        <item name="android:elevation">7dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:stateListAnimator">@drawable/button_animator</item>
+        <item name="android:paddingTop">11dp</item>
+        <item name="android:paddingStart">17dp</item>
+        <item name="android:paddingEnd">17dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textSize">27sp</item>
+    </style>
+
 </resources>
