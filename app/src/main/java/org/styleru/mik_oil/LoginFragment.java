@@ -66,10 +66,6 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
         unbinder.unbind();
     }
 
-    interface LoginFragmentNavigation {
-        void goToLoginFragment();
-    }
-
     @Override
     public void setProgressEnabled(boolean enabled) {
         if (enabled) {

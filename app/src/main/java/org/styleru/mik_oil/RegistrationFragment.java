@@ -50,8 +50,4 @@ public class RegistrationFragment extends MvpAppCompatFragment {
         super.onDestroyView();
         unbinder.unbind();
     }
-
-    interface RegistrationFragmentNavigation {
-        void goToRegistrationFragment();
-    }
 }

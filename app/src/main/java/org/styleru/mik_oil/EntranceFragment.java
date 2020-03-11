@@ -35,14 +35,14 @@ public class EntranceFragment extends Fragment {
 
         enter.setOnClickListener(v -> {
             Activity activity = getActivity();
-            if (activity instanceof LoginFragment.LoginFragmentNavigation)
-                ((LoginFragment.LoginFragmentNavigation) activity).goToLoginFragment();
+            if (activity instanceof Navigator)
+                ((Navigator) activity).goToLoginFragment();
         });
 
         registration.setOnClickListener(v -> {
             Activity activity = getActivity();
-            if (activity instanceof RegistrationFragment.RegistrationFragmentNavigation)
-                ((RegistrationFragment.RegistrationFragmentNavigation) activity).goToRegistrationFragment();
+            if (activity instanceof Navigator)
+                ((Navigator) activity).goToRegistrationFragment();
         });
     }
 
@@ -51,9 +51,4 @@ public class EntranceFragment extends Fragment {
         super.onDestroyView();
         unbinder.unbind();
     }
-
-    interface EntranceFragmentNavigation {
-        void goToEntranceFragment();
-    }
-
 }
