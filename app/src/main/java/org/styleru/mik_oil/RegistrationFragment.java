@@ -48,7 +48,7 @@ public class RegistrationFragment extends MvpAppCompatFragment implements Regist
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle saveInstanceState) {
-        ButterKnife.bind(this, view);
+        unbinder = ButterKnife.bind(this, view);
 
         goButton.setOnClickListener(v ->
                 presenter.onRegisterClicked(name.getText().toString(), phone_number.getText().toString(),
