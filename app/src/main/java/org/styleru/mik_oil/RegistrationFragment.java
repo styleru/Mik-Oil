@@ -15,8 +15,11 @@ import com.arellomobile.mvp.MvpAppCompatFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 public class RegistrationFragment extends MvpAppCompatFragment {
+    private Unbinder unbinder;
+
     @BindView(R.id.progress_circular)
     ProgressBar progressBar;
     @BindView(R.id.go)
@@ -40,6 +43,12 @@ public class RegistrationFragment extends MvpAppCompatFragment {
     @Override
     public void onViewCreated(@NonNull View view, Bundle saveInstanceState) {
         ButterKnife.bind(this, view);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 
     interface RegistrationFragmentNavigation {

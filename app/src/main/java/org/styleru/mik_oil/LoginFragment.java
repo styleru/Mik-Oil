@@ -21,8 +21,10 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 public class LoginFragment extends MvpAppCompatFragment implements LoginView {
+    private Unbinder unbinder;
 
     @BindView(R.id.progress_circular)
     ProgressBar progressBar;
@@ -56,6 +58,12 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
         goButton.setOnClickListener(v ->
                 presenter.onLoginClicked(login.getText().toString(),
                         password.getText().toString()));
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 
     interface LoginFragmentNavigation {

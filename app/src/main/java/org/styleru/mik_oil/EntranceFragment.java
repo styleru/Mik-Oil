@@ -12,8 +12,11 @@ import androidx.fragment.app.Fragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 public class EntranceFragment extends Fragment {
+    private Unbinder unbinder;
+
     @BindView(R.id.enter)
     Button enter;
     @BindView(R.id.registration)
@@ -41,6 +44,12 @@ public class EntranceFragment extends Fragment {
             if (activity instanceof RegistrationFragment.RegistrationFragmentNavigation)
                 ((RegistrationFragment.RegistrationFragmentNavigation) activity).goToRegistrationFragment();
         });
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 
     interface EntranceFragmentNavigation {
