@@ -18,11 +18,11 @@ public class RegistrationPresenter extends MvpPresenter<RegistrationView> {
             getViewState().setProgressEnabled(true);
             handler.postDelayed(() -> {
                 Random randInt = new Random();
-                int rand = randInt.nextInt(10);
+                int rand = randInt.nextInt(5);
 
                 getViewState().setProgressEnabled(false);
 
-                if (rand <= 1) {
+                if (rand == 1) {
                     getViewState().goToPhoneNumberChecking();
                 } else {
                     String failStr = MikOilApplication.getAppContext().getString(R.string.registration_fail);
