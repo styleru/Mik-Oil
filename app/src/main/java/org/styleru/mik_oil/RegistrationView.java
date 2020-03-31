@@ -19,7 +19,7 @@ public interface RegistrationView extends MvpView {
     /**
      * Show validation errors for fields in view
      *
-     * @param errors map of field to string resource of error
+     * @param errors map of {@link Field} to string resource of error
      */
     @StateStrategyType(OneExecutionStateStrategy.class)
     void showValidationErrors(Map<Field, Integer> errors);
