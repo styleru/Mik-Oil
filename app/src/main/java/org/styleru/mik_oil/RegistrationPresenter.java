@@ -34,8 +34,13 @@ public class RegistrationPresenter extends MvpPresenter<RegistrationView> {
         }
     }
 
-    private boolean isFieldsNotEmpty(String userName, String userPhoneNumber, String userPassword, String userRepeatPassword) {
-        return !(userName.isEmpty()) && !(userPhoneNumber.isEmpty()) && !(userPassword.isEmpty()) && !(userRepeatPassword.isEmpty());
+    private boolean isFieldsNotEmpty(String name, String phoneNumber, String password, String repeatPassword) {
+        if (name != null && phoneNumber != null && password != null && repeatPassword != null)
+        {
+            return !(name.isEmpty() || phoneNumber.isEmpty() || password.isEmpty() || repeatPassword.isEmpty());
+        } else {
+            return false;
+        }
     }
 
 }

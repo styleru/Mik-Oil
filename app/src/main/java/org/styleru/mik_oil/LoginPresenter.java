@@ -35,7 +35,12 @@ public class LoginPresenter extends MvpPresenter<LoginView> {
     }
 
     private boolean isFieldsNotEmpty(String login, String password) {
-        return !(login.isEmpty()) && !(password.isEmpty());
+        if (login != null && password != null)
+        {
+            return !(login.isEmpty() || password.isEmpty());
+        } else {
+            return false;
+        }
     }
 
 }
