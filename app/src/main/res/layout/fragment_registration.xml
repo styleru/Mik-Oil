@@ -17,7 +17,7 @@
             android:hint="@string/hint_name"
             android:importantForAutofill="no"
             android:inputType="text"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/registration_phone_number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -31,6 +31,7 @@
             android:hint="@string/hint_phone"
             android:importantForAutofill="no"
             android:inputType="phone"
+            app:layout_constraintBottom_toTopOf="@id/registration_password"
             app:layout_constraintStart_toStartOf="@+id/registration_name"
             app:layout_constraintTop_toBottomOf="@+id/registration_name" />
 
@@ -41,6 +42,7 @@
             android:hint="@string/hint_password"
             android:importantForAutofill="no"
             android:inputType="textPassword"
+            app:layout_constraintBottom_toTopOf="@id/registration_repeat_password"
             app:layout_constraintStart_toStartOf="@+id/registration_phone_number"
             app:layout_constraintTop_toBottomOf="@+id/registration_phone_number" />
 
@@ -51,6 +53,7 @@
             android:hint="@string/hint_repeating_password"
             android:importantForAutofill="no"
             android:inputType="textPassword"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/registration_password"
             app:layout_constraintTop_toBottomOf="@+id/registration_password" />
 
