@@ -29,7 +29,9 @@ public class LoginPresenter extends MvpPresenter<LoginView> {
                     getViewState().showToast(failStr);
                 }
             }, 2000);
-        } else getViewState().showValidationError(LoginView.Field.ALL, R.string.empty_fields);
+        } else {
+            getViewState().showValidationError(LoginView.Field.ALL, R.string.empty_fields);
+        }
     }
 
     private boolean isFieldsNotEmpty(String login, String password) {

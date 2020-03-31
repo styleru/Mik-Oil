@@ -24,23 +24,23 @@ public class RegistrationFragment extends MvpAppCompatFragment implements Regist
 
     private Unbinder unbinder;
 
-    @BindView(R.id.progressBar)
+    @BindView(R.id.registration_progressbar)
     ProgressBar progressBar;
 
-    @BindView(R.id.goButton)
+    @BindView(R.id.registration_go_button)
     Button goButton;
 
-    @BindView(R.id.userName)
-    EditText userName;
+    @BindView(R.id.registration_name)
+    EditText name;
 
-    @BindView(R.id.userPhoneNumber)
-    EditText userPhoneNumber;
+    @BindView(R.id.registration_phone_number)
+    EditText phoneNumber;
 
-    @BindView(R.id.userPassword)
-    TextView userPassword;
+    @BindView(R.id.registration_password)
+    TextView password;
 
-    @BindView(R.id.userRepeatPassword)
-    TextView userRepeatPassword;
+    @BindView(R.id.registration_repeat_password)
+    TextView repeatPassword;
 
     @InjectPresenter
     RegistrationPresenter presenter;
@@ -56,10 +56,10 @@ public class RegistrationFragment extends MvpAppCompatFragment implements Regist
         unbinder = ButterKnife.bind(this, view);
 
         goButton.setOnClickListener(v ->
-                presenter.onRegisterClicked(userName.getText().toString(),
-                        userPhoneNumber.getText().toString(),
-                        userPassword.getText().toString(),
-                        userRepeatPassword.getText().toString()));
+                presenter.onRegisterClicked(name.getText().toString(),
+                        phoneNumber.getText().toString(),
+                        password.getText().toString(),
+                        repeatPassword.getText().toString()));
     }
 
     @Override
@@ -87,8 +87,8 @@ public class RegistrationFragment extends MvpAppCompatFragment implements Regist
     }
 
     @Override
-    public void goToPhoneNumberChecking() {
-        String message = getString(R.string.go_to_phone_number_checking);
+    public void goToMain() {
+        String message = getString(R.string.success);
         showToast(message);
     }
 

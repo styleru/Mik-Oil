@@ -10,7 +10,7 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 public interface RegistrationView extends MvpView {
 
     @StateStrategyType(OneExecutionStateStrategy.class)
-    void goToPhoneNumberChecking();
+    void goToMain();
 
     enum Field {
         USER_NAME, USER_PHONE_NUMBER, USER_PASSWORD, USER_REPEAT_PASSWORD, ALL

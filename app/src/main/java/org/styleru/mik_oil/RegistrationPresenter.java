@@ -11,8 +11,8 @@ import java.util.Random;
 @InjectViewState
 public class RegistrationPresenter extends MvpPresenter<RegistrationView> {
 
-    void onRegisterClicked(String userName, String userPhoneNumber, String userPassword, String userRepeatPassword) {
-        if (isFieldsNotEmpty(userName, userPhoneNumber, userPassword, userRepeatPassword)) {
+    void onRegisterClicked(String name, String phoneNumber, String password, String repeatPassword) {
+        if (isFieldsNotEmpty(name, phoneNumber, password, repeatPassword)) {
             Handler handler = new Handler(Looper.getMainLooper());
 
             getViewState().setProgressEnabled(true);
@@ -23,17 +23,20 @@ public class RegistrationPresenter extends MvpPresenter<RegistrationView> {
                 getViewState().setProgressEnabled(false);
 
                 if (rand == 1) {
-                    getViewState().goToPhoneNumberChecking();
+                    getViewState().goToMain();
                 } else {
                     String failStr = MikOilApplication.getAppContext().getString(R.string.registration_fail);
                     getViewState().showToast(failStr);
                 }
             }, 2000);
-        } else getViewState().showValidationError(RegistrationView.Field.ALL, R.string.empty_fields);
+        } else {
+            getViewState().showValidationError(RegistrationView.Field.ALL, R.string.empty_fields);
+        }
     }
 
     private boolean isFieldsNotEmpty(String userName, String userPhoneNumber, String userPassword, String userRepeatPassword) {
         return !(userName.isEmpty()) && !(userPhoneNumber.isEmpty()) && !(userPassword.isEmpty()) && !(userRepeatPassword.isEmpty());
     }
+
 }
 

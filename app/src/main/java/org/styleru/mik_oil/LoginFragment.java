@@ -27,9 +27,9 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
 
     private Unbinder unbinder;
 
-    @BindView(R.id.progress_circular)
+    @BindView(R.id.login_progressbar)
     ProgressBar progressBar;
-    @BindView(R.id.go)
+    @BindView(R.id.login_go)
     Button goButton;
     @BindView(R.id.login)
     EditText login;
@@ -87,7 +87,7 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
 
     @Override
     public void goToMain() {
-        String message = getString(R.string.luck);
+        String message = getString(R.string.success);
         showToast(message);
     }
 
