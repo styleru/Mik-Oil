@@ -25,7 +25,7 @@ public class RegistrationPresenter extends MvpPresenter<RegistrationView> {
             getViewState().setProgressEnabled(true);
             handler.postDelayed(() -> {
                 Random randInt = new Random();
-                int rand = randInt.nextInt(10);
+                int rand = randInt.nextInt(5);
 
                 getViewState().setProgressEnabled(false);
 
