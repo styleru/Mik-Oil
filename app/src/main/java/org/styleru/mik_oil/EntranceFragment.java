@@ -37,14 +37,16 @@ public class EntranceFragment extends Fragment {
 
         enter.setOnClickListener(v -> {
             Activity activity = getActivity();
-            if (activity instanceof FragmentNavigator)
+            if (activity != null) {
                 ((FragmentNavigator) activity).goToLoginFragment();
+            }
         });
 
         registration.setOnClickListener(v -> {
             Activity activity = getActivity();
-            if (activity instanceof FragmentNavigator)
+            if (activity != null) {
                 ((FragmentNavigator) activity).goToRegistrationFragment();
+            }
         });
     }
 
