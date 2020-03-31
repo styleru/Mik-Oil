@@ -42,7 +42,8 @@ public class RegistrationPresenter extends MvpPresenter<RegistrationView> {
     }
 
     private void checkEmptyFields(String name, String phone,
-                                                                  String password, String repeatingPassword, Map<RegistrationView.Field, Integer> map) {
+                                  String password, String repeatingPassword,
+                                  Map<RegistrationView.Field, Integer> map) {
         checkEmptyField(name, RegistrationView.Field.NAME, map);
         checkEmptyField(phone, RegistrationView.Field.PHONE, map);
         checkEmptyField(password, RegistrationView.Field.PASSWORD, map);
