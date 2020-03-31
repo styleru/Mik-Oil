@@ -14,6 +14,8 @@ import androidx.annotation.NonNull;
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 
+import java.util.Map;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -71,9 +73,30 @@ public class RegistrationFragment extends MvpAppCompatFragment implements Regist
     }
 
     @Override
-    public void showValidationError(RegistrationView.Field field, int messageRes) {
-        String message = getString(messageRes);
-        showToast(message);
+    public void showValidationErrors(Map<Field, Integer> errors) {
+        for (Map.Entry<Field, Integer> error : errors.entrySet()) {
+            EditText field = null;
+            switch (error.getKey()) {
+                case NAME:
+                    field = name;
+                    break;
+                case PHONE:
+                    field = phone;
+                    break;
+                case PASSWORD:
+                    field = password;
+                    break;
+                case REPEATING_PASSWORD:
+                    field = repeatingPassword;
+                    break;
+                case ALL:
+                    String msg = getString(error.getValue());
+                    showToast(msg);
+            }
+            if (field != null) {
+                field.setError(getString(error.getValue()));
+            }
+        }
     }
 
     @Override

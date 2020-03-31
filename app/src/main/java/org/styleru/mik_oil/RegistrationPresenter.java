@@ -6,6 +6,8 @@ import android.os.Looper;
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 @InjectViewState
@@ -13,7 +15,11 @@ public class RegistrationPresenter extends MvpPresenter<RegistrationView> {
 
     void onRegistrationClicked(String name, String phone,
                                String password, String repeatingPassword) {
-        if (isNotNull(name, phone, password, repeatingPassword)) {
+
+        Map<RegistrationView.Field, Integer> errors = new HashMap<>();
+        checkEmptyFields(name, phone, password, repeatingPassword, errors);
+        checkPasswordsEqual(password, repeatingPassword, errors);
+        if (errors.isEmpty()) {
             Handler handler = new Handler(Looper.getMainLooper());
 
             getViewState().setProgressEnabled(true);
@@ -30,13 +36,28 @@ public class RegistrationPresenter extends MvpPresenter<RegistrationView> {
                     getViewState().showToast(failStr);
                 }
             }, 2000);
-        } else getViewState().showValidationError(RegistrationView.Field.ALL,
-                R.string.try_again);
+        } else {
+            getViewState().showValidationErrors(errors);
+        }
     }
 
-    private boolean isNotNull(String name, String phone,
-                              String password, String repeatingPassword) {
-        return !(name.isEmpty()) && !(phone.isEmpty()) &&
-                !(password.isEmpty()) && !(repeatingPassword.isEmpty());
+    private void checkEmptyFields(String name, String phone,
+                                                                  String password, String repeatingPassword, Map<RegistrationView.Field, Integer> map) {
+        checkEmptyField(name, RegistrationView.Field.NAME, map);
+        checkEmptyField(phone, RegistrationView.Field.PHONE, map);
+        checkEmptyField(password, RegistrationView.Field.PASSWORD, map);
+        checkEmptyField(repeatingPassword, RegistrationView.Field.REPEATING_PASSWORD, map);
+    }
+
+    private void checkEmptyField(String value, RegistrationView.Field field, Map<RegistrationView.Field, Integer> map) {
+        if (value == null || value.isEmpty()) {
+            map.put(field, R.string.error_empty_field);
+        }
+    }
+
+    private void checkPasswordsEqual(String password, String repeatingPassword, Map<RegistrationView.Field, Integer> map) {
+        if (password != null && !password.equals(repeatingPassword)) {
+            map.put(RegistrationView.Field.REPEATING_PASSWORD, R.string.error_passwords_not_equal);
+        }
     }
 }

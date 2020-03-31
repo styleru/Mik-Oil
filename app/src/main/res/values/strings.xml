@@ -3,6 +3,8 @@
     <string name="recovery">восстановить</string>
     <string name="fail">Провал!</string>
     <string name="luck">Успех!</string>
+    <string name="error_empty_field">Поле не должно быть пустым</string>
+    <string name="error_passwords_not_equal">Пароли не совпадают</string>
     <string name="try_again">Поля не должны быть пустыми.</string>
     <string name="registration">Регистрация</string>
     <string name="entrance">Вход</string>
