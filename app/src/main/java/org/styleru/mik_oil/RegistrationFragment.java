@@ -67,7 +67,7 @@ public class RegistrationFragment extends MvpAppCompatFragment implements Regist
             goButton.setVisibility(View.INVISIBLE);
             progressBar.setVisibility(View.VISIBLE);
         } else {
-            progressBar.setVisibility(View.INVISIBLE);
+            progressBar.setVisibility(View.GONE);
             goButton.setVisibility(View.VISIBLE);
         }
     }
