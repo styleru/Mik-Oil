@@ -2,23 +2,22 @@
 <androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_width="match_parent"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/registration_fragment_view"
+        android:id="@+id/fragment_registration"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/name_field"
-            style="@style/NiceYellow"
-            android:layout_marginTop="10dp"
+            android:id="@+id/registration_name"
+            style="@style/EditText"
             android:hint="@string/hint_name"
             android:importantForAutofill="no"
             android:inputType="text"
-            app:layout_constraintBottom_toTopOf="@+id/phone_field"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -26,66 +25,54 @@
             app:layout_constraintVertical_chainStyle="packed" />
 
         <EditText
-            android:id="@+id/phone_field"
-            style="@style/NiceYellow"
+            android:id="@+id/registration_phone_number"
+            style="@style/EditText"
             android:layout_marginTop="22dp"
             android:hint="@string/hint_phone"
             android:importantForAutofill="no"
             android:inputType="phone"
-            app:layout_constraintBottom_toTopOf="@+id/password_field"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name_field" />
+            app:layout_constraintStart_toStartOf="@+id/registration_name"
+            app:layout_constraintTop_toBottomOf="@+id/registration_name" />
 
         <EditText
-            android:id="@+id/password_field"
-            style="@style/NiceYellow"
+            android:id="@+id/registration_password"
+            style="@style/EditText"
             android:layout_marginTop="22dp"
             android:hint="@string/hint_password"
             android:importantForAutofill="no"
             android:inputType="textPassword"
-            app:layout_constraintBottom_toTopOf="@+id/repeating_password_field"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phone_field" />
+            app:layout_constraintStart_toStartOf="@+id/registration_phone_number"
+            app:layout_constraintTop_toBottomOf="@+id/registration_phone_number" />
 
         <EditText
-            android:id="@+id/repeating_password_field"
-            style="@style/NiceYellow"
+            android:id="@+id/registration_repeat_password"
+            style="@style/EditText"
             android:layout_marginTop="22dp"
             android:hint="@string/hint_repeating_password"
             android:importantForAutofill="no"
             android:inputType="textPassword"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password_field" />
+            app:layout_constraintStart_toStartOf="@+id/registration_password"
+            app:layout_constraintTop_toBottomOf="@+id/registration_password" />
 
         <Button
-            android:id="@+id/go"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="22dp"
-            android:background="@drawable/button"
-            android:elevation="7dp"
-            android:stateListAnimator="@drawable/button_animator"
-            android:text="@string/go"
-            android:textSize="30sp"
+            android:id="@+id/registration_go_button"
+            style="@style/GoButton"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/repeating_password_field"
-            app:layout_constraintVertical_bias="0.7" />
+            app:layout_constraintTop_toBottomOf="@+id/registration_repeat_password" />
 
         <ProgressBar
-            android:id="@+id/progress_circular"
+            android:id="@+id/registration_progressbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@+id/go"
-            app:layout_constraintEnd_toEndOf="@+id/go"
-            app:layout_constraintStart_toStartOf="@+id/go"
-            app:layout_constraintTop_toTopOf="@+id/go" />
+            app:layout_constraintBottom_toBottomOf="@+id/registration_go_button"
+            app:layout_constraintEnd_toEndOf="@+id/registration_go_button"
+            app:layout_constraintStart_toStartOf="@+id/registration_go_button"
+            app:layout_constraintTop_toTopOf="@+id/registration_go_button" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

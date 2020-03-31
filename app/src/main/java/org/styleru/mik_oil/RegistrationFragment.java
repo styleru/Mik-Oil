@@ -22,17 +22,17 @@ import butterknife.Unbinder;
 
 public class RegistrationFragment extends MvpAppCompatFragment implements RegistrationView {
 
-    @BindView(R.id.progress_circular)
+    @BindView(R.id.registration_progressbar)
     ProgressBar progressBar;
-    @BindView(R.id.go)
+    @BindView(R.id.registration_go_button)
     Button goButton;
-    @BindView(R.id.name_field)
+    @BindView(R.id.registration_name)
     EditText name;
-    @BindView(R.id.phone_field)
+    @BindView(R.id.registration_phone_number)
     EditText phone;
-    @BindView(R.id.password_field)
+    @BindView(R.id.registration_password)
     EditText password;
-    @BindView(R.id.repeating_password_field)
+    @BindView(R.id.registration_repeat_password)
     EditText repeatingPassword;
 
     private Unbinder unbinder;

@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public class EntranceFragment extends Fragment {
-    @BindView(R.id.enter)
+    @BindView(R.id.login)
     Button enter;
     @BindView(R.id.registration)
     Button registration;

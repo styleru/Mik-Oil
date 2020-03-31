@@ -8,12 +8,9 @@
 
     <Button
         android:id="@+id/registration"
-        style="@style/NiceYellow"
-        android:elevation="7dp"
-        android:stateListAnimator="@drawable/button_animator"
+        style="@style/StandardButton"
         android:text="@string/registration"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toTopOf="@+id/enter"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -21,17 +18,11 @@
         app:layout_constraintVertical_bias="0.2"/>
 
     <Button
-        android:id="@+id/enter"
-        style="@style/NiceYellow"
-        android:background="@drawable/button"
-        android:elevation="7dp"
-        android:stateListAnimator="@drawable/button_animator"
-        android:text="@string/entrance"
-        android:textAllCaps="false"
+        android:id="@+id/login"
+        style="@style/StandardButton"
         android:layout_marginTop="22dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/registration"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:text="@string/entrance"
+        app:layout_constraintStart_toStartOf="@+id/registration"
+        app:layout_constraintTop_toBottomOf="@+id/registration" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

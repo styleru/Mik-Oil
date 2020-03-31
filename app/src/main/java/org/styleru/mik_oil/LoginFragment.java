@@ -25,13 +25,13 @@ import butterknife.Unbinder;
 
 public class LoginFragment extends MvpAppCompatFragment implements LoginView {
 
-    @BindView(R.id.progress_circular)
+    @BindView(R.id.login_progressbar)
     ProgressBar progressBar;
-    @BindView(R.id.go)
+    @BindView(R.id.login_go)
     Button goButton;
     @BindView(R.id.login)
     EditText login;
-    @BindView(R.id.password)
+    @BindView(R.id.login_password)
     EditText password;
     @BindView(R.id.recovery)
     TextView recovery;
