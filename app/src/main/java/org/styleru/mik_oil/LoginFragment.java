@@ -14,10 +14,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
+
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -84,9 +85,24 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
     }
 
     @Override
-    public void showValidationError(Field field, @StringRes int messageRes) {
-        String message = getString(messageRes);
-        showToast(message);
+    public void showValidationErrors(Map<Field, Integer> errors) {
+        for (Map.Entry<Field, Integer> error : errors.entrySet()) {
+            EditText field = null;
+            switch (error.getKey()) {
+                case LOGIN:
+                    field = login;
+                    break;
+                case PASSWORD:
+                    field = password;
+                    break;
+                case ALL:
+                    String msg = getString(error.getValue());
+                    showToast(msg);
+            }
+            if (field != null) {
+                field.setError(getString(error.getValue()));
+            }
+        }
     }
 
     @Override
