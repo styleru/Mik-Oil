@@ -34,7 +34,9 @@ public class LoginPresenter extends MvpPresenter<LoginView> {
                     getViewState().showToast(failStr);
                 }
             }, 2000);
-        } else getViewState().showValidationErrors(errors);
+        } else {
+            getViewState().showValidationErrors(errors);
+        }
     }
 
     private boolean isNotNull(String login, String password) {
