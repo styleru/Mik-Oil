@@ -98,7 +98,7 @@ public class RegistrationFragment extends MvpAppCompatFragment implements Regist
 
     @Override
     public void goToMain() {
-        String message = getString(R.string.luck);
+        String message = getString(R.string.success);
         showToast(message);
     }
 

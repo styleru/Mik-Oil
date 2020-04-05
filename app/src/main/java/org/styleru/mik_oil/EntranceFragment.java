@@ -15,9 +15,9 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public class EntranceFragment extends Fragment {
-    @BindView(R.id.login)
-    Button enter;
-    @BindView(R.id.registration)
+    @BindView(R.id.entrance_login)
+    Button login;
+    @BindView(R.id.entrance_registration)
     Button registration;
 
     private Unbinder unbinder;
@@ -32,7 +32,7 @@ public class EntranceFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle saveInstanceState) {
         unbinder = ButterKnife.bind(this, view);
 
-        enter.setOnClickListener(v -> {
+        login.setOnClickListener(v -> {
             Activity activity = getActivity();
             if (activity != null) {
                 ((FragmentNavigator) activity).goToLoginFragment();
