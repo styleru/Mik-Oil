@@ -17,7 +17,7 @@
             android:hint="@string/hint_phone"
             android:importantForAutofill="no"
             android:inputType="phone"
-            app:layout_constraintBottom_toTopOf="@id/recovery_phone_tip"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -30,16 +30,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="27dp"
             android:text="@string/phone_hint"
-            app:layout_constraintBottom_toTopOf="@id/recovery_phone_go_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@id/recovery_phone_number"
             app:layout_constraintTop_toBottomOf="@id/recovery_phone_number" />
 
         <Button
             android:id="@+id/recovery_phone_go_button"
             style="@style/GoButton"
-            android:layout_marginTop="72dp"
-            android:layout_marginBottom="24dp"
+            app:layout_constraintVertical_bias="0.2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
