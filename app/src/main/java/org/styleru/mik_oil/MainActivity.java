@@ -40,4 +40,13 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigator
                 .addToBackStack(null)
                 .commit();
     }
+
+    @Override
+    public void goToRecoveryPhoneFragment() {
+        RecoveryPhoneFragment fragment = new RecoveryPhoneFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, fragment)
+                .addToBackStack(null)
+                .commit();
+    }
 }

@@ -7,4 +7,6 @@ public interface FragmentNavigator {
     void goToLoginFragment();
 
     void goToRegistrationFragment();
+
+    void goToRecoveryPhoneFragment();
 }
