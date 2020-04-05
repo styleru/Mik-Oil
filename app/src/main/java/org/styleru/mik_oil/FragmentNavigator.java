@@ -7,4 +7,8 @@ public interface FragmentNavigator {
     void goToLoginFragment();
 
     void goToRegistrationFragment();
+
+    void goToPasswordRecoveryFragment();
+
+    void goToVerificationKeyFragment();
 }

@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigator
                 .commit();
     }
 
+    @Override
     public void goToEntranceFragment() {
         clearBackStack();
         EntranceFragment fragment = new EntranceFragment();
@@ -34,6 +35,25 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigator
                 .commit();
     }
 
+    @Override
+    public void goToPasswordRecoveryFragment() {
+        PasswordRecoveryFragment fragment = new PasswordRecoveryFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, fragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    @Override
+    public void goToVerificationKeyFragment() {
+        VerificationKeyFragment fragment = new VerificationKeyFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, fragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    @Override
     public void goToRegistrationFragment() {
         RegistrationFragment fragment = new RegistrationFragment();
         getSupportFragmentManager().beginTransaction()
