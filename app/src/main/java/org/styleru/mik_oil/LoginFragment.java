@@ -30,11 +30,11 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
     ProgressBar progressBar;
     @BindView(R.id.login_go)
     Button goButton;
-    @BindView(R.id.login)
+    @BindView(R.id.login_login)
     EditText login;
     @BindView(R.id.login_password)
     EditText password;
-    @BindView(R.id.recovery)
+    @BindView(R.id.login_recovery)
     TextView recovery;
 
     private Unbinder unbinder;
@@ -73,7 +73,7 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
             goButton.setVisibility(View.INVISIBLE);
             progressBar.setVisibility(View.VISIBLE);
         } else {
-            progressBar.setVisibility(View.INVISIBLE);
+            progressBar.setVisibility(View.GONE);
             goButton.setVisibility(View.VISIBLE);
         }
     }
@@ -104,7 +104,7 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
 
     @Override
     public void goToMain() {
-        String message = getString(R.string.luck);
+        String message = getString(R.string.success);
         showToast(message);
     }
 }

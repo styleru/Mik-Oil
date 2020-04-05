@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/login"
+        android:id="@+id/login_login"
         style="@style/EditText"
         android:hint="@string/hint_login"
         android:importantForAutofill="no"
@@ -26,11 +26,11 @@
         android:hint="@string/hint_password"
         android:importantForAutofill="no"
         android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="@+id/login"
-        app:layout_constraintTop_toBottomOf="@+id/login" />
+        app:layout_constraintStart_toStartOf="@+id/login_login"
+        app:layout_constraintTop_toBottomOf="@+id/login_login" />
 
     <TextView
-        android:id="@+id/recovery"
+        android:id="@+id/login_recovery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
@@ -46,7 +46,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recovery"
+        app:layout_constraintTop_toBottomOf="@id/login_recovery"
         app:layout_constraintVertical_bias="0.7" />
 
     <ProgressBar

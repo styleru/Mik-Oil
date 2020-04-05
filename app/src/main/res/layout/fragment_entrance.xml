@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/registration"
+        android:id="@+id/entrance_registration"
         style="@style/StandardButton"
         android:text="@string/registration"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,11 +18,11 @@
         app:layout_constraintVertical_bias="0.2"/>
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/entrance_login"
         style="@style/StandardButton"
         android:layout_marginTop="22dp"
         android:text="@string/entrance"
-        app:layout_constraintStart_toStartOf="@+id/registration"
-        app:layout_constraintTop_toBottomOf="@+id/registration" />
+        app:layout_constraintStart_toStartOf="@+id/entrance_registration"
+        app:layout_constraintTop_toBottomOf="@+id/entrance_registration" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
