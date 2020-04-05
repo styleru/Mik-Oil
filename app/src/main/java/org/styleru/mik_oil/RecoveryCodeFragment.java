@@ -26,7 +26,7 @@ public class RecoveryCodeFragment extends MvpAppCompatFragment implements Recove
     ProgressBar progressBar;
     @BindView(R.id.recovery_code_go_button)
     Button goButton;
-    @BindView(R.id.recovery_code_key)
+    @BindView(R.id.recovery_code)
     EditText code;
     @InjectPresenter
     RecoveryCodePresenter presenter;

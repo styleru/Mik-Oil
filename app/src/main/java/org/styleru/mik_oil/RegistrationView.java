@@ -9,10 +9,6 @@ import java.util.Map;
 
 public interface RegistrationView extends MvpView {
 
-    enum Field {
-        NAME, PHONE, PASSWORD, REPEATING_PASSWORD
-    }
-
     @StateStrategyType(AddToEndSingleStrategy.class)
     void setProgressEnabled(boolean enabled);
 
@@ -29,4 +25,8 @@ public interface RegistrationView extends MvpView {
 
     @StateStrategyType(OneExecutionStateStrategy.class)
     void showToast(String text);
+
+    enum Field {
+        NAME, PHONE, PASSWORD, REPEATING_PASSWORD, ALL
+    }
 }

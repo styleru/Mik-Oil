@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/recovery_phone_number"
+            android:id="@+id/recovery_phone"
             style="@style/EditText"
             android:hint="@string/hint_phone"
             android:importantForAutofill="no"
@@ -30,8 +30,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="27dp"
             android:text="@string/recovery_phone_hint"
-            app:layout_constraintStart_toStartOf="@id/recovery_phone_number"
-            app:layout_constraintTop_toBottomOf="@id/recovery_phone_number" />
+            app:layout_constraintStart_toStartOf="@id/recovery_phone"
+            app:layout_constraintTop_toBottomOf="@id/recovery_phone" />
 
         <Button
             android:id="@+id/recovery_phone_go_button"

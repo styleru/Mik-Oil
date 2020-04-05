@@ -27,7 +27,7 @@ public class RecoveryPhoneFragment extends MvpAppCompatFragment implements Recov
     ProgressBar progressBar;
     @BindView(R.id.recovery_phone_go_button)
     Button goButton;
-    @BindView(R.id.recovery_phone_number)
+    @BindView(R.id.recovery_phone)
     EditText phone;
     @InjectPresenter
     RecoveryPhonePresenter presenter;
