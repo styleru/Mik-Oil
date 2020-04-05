@@ -7,7 +7,7 @@
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/fragment_registration"
+        android:id="@+id/fragment_recovery_phone"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
