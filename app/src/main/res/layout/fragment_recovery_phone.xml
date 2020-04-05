@@ -29,7 +29,7 @@
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="27dp"
-            android:text="@string/phone_hint"
+            android:text="@string/recovery_phone_hint"
             app:layout_constraintStart_toStartOf="@id/recovery_phone_number"
             app:layout_constraintTop_toBottomOf="@id/recovery_phone_number" />
 

@@ -1,6 +1,5 @@
 package org.styleru.mik_oil;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,29 +20,29 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class RecoveryPhoneFragment extends MvpAppCompatFragment implements RecoveryPhoneView {
+public class RecoveryCodeFragment extends MvpAppCompatFragment implements RecoveryCodeView {
 
-    @BindView(R.id.recovery_phone_progressbar)
+    @BindView(R.id.recovery_code_progressbar)
     ProgressBar progressBar;
-    @BindView(R.id.recovery_phone_go_button)
+    @BindView(R.id.recovery_code_go_button)
     Button goButton;
-    @BindView(R.id.recovery_phone_number)
-    EditText phone;
+    @BindView(R.id.recovery_code_key)
+    EditText code;
     @InjectPresenter
-    RecoveryPhonePresenter presenter;
+    RecoveryCodePresenter presenter;
     private Unbinder unbinder;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_recovery_phone, container, false);
+        return inflater.inflate(R.layout.fragment_recovery_code, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle saveInstanceState) {
         unbinder = ButterKnife.bind(this, view);
 
-        goButton.setOnClickListener(v -> presenter.onGoClicked(phone.getText().toString()));
+        goButton.setOnClickListener(v -> presenter.onGoClicked(code.getText().toString()));
     }
 
     @Override
@@ -64,12 +63,12 @@ public class RecoveryPhoneFragment extends MvpAppCompatFragment implements Recov
     }
 
     @Override
-    public void showValidationErrors(Map<Field, Integer> errors) {
-        for (Map.Entry<Field, Integer> error : errors.entrySet()) {
+    public void showValidationErrors(Map<RecoveryCodeView.Field, Integer> errors) {
+        for (Map.Entry<RecoveryCodeView.Field, Integer> error : errors.entrySet()) {
             EditText field = null;
             switch (error.getKey()) {
-                case PHONE:
-                    field = phone;
+                case CODE:
+                    field = code;
                     break;
                 case ALL:
                     String msg = getString(error.getValue());
@@ -85,10 +84,6 @@ public class RecoveryPhoneFragment extends MvpAppCompatFragment implements Recov
     public void goToMain() {
         String message = getString(R.string.luck);
         showToast(message);
-        Activity activity = getActivity();
-        if (activity != null) {
-            ((FragmentNavigator) activity).goToRecoveryCodeFragment();
-        }
     }
 
     @Override
@@ -97,4 +92,3 @@ public class RecoveryPhoneFragment extends MvpAppCompatFragment implements Recov
         toast.show();
     }
 }
-

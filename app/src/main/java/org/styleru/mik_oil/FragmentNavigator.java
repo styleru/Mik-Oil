@@ -9,4 +9,6 @@ public interface FragmentNavigator {
     void goToRegistrationFragment();
 
     void goToRecoveryPhoneFragment();
+
+    void goToRecoveryCodeFragment();
 }
