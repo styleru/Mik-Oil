@@ -21,7 +21,7 @@ public interface RecoveryPhoneView extends MvpView {
     void showValidationErrors(Map<RecoveryPhoneView.Field, Integer> errors);
 
     @StateStrategyType(OneExecutionStateStrategy.class)
-    void goToMain();
+    void goToRecoveryCodeFragment();
 
     @StateStrategyType(OneExecutionStateStrategy.class)
     void showToast(String text);

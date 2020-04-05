@@ -82,7 +82,7 @@ public class RecoveryPhoneFragment extends MvpAppCompatFragment implements Recov
     }
 
     @Override
-    public void goToMain() {
+    public void goToRecoveryCodeFragment() {
         String message = getString(R.string.luck);
         showToast(message);
         Activity activity = getActivity();

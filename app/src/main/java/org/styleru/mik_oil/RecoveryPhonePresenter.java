@@ -27,7 +27,7 @@ public class RecoveryPhonePresenter extends MvpPresenter<RecoveryPhoneView> {
                 getViewState().setProgressEnabled(false);
 
                 if (rand == 1) {
-                    getViewState().goToMain();
+                    getViewState().goToRecoveryCodeFragment();
                 } else if (rand == 0) {
                     String failStr = MikOilApplication.getAppContext().getString(R.string.fail);
                     getViewState().showToast(failStr);
