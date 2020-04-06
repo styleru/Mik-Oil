@@ -14,9 +14,9 @@
         <EditText
             android:id="@+id/code_recovery"
             style="@style/EditText"
-            android:hint="@string/hint_phone"
+            android:hint="@string/hint_code"
             android:importantForAutofill="no"
-            android:inputType="phone"
+            android:inputType="number"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

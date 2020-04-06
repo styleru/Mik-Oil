@@ -30,7 +30,7 @@ public class PhoneRecoveryPresenter extends MvpPresenter<PhoneRecoveryView> {
                 if (rand == 1) {
                     getViewState().goToCodeRecoveryFragment();
                 } else if (rand == 0) {
-                    String fail = MikOilApplication.getAppContext().getString(R.string.fail);
+                    String fail = MikOilApplication.getAppContext().getString(R.string.try_again_phone);
                     getViewState().showToast(fail);
                 }
             }, 2000);

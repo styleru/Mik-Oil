@@ -29,7 +29,7 @@ public class CodeRecoveryPresenter extends MvpPresenter<CodeRecoveryView> {
                 if (rand == 1) {
                     getViewState().goToMain();
                 } else if (rand == 0) {
-                    String failStr = MikOilApplication.getAppContext().getString(R.string.fail);
+                    String failStr = MikOilApplication.getAppContext().getString(R.string.try_again_code);
                     getViewState().showToast(failStr);
                 }
             }, 2000);

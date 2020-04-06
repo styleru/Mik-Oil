@@ -6,6 +6,8 @@
     <string name="error_empty_field">Поле не должно быть пустым</string>
     <string name="error_passwords_not_equal">Пароли не совпадают</string>
     <string name="try_again">Поля не должны быть пустыми.</string>
+    <string name="try_again_phone">Неверный номер телефона.</string>
+    <string name="try_again_code">Неверный код.</string>
     <string name="registration">Регистрация</string>
     <string name="entrance">Вход</string>
     <string name="go">GO</string>
@@ -13,6 +15,7 @@
     <string name="toolbar_text">mik-oil</string>
     <string name="hint_name">Имя</string>
     <string name="hint_phone">Телефон</string>
+    <string name="hint_code">Введите код</string>
     <string name="hint_password">Пароль</string>
     <string name="hint_repeating_password">Повторить пароль</string>
     <string name="recovery_phone_text">Введите номер телефона.\nКод для смены пароля\nбудет выслан по СМС.</string>
