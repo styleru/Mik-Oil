@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigator
     }
 
     public void goToEntranceFragment() {
+        clearBackStack();
         EntranceFragment fragment = new EntranceFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment)
@@ -57,5 +58,13 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigator
                 .replace(R.id.container, fragment)
                 .addToBackStack(null)
                 .commit();
+    }
+
+    private void clearBackStack() {
+        int entryCount = getSupportFragmentManager().getBackStackEntryCount();
+        while (entryCount > 0) {
+            getSupportFragmentManager().popBackStack();
+            entryCount--;
+        }
     }
 }
