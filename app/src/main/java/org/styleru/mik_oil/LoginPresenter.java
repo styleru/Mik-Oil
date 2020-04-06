@@ -14,7 +14,6 @@ import java.util.Random;
 public class LoginPresenter extends MvpPresenter<LoginView> {
 
     void onLoginClicked(String login, String password) {
-
         Map<LoginView.Field, Integer> errors = new HashMap<>();
         checkEmptyFields(login, password, errors);
         if (errors.isEmpty()) {
@@ -37,10 +36,6 @@ public class LoginPresenter extends MvpPresenter<LoginView> {
         } else {
             getViewState().showValidationErrors(errors);
         }
-    }
-
-    private boolean isNotNull(String login, String password) {
-        return !login.isEmpty() && !password.isEmpty();
     }
 
     private void checkEmptyFields(String login, String password,

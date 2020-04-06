@@ -1,5 +1,6 @@
 package org.styleru.mik_oil;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -55,6 +56,12 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
         SpannableString spannableString = new SpannableString(recovery.getText());
         spannableString.setSpan(new UnderlineSpan(), 0, recovery.getText().length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
         recovery.setText(spannableString);
+        recovery.setOnClickListener(v -> {
+            Activity activity = getActivity();
+            if (activity != null) {
+                ((FragmentNavigator) activity).goToPhoneRecoveryFragment();
+            }
+        });
 
         goButton.setOnClickListener(v ->
                 presenter.onLoginClicked(login.getText().toString(),
