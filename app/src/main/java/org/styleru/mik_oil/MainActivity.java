@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigator
                 .commit();
     }
 
+    @Override
     public void goToEntranceFragment() {
         EntranceFragment fragment = new EntranceFragment();
         getSupportFragmentManager().beginTransaction()
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigator
                 .commit();
     }
 
+    @Override
     public void goToRegistrationFragment() {
         RegistrationFragment fragment = new RegistrationFragment();
         getSupportFragmentManager().beginTransaction()
@@ -41,8 +43,18 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigator
                 .commit();
     }
 
+    @Override
     public void goToRecoveryFragment() {
         RecoveryFragment fragment = new RecoveryFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, fragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    @Override
+    public void goToRecoverySmsFragment() {
+        RecoverySmsFragment fragment = new RecoverySmsFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment)
                 .addToBackStack(null)

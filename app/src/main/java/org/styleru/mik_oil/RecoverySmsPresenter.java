@@ -7,30 +7,30 @@ import com.arellomobile.mvp.MvpPresenter;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
-public class RecoveryPresenter extends MvpPresenter<RecoveryView> {
+public class RecoverySmsPresenter extends MvpPresenter<RecoverySmsView> {
 
-    void onRecoveryClicked(String phone) {
+    void onRecoveryClicked(String code) {
 
-        Map<RecoveryView.Field, Integer> errors = new HashMap<>();
-        checkEmptyField(phone, errors);
+        Map<RecoverySmsView.Field, Integer> errors = new HashMap<>();
+        checkEmptyField(code, errors);
         if (errors.isEmpty()) {
             Handler handler = new Handler(Looper.getMainLooper());
 
             getViewState().setProgressEnabled(true);
             handler.postDelayed(() -> {
                 getViewState().setProgressEnabled(false);
-                getViewState().goToRecoverySms();
+                getViewState().goToMain();
             }, 2000);
         } else {
             getViewState().showValidationErrors(errors);
         }
     }
 
-    private void checkEmptyField(String value, Map<RecoveryView.Field, Integer> map) {
+    private void checkEmptyField(String value, Map<RecoverySmsView.Field, Integer> map) {
         if (value == null || value.isEmpty()) {
-            map.put(RecoveryView.Field.PHONE, R.string.error_empty_field);
+            map.put(RecoverySmsView.Field.CODE, R.string.error_empty_field);
         }
     }
+
 }
