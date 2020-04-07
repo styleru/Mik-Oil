@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Mik-Oil</string>
     <string name="recovery">восстановить</string>
+    <string name="recovery_text">Введите номер телефона.\nКод для смены пароля\nбудет выслан по СМС.</string>
+    <string name="recovery_sms_text">Введите код из СМС.</string>
     <string name="fail">Провал!</string>
     <string name="luck">Успех!</string>
     <string name="error_empty_field">Поле не должно быть пустым</string>
@@ -12,6 +14,7 @@
     <string name="hint_login">Логин/Телефон</string>
     <string name="toolbar_text">mik-oil</string>
     <string name="hint_name">Имя</string>
+    <string name="hint_sms_code">Введите код</string>
     <string name="hint_phone">Телефон</string>
     <string name="hint_password">Пароль</string>
     <string name="hint_repeating_password">Повторить пароль</string>
