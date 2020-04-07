@@ -15,4 +15,7 @@
     <string name="hint_phone">Телефон</string>
     <string name="hint_password">Пароль</string>
     <string name="hint_repeating_password">Повторить пароль</string>
+    <string name="recovery_phone_hint">Введите номер телефона. Код для смены праоля будет выслан по СМС.</string>
+    <string name="recovery_code_text">Введите код из СМС</string>
+    <string name="recovery_code_hint">Введите код</string>
 </resources>

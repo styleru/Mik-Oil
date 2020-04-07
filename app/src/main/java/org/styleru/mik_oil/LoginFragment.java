@@ -1,5 +1,6 @@
 package org.styleru.mik_oil;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -59,6 +60,10 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
         goButton.setOnClickListener(v ->
                 presenter.onLoginClicked(login.getText().toString(),
                         password.getText().toString()));
+
+
+        recovery.setOnClickListener(v ->
+                goToRecovery());
     }
 
     @Override
@@ -85,6 +90,14 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
     }
 
     @Override
+    public void goToRecovery() {
+        Activity activity = getActivity();
+        if (activity instanceof FragmentNavigator && activity != null){
+            ((FragmentNavigator) activity).goToRecoveryPhoneFragment();
+        }
+    }
+
+    @Override
     public void showValidationErrors(Map<Field, Integer> errors) {
         for (Map.Entry<Field, Integer> error : errors.entrySet()) {
             EditText field = null;
@@ -107,4 +120,6 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
         String message = getString(R.string.luck);
         showToast(message);
     }
+
+
 }

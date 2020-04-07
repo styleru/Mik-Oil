@@ -107,4 +107,6 @@ public class RegistrationFragment extends MvpAppCompatFragment implements Regist
         Toast toast = Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT);
         toast.show();
     }
+
+
 }

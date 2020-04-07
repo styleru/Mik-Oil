@@ -20,6 +20,7 @@ public class EntranceFragment extends Fragment {
     @BindView(R.id.registration)
     Button registration;
 
+
     private Unbinder unbinder;
 
     @Override

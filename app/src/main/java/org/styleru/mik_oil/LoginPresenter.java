@@ -55,4 +55,8 @@ public class LoginPresenter extends MvpPresenter<LoginView> {
             map.put(field, R.string.error_empty_field);
         }
     }
+
+    void onRecoveryClicked(){
+        getViewState().goToRecovery();
+    }
 }

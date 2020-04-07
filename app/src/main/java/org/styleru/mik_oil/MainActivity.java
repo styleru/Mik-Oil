@@ -28,6 +28,9 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigator
 
     public void goToEntranceFragment() {
         EntranceFragment fragment = new EntranceFragment();
+        while (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            getSupportFragmentManager().popBackStackImmediate();
+        }
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment)
                 .commit();
@@ -35,6 +38,24 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigator
 
     public void goToRegistrationFragment() {
         RegistrationFragment fragment = new RegistrationFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, fragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    @Override
+    public void goToRecoveryCodeFragment() {
+        RecoveryCodeFragment fragment = new RecoveryCodeFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, fragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    @Override
+    public void goToRecoveryPhoneFragment() {
+        RecoveryPhoneFragment fragment = new RecoveryPhoneFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment)
                 .addToBackStack(null)
