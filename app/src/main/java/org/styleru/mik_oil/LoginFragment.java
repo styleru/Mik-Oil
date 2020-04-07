@@ -106,6 +106,9 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
                 case ALL:
                     String msg = getString(error.getValue());
                     showToast(msg);
+                    break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + error.getKey());
             }
             if (field != null) {
                 field.setError(getString(error.getValue()));
