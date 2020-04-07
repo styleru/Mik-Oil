@@ -1,22 +1,17 @@
 package org.styleru.mik_oil;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
-import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 
 import java.util.Map;
@@ -25,48 +20,31 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class LoginFragment extends MvpAppCompatFragment implements LoginView {
+public class RecoveryFragment extends Fragment implements RecoveryView {
 
-    @BindView(R.id.login_progressbar)
-    ProgressBar progressBar;
-    @BindView(R.id.login_go)
+    @BindView(R.id.recovery_phone_number)
+    EditText phone;
+    @BindView(R.id.recovery_go)
     Button goButton;
-    @BindView(R.id.login)
-    EditText login;
-    @BindView(R.id.login_password)
-    EditText password;
-    @BindView(R.id.recovery)
-    TextView recovery;
-
-    private Unbinder unbinder;
+    @BindView(R.id.recovery_progressbar)
+    ProgressBar progressBar;
 
     @InjectPresenter
-    LoginPresenter presenter;
+    RecoveryPresenter presenter;
+
+    private Unbinder unbinder;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_login, container, false);
+        return inflater.inflate(R.layout.fragment_recovery, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle saveInstanceState) {
         unbinder = ButterKnife.bind(this, view);
-
-        SpannableString spannableString = new SpannableString(recovery.getText());
-        spannableString.setSpan(new UnderlineSpan(), 0, recovery.getText().length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-        recovery.setText(spannableString);
-
         goButton.setOnClickListener(v ->
-                presenter.onLoginClicked(login.getText().toString(),
-                        password.getText().toString()));
-        recovery.setOnClickListener(v ->
-        {
-            Activity activity = getActivity();
-            if (activity != null) {
-                ((FragmentNavigator) activity).goToRecoveryFragment();
-            }
-        });
+                presenter.onRecoveryClicked(phone.getText().toString()));
     }
 
     @Override
@@ -76,20 +54,20 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
     }
 
     @Override
+    public void goToRecoverySms() {
+        String message = getString(R.string.luck);
+        showToast(message);
+    }
+
+    @Override
     public void setProgressEnabled(boolean enabled) {
         if (enabled) {
             goButton.setVisibility(View.INVISIBLE);
             progressBar.setVisibility(View.VISIBLE);
         } else {
-            progressBar.setVisibility(View.INVISIBLE);
+            progressBar.setVisibility(View.GONE);
             goButton.setVisibility(View.VISIBLE);
         }
-    }
-
-    @Override
-    public void showToast(String text) {
-        Toast toast = Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT);
-        toast.show();
     }
 
     @Override
@@ -97,11 +75,8 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
         for (Map.Entry<Field, Integer> error : errors.entrySet()) {
             EditText field = null;
             switch (error.getKey()) {
-                case LOGIN:
-                    field = login;
-                    break;
-                case PASSWORD:
-                    field = password;
+                case PHONE:
+                    field = phone;
                     break;
                 case ALL:
                     String msg = getString(error.getValue());
@@ -114,8 +89,8 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
     }
 
     @Override
-    public void goToMain() {
-        String message = getString(R.string.luck);
-        showToast(message);
+    public void showToast(String text) {
+        Toast toast = Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT);
+        toast.show();
     }
 }
