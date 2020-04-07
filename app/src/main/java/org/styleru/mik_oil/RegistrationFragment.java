@@ -89,9 +89,6 @@ public class RegistrationFragment extends MvpAppCompatFragment implements Regist
                 case REPEATING_PASSWORD:
                     field = repeatingPassword;
                     break;
-                case ALL:
-                    String msg = getString(error.getValue());
-                    showToast(msg);
             }
             if (field != null) {
                 field.setError(getString(error.getValue()));

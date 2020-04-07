@@ -95,9 +95,6 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
                 case PASSWORD:
                     field = password;
                     break;
-                case ALL:
-                    String msg = getString(error.getValue());
-                    showToast(msg);
             }
             if (field != null) {
                 field.setError(getString(error.getValue()));

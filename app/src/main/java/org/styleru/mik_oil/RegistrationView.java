@@ -10,7 +10,7 @@ import java.util.Map;
 public interface RegistrationView extends MvpView {
 
     enum Field {
-        NAME, PHONE, PASSWORD, REPEATING_PASSWORD, ALL
+        NAME, PHONE, PASSWORD, REPEATING_PASSWORD
     }
 
     @StateStrategyType(AddToEndSingleStrategy.class)

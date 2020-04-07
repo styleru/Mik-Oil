@@ -10,7 +10,7 @@ import java.util.Map;
 public interface LoginView extends MvpView {
 
     enum Field {
-        LOGIN, PASSWORD, ALL
+        LOGIN, PASSWORD
     }
 
     @StateStrategyType(AddToEndSingleStrategy.class)
