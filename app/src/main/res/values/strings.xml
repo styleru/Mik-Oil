@@ -10,7 +10,7 @@
     <string name="go">GO</string>
     <string name="hint_login">Логин/Телефон</string>
     <string name="hint_enter_the_key">Введите код</string>
-    <string name="recovery_help_text">Введите номер телефона.\nКод для смены праоля \nбудет выслан по СМС.</string>
+    <string name="recovery_help_text">Введите номер телефона.\nКод для смены пароля будет выслан по СМС.</string>
     <string name="enter_the_code_help_text">Введите код из СМС.</string>
     <string name="toolbar_text">mik-oil</string>
     <string name="hint_name">Имя</string>
