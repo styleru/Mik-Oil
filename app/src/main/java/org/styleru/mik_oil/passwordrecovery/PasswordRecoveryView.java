@@ -1,4 +1,4 @@
-package org.styleru.mik_oil;
+package org.styleru.mik_oil.passwordrecovery;
 
 import com.arellomobile.mvp.MvpView;
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy;
@@ -7,10 +7,10 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 
 import java.util.Map;
 
-public interface LoginView extends MvpView {
+public interface PasswordRecoveryView extends MvpView {
 
     enum Field {
-        LOGIN, PASSWORD
+        PHONE
     }
 
     @StateStrategyType(AddToEndSingleStrategy.class)
@@ -22,10 +22,10 @@ public interface LoginView extends MvpView {
      * @param errors map of {@link Field} to string resource of error
      */
     @StateStrategyType(OneExecutionStateStrategy.class)
-    void showValidationErrors(Map<LoginView.Field, Integer> errors);
+    void showValidationErrors(Map<Field, Integer> errors);
 
     @StateStrategyType(OneExecutionStateStrategy.class)
-    void goToMain();
+    void goToCheckingVerificationKey();
 
     @StateStrategyType(OneExecutionStateStrategy.class)
     void showToast(String text);

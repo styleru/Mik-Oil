@@ -1,5 +1,6 @@
-package org.styleru.mik_oil;
+package org.styleru.mik_oil.passwordrecovery;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -14,45 +16,42 @@ import androidx.annotation.NonNull;
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 
+import org.styleru.mik_oil.FragmentNavigator;
+import org.styleru.mik_oil.R;
+
 import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class RegistrationFragment extends MvpAppCompatFragment implements RegistrationView {
+public class PasswordRecoveryFragment extends MvpAppCompatFragment implements PasswordRecoveryView {
 
-    @BindView(R.id.registration_progressbar)
+    @BindView(R.id.password_recovery_progressbar)
     ProgressBar progressBar;
-    @BindView(R.id.registration_go_button)
+    @BindView(R.id.password_recovery_go)
     Button goButton;
-    @BindView(R.id.registration_name)
-    EditText name;
-    @BindView(R.id.registration_phone_number)
+    @BindView(R.id.password_recovery_phone)
     EditText phone;
-    @BindView(R.id.registration_password)
-    EditText password;
-    @BindView(R.id.registration_repeat_password)
-    EditText repeatingPassword;
+    @BindView(R.id.password_recovery_help_text)
+    TextView helpText;
 
     private Unbinder unbinder;
 
     @InjectPresenter
-    RegistrationPresenter presenter;
+    PasswordRecoveryPresenter presenter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_registration, container, false);
+        return inflater.inflate(R.layout.fragment_password_recovery, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle saveInstanceState) {
         unbinder = ButterKnife.bind(this, view);
         goButton.setOnClickListener(v ->
-                presenter.onRegistrationClicked(name.getText().toString(),
-                        phone.getText().toString(), password.getText().toString(),
-                        repeatingPassword.getText().toString()));
+                presenter.onGetVerificationKeyClicked(phone.getText().toString()));
     }
 
     @Override
@@ -76,19 +75,8 @@ public class RegistrationFragment extends MvpAppCompatFragment implements Regist
     public void showValidationErrors(Map<Field, Integer> errors) {
         for (Map.Entry<Field, Integer> error : errors.entrySet()) {
             EditText field = null;
-            switch (error.getKey()) {
-                case NAME:
-                    field = name;
-                    break;
-                case PHONE:
-                    field = phone;
-                    break;
-                case PASSWORD:
-                    field = password;
-                    break;
-                case REPEATING_PASSWORD:
-                    field = repeatingPassword;
-                    break;
+            if (error.getKey() == Field.PHONE) {
+                field = phone;
             }
             if (field != null) {
                 field.setError(getString(error.getValue()));
@@ -97,9 +85,11 @@ public class RegistrationFragment extends MvpAppCompatFragment implements Regist
     }
 
     @Override
-    public void goToMain() {
-        String message = getString(R.string.success);
-        showToast(message);
+    public void goToCheckingVerificationKey() {
+        Activity activity = getActivity();
+        if (activity != null) {
+            ((FragmentNavigator) activity).goToVerificationKeyFragment();
+        }
     }
 
     @Override

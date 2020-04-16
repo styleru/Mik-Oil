@@ -4,6 +4,12 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.styleru.mik_oil.entrance.EntranceFragment;
+import org.styleru.mik_oil.login.LoginFragment;
+import org.styleru.mik_oil.passwordrecovery.PasswordRecoveryFragment;
+import org.styleru.mik_oil.registration.RegistrationFragment;
+import org.styleru.mik_oil.verificationkey.VerificationKeyFragment;
+
 public class MainActivity extends AppCompatActivity implements FragmentNavigator {
 
     @Override
