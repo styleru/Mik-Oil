@@ -17,4 +17,12 @@
     <string name="hint_phone">Телефон</string>
     <string name="hint_password">Пароль</string>
     <string name="hint_repeating_password">Повторить пароль</string>
+    <string name="logout">выйти</string>
+    <string name="name">Имя</string>
+    <string name="add_photo">добавить фото</string>
+    <string name="azs">АЗС</string>
+    <string name="program_loyality">программа\nлояльности</string>
+    <string name="communicate_with_us">связаться\nс нами</string>
+    <string name="score">Баланс: 123</string>
+    <string name="card_number">0001234</string>
 </resources>

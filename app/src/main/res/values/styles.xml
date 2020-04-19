@@ -21,6 +21,22 @@
         <item name="android:textSize">20sp</item>
     </style>
 
+    <style name="UsualText" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="CardNumber" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
     <style name="Button" parent="AppTheme">
         <!-- Customize your theme here. -->
         <item name="android:background">@drawable/button</item>
