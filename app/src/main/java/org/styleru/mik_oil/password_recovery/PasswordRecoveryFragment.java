@@ -1,4 +1,4 @@
-package org.styleru.mik_oil;
+package org.styleru.mik_oil.password_recovery;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -15,6 +15,9 @@ import androidx.annotation.NonNull;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
+
+import org.styleru.mik_oil.R;
+import org.styleru.mik_oil.navigation.FragmentNavigator;
 
 import java.util.Map;
 

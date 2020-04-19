@@ -1,4 +1,4 @@
-package org.styleru.mik_oil;
+package org.styleru.mik_oil.entrance;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,6 +9,9 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+import org.styleru.mik_oil.R;
+import org.styleru.mik_oil.navigation.FragmentNavigator;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -5,12 +5,12 @@ import android.os.Bundle;
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 
-import org.styleru.mik_oil.EntranceFragment;
-import org.styleru.mik_oil.LoginFragment;
-import org.styleru.mik_oil.PasswordRecoveryFragment;
 import org.styleru.mik_oil.R;
-import org.styleru.mik_oil.RegistrationFragment;
-import org.styleru.mik_oil.VerificationKeyFragment;
+import org.styleru.mik_oil.entrance.EntranceFragment;
+import org.styleru.mik_oil.login.LoginFragment;
+import org.styleru.mik_oil.password_recovery.PasswordRecoveryFragment;
+import org.styleru.mik_oil.registration.RegistrationFragment;
+import org.styleru.mik_oil.verification_key.VerificationKeyFragment;
 
 public class MainActivity extends MvpAppCompatActivity implements MainView {
 
