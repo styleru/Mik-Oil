@@ -1,4 +1,4 @@
-package org.styleru.mik_oil;
+package org.styleru.mik_oil.verification_key;
 
 import com.arellomobile.mvp.MvpView;
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy;
@@ -7,10 +7,10 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 
 import java.util.Map;
 
-public interface LoginView extends MvpView {
+public interface VerificationKeyView extends MvpView {
 
     enum Field {
-        LOGIN, PASSWORD
+        VERIFICATION_KEY
     }
 
     @StateStrategyType(AddToEndSingleStrategy.class)
@@ -22,7 +22,7 @@ public interface LoginView extends MvpView {
      * @param errors map of {@link Field} to string resource of error
      */
     @StateStrategyType(OneExecutionStateStrategy.class)
-    void showValidationErrors(Map<LoginView.Field, Integer> errors);
+    void showValidationErrors(Map<Field, Integer> errors);
 
     @StateStrategyType(OneExecutionStateStrategy.class)
     void goToMain();

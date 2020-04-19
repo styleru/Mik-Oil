@@ -1,4 +1,4 @@
-package org.styleru.mik_oil;
+package org.styleru.mik_oil.navigation;
 
 public interface FragmentNavigator {
 
@@ -11,4 +11,5 @@ public interface FragmentNavigator {
     void goToPasswordRecoveryFragment();
 
     void goToVerificationKeyFragment();
+
 }
