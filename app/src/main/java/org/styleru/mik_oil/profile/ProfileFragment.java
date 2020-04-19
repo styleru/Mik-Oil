@@ -16,8 +16,8 @@ import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.squareup.picasso.Picasso;
 
-import org.styleru.mik_oil.CropCircleTransformation;
 import org.styleru.mik_oil.R;
+import org.styleru.mik_oil.picasso_circle.CropCircleTransformation;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
