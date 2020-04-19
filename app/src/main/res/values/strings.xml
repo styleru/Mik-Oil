@@ -17,4 +17,13 @@
     <string name="hint_phone">Телефон</string>
     <string name="hint_password">Пароль</string>
     <string name="hint_repeating_password">Повторить пароль</string>
+    <string name="splash_text">mik-oil</string>
+    <string name="user_name">Имя</string>
+    <string name="logout">выйти</string>
+    <string name="upload_avatar">добавить фото</string>
+    <string name="loyalty_program">программа лояльности</string>
+    <string name="communicate_with_us">связаться с нами</string>
+    <string name="filling_station">АЗС</string>
+    <string name="balance">Баланс: 123</string>
+    <string name="card_number">0001234</string>
 </resources>

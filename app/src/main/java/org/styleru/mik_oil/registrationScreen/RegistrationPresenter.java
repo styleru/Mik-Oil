@@ -1,10 +1,13 @@
-package org.styleru.mik_oil;
+package org.styleru.mik_oil.registrationScreen;
 
 import android.os.Handler;
 import android.os.Looper;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
+
+import org.styleru.mik_oil.MikOilApplication;
+import org.styleru.mik_oil.R;
 
 import java.util.HashMap;
 import java.util.Map;

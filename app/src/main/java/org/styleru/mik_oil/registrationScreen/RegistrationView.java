@@ -1,4 +1,4 @@
-package org.styleru.mik_oil;
+package org.styleru.mik_oil.registrationScreen;
 
 import com.arellomobile.mvp.MvpView;
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy;
@@ -7,10 +7,10 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 
 import java.util.Map;
 
-public interface VerificationKeyView extends MvpView {
+public interface RegistrationView extends MvpView {
 
     enum Field {
-        VERIFICATION_KEY
+        NAME, PHONE, PASSWORD, REPEATING_PASSWORD
     }
 
     @StateStrategyType(AddToEndSingleStrategy.class)

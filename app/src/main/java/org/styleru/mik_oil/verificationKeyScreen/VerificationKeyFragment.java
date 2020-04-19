@@ -1,6 +1,5 @@
-package org.styleru.mik_oil;
+package org.styleru.mik_oil.verificationKeyScreen;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,39 +15,41 @@ import androidx.annotation.NonNull;
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 
+import org.styleru.mik_oil.R;
+
 import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class PasswordRecoveryFragment extends MvpAppCompatFragment implements PasswordRecoveryView {
+public class VerificationKeyFragment extends MvpAppCompatFragment implements VerificationKeyView {
 
-    @BindView(R.id.password_recovery_progressbar)
+    @BindView(R.id.verification_key_progressbar)
     ProgressBar progressBar;
-    @BindView(R.id.password_recovery_go)
+    @BindView(R.id.verification_key_go)
     Button goButton;
-    @BindView(R.id.password_recovery_phone)
-    EditText phone;
-    @BindView(R.id.password_recovery_help_text)
+    @BindView(R.id.verification_key_code)
+    EditText verificationKey;
+    @BindView(R.id.verification_key_help_text)
     TextView helpText;
 
     private Unbinder unbinder;
 
     @InjectPresenter
-    PasswordRecoveryPresenter presenter;
+    VerificationKeyPresenter presenter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_password_recovery, container, false);
+        return inflater.inflate(R.layout.fragment_verification_key, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle saveInstanceState) {
         unbinder = ButterKnife.bind(this, view);
         goButton.setOnClickListener(v ->
-                presenter.onGetVerificationKeyClicked(phone.getText().toString()));
+                presenter.onCheckVerificationKeyClicked(verificationKey.getText().toString()));
     }
 
     @Override
@@ -72,8 +73,8 @@ public class PasswordRecoveryFragment extends MvpAppCompatFragment implements Pa
     public void showValidationErrors(Map<Field, Integer> errors) {
         for (Map.Entry<Field, Integer> error : errors.entrySet()) {
             EditText field = null;
-            if (error.getKey() == Field.PHONE) {
-                field = phone;
+            if (error.getKey() == Field.VERIFICATION_KEY) {
+                field = verificationKey;
             }
             if (field != null) {
                 field.setError(getString(error.getValue()));
@@ -82,11 +83,9 @@ public class PasswordRecoveryFragment extends MvpAppCompatFragment implements Pa
     }
 
     @Override
-    public void goToCheckingVerificationKey() {
-        Activity activity = getActivity();
-        if (activity != null) {
-            ((FragmentNavigator) activity).goToVerificationKeyFragment();
-        }
+    public void goToMain() {
+        String message = getString(R.string.success);
+        showToast(message);
     }
 
     @Override
