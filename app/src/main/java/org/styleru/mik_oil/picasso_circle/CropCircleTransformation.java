@@ -1,4 +1,4 @@
-package org.styleru.mik_oil;
+package org.styleru.mik_oil.picasso_circle;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
