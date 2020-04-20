@@ -11,4 +11,7 @@ public interface SplashScreenView extends MvpView {
 
     @StateStrategyType(OneExecutionStateStrategy.class)
     void goToEntrance();
+
+    @StateStrategyType(OneExecutionStateStrategy.class)
+    void goToProfile();
 }

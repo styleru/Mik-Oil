@@ -39,6 +39,14 @@ public class SplashScreenFragment extends MvpAppCompatFragment implements Splash
     }
 
     @Override
+    public void goToProfile() {
+        Activity activity = getActivity();
+        if (activity != null) {
+            ((FragmentNavigator) activity).goToProfileFragment();
+        }
+    }
+
+    @Override
     public void goToMain() {
     }
 }
