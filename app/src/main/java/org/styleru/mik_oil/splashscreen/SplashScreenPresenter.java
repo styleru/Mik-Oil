@@ -15,7 +15,8 @@ public class SplashScreenPresenter extends MvpPresenter<SplashScreenView> {
             if (false) {
                 getViewState().goToMain();
             } else {
-                getViewState().goToEntrance();
+                //getViewState().goToEntrance();
+                getViewState().goToProfile();
             }
         }, 2000);
     }
