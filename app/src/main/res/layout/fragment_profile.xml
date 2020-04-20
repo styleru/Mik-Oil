@@ -107,29 +107,29 @@
             android:gravity="center"
             android:text="@string/azs"
             android:textSize="27sp"
+            app:layout_constraintVertical_bias="0.9"
             android:textColor="@color/colorBlack"
-            app:layout_constraintEnd_toStartOf="@+id/program"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@id/photo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/program"
             app:layout_constraintTop_toBottomOf="@+id/card"
             app:layout_constraintBottom_toTopOf="@+id/communicate_with_us"
-            app:layout_constraintVertical_bias="0.9"
             android:layout_marginBottom="26dp"/>
 
         <Button
             android:id="@+id/program"
             android:layout_width="131dp"
             android:layout_height="78dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="26dp"
             android:gravity="center"
             style="@style/Button"
             android:text="@string/program_loyality"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/azs"
+            app:layout_constraintEnd_toEndOf="@id/card"
+            app:layout_constraintLeft_toRightOf="@+id/azs"
+            app:layout_constraintRight_toRightOf="@+id/card"
             app:layout_constraintTop_toBottomOf="@+id/card"
             app:layout_constraintBottom_toTopOf="@+id/communicate_with_us"
-            app:layout_constraintVertical_bias="0.9"
+            app:layout_constraintTop_toTopOf="@+id/azs"
             android:layout_marginBottom="26dp"/>
 
         <Button
