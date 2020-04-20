@@ -12,6 +12,7 @@ public class SplashPresenter extends MvpPresenter<SplashView> {
 
     void isUserRegistered() {
         boolean registered = false;
+
         // Check if the user registered.
 
         Handler handler = new Handler(Looper.getMainLooper());

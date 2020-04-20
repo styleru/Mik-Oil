@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigator
         EntranceFragment fragment = new EntranceFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment)
-                .addToBackStack(null)
                 .commit();
     }
 
