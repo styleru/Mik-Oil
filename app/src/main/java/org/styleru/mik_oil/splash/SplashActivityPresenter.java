@@ -6,12 +6,12 @@ import com.arellomobile.mvp.MvpPresenter;
 @InjectViewState
 public class SplashActivityPresenter extends MvpPresenter<SplashActivityView> {
 
-    void chooseActivity(){
+    void chooseFragment(){
         if(true == true){
-            getViewState().startEntrancePage();
+            getViewState().startEntranceFragment();
         }
         else {
-            getViewState().startMainPage();
+            getViewState().startMainFragment();
         }
     }
 }

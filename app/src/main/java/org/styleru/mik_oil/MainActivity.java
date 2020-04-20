@@ -1,5 +1,6 @@
 package org.styleru.mik_oil;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +11,8 @@ import org.styleru.mik_oil.passwordrecovery.PasswordRecoveryFragment;
 import org.styleru.mik_oil.registration.RegistrationFragment;
 import org.styleru.mik_oil.verificationkey.VerificationKeyFragment;
 
+import static org.styleru.mik_oil.splash.SplashActivity.AUTH_INDICATOR;
+
 public class MainActivity extends AppCompatActivity implements FragmentNavigator {
 
     @Override
@@ -18,7 +21,13 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigator
 
         setContentView(R.layout.activity_main);
 
-        if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+        Intent intent = getIntent();
+        boolean isAuthorized = intent.getBooleanExtra(AUTH_INDICATOR, false);
+
+        if (isAuthorized) {
+            // goToMainFragment();
+        }
+        else {
             goToEntranceFragment();
         }
     }

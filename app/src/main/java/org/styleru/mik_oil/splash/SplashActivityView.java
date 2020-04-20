@@ -7,8 +7,8 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 public interface SplashActivityView extends MvpView {
 
     @StateStrategyType(OneExecutionStateStrategy.class)
-    void startMainPage();
+    void startMainFragment();
 
     @StateStrategyType(OneExecutionStateStrategy.class)
-    void startEntrancePage();
+    void startEntranceFragment();
 }

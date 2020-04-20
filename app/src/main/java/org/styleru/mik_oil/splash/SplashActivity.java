@@ -10,6 +10,8 @@ import org.styleru.mik_oil.MainActivity;
 
 public class SplashActivity extends MvpAppCompatActivity implements  SplashActivityView {
 
+    public static String AUTH_INDICATOR = "is client authorized?";
+
     @InjectPresenter
     SplashActivityPresenter presenter;
 
@@ -17,18 +19,23 @@ public class SplashActivity extends MvpAppCompatActivity implements  SplashActiv
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        presenter.chooseActivity();
+        presenter.chooseFragment();
     }
 
     @Override
-    public void startMainPage(){
+    public void startMainFragment(){
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.putExtra(AUTH_INDICATOR, true);
+        startActivity(intent);
 
         finish();
     }
 
     @Override
-    public void startEntrancePage(){
-        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+    public void startEntranceFragment(){
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.putExtra(AUTH_INDICATOR, false);
+        startActivity(intent);
 
         finish();
     }
