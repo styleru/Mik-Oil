@@ -24,6 +24,9 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     @BindView(R.id.toolbar)
     TextView toolbar;
 
+    private static boolean was = true;
+    //костыль костыльный :(
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
@@ -40,6 +43,7 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
                 .replace(R.id.splashscreen_container, fragment)
                 .addToBackStack(null)
                 .commit();
+        was = false;
     }
 
     @Override
