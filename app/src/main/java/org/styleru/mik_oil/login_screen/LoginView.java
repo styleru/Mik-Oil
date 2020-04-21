@@ -1,4 +1,4 @@
-package org.styleru.mik_oil;
+package org.styleru.mik_oil.login_screen;
 
 import com.arellomobile.mvp.MvpView;
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy;

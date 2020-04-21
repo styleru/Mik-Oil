@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Mik-Oil</string>
+    <string name="splash_text">mik-oil</string>
     <string name="recovery">восстановить</string>
     <string name="fail">Ошибка!..</string>
     <string name="success">Успех!</string>

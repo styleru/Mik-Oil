@@ -1,7 +1,10 @@
-package org.styleru.mik_oil;
+package org.styleru.mik_oil.login_screen;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,39 +19,56 @@ import androidx.annotation.NonNull;
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 
+import org.styleru.mik_oil.R;
+import org.styleru.mik_oil.FragmentNavigator;
+
 import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class PasswordRecoveryFragment extends MvpAppCompatFragment implements PasswordRecoveryView {
+public class LoginFragment extends MvpAppCompatFragment implements LoginView {
 
-    @BindView(R.id.password_recovery_progressbar)
+    @BindView(R.id.login_progressbar)
     ProgressBar progressBar;
-    @BindView(R.id.password_recovery_go)
+    @BindView(R.id.login_go)
     Button goButton;
-    @BindView(R.id.password_recovery_phone)
-    EditText phone;
-    @BindView(R.id.password_recovery_help_text)
-    TextView helpText;
+    @BindView(R.id.login_login)
+    EditText login;
+    @BindView(R.id.login_password)
+    EditText password;
+    @BindView(R.id.login_recovery)
+    TextView recovery;
 
     private Unbinder unbinder;
 
     @InjectPresenter
-    PasswordRecoveryPresenter presenter;
+    LoginPresenter presenter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_password_recovery, container, false);
+        return inflater.inflate(R.layout.fragment_login, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle saveInstanceState) {
         unbinder = ButterKnife.bind(this, view);
+
+        SpannableString spannableString = new SpannableString(recovery.getText());
+        spannableString.setSpan(new UnderlineSpan(), 0, recovery.getText().length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        recovery.setText(spannableString);
+        recovery.setOnClickListener(v -> {
+            Activity activity = getActivity();
+            if (activity != null) {
+                ((FragmentNavigator) activity).goToPasswordRecoveryFragment();
+            }
+        });
+
         goButton.setOnClickListener(v ->
-                presenter.onGetVerificationKeyClicked(phone.getText().toString()));
+                presenter.onLoginClicked(login.getText().toString(),
+                        password.getText().toString()));
     }
 
     @Override
@@ -69,11 +89,22 @@ public class PasswordRecoveryFragment extends MvpAppCompatFragment implements Pa
     }
 
     @Override
+    public void showToast(String text) {
+        Toast toast = Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+    @Override
     public void showValidationErrors(Map<Field, Integer> errors) {
         for (Map.Entry<Field, Integer> error : errors.entrySet()) {
             EditText field = null;
-            if (error.getKey() == Field.PHONE) {
-                field = phone;
+            switch (error.getKey()) {
+                case LOGIN:
+                    field = login;
+                    break;
+                case PASSWORD:
+                    field = password;
+                    break;
             }
             if (field != null) {
                 field.setError(getString(error.getValue()));
@@ -82,16 +113,8 @@ public class PasswordRecoveryFragment extends MvpAppCompatFragment implements Pa
     }
 
     @Override
-    public void goToCheckingVerificationKey() {
-        Activity activity = getActivity();
-        if (activity != null) {
-            ((FragmentNavigator) activity).goToVerificationKeyFragment();
-        }
-    }
-
-    @Override
-    public void showToast(String text) {
-        Toast toast = Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT);
-        toast.show();
+    public void goToMain() {
+        String message = getString(R.string.success);
+        showToast(message);
     }
 }

@@ -1,4 +1,4 @@
-package org.styleru.mik_oil;
+package org.styleru.mik_oil.registration_screen;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,39 +14,47 @@ import androidx.annotation.NonNull;
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 
+import org.styleru.mik_oil.R;
+
 import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class VerificationKeyFragment extends MvpAppCompatFragment implements VerificationKeyView {
+public class RegistrationFragment extends MvpAppCompatFragment implements RegistrationView {
 
-    @BindView(R.id.verification_key_progressbar)
+    @BindView(R.id.registration_progressbar)
     ProgressBar progressBar;
-    @BindView(R.id.verification_key_go)
+    @BindView(R.id.registration_go_button)
     Button goButton;
-    @BindView(R.id.verification_key_code)
-    EditText verificationKey;
-    @BindView(R.id.verification_key_help_text)
-    TextView helpText;
+    @BindView(R.id.registration_name)
+    EditText name;
+    @BindView(R.id.registration_phone_number)
+    EditText phone;
+    @BindView(R.id.registration_password)
+    EditText password;
+    @BindView(R.id.registration_repeat_password)
+    EditText repeatingPassword;
 
     private Unbinder unbinder;
 
     @InjectPresenter
-    VerificationKeyPresenter presenter;
+    RegistrationPresenter presenter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_verification_key, container, false);
+        return inflater.inflate(R.layout.fragment_registration, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle saveInstanceState) {
         unbinder = ButterKnife.bind(this, view);
         goButton.setOnClickListener(v ->
-                presenter.onCheckVerificationKeyClicked(verificationKey.getText().toString()));
+                presenter.onRegistrationClicked(name.getText().toString(),
+                        phone.getText().toString(), password.getText().toString(),
+                        repeatingPassword.getText().toString()));
     }
 
     @Override
@@ -71,8 +78,19 @@ public class VerificationKeyFragment extends MvpAppCompatFragment implements Ver
     public void showValidationErrors(Map<Field, Integer> errors) {
         for (Map.Entry<Field, Integer> error : errors.entrySet()) {
             EditText field = null;
-            if (error.getKey() == Field.VERIFICATION_KEY) {
-                field = verificationKey;
+            switch (error.getKey()) {
+                case NAME:
+                    field = name;
+                    break;
+                case PHONE:
+                    field = phone;
+                    break;
+                case PASSWORD:
+                    field = password;
+                    break;
+                case REPEATING_PASSWORD:
+                    field = repeatingPassword;
+                    break;
             }
             if (field != null) {
                 field.setError(getString(error.getValue()));
