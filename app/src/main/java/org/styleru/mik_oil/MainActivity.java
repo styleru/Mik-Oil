@@ -7,9 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.styleru.mik_oil.entrance.EntranceFragment;
 import org.styleru.mik_oil.login.LoginFragment;
-import org.styleru.mik_oil.passwordrecovery.PasswordRecoveryFragment;
+import org.styleru.mik_oil.password_recovery.PasswordRecoveryFragment;
 import org.styleru.mik_oil.registration.RegistrationFragment;
-import org.styleru.mik_oil.verificationkey.VerificationKeyFragment;
+import org.styleru.mik_oil.verification_key.VerificationKeyFragment;
 
 import static org.styleru.mik_oil.splash.SplashActivity.AUTH_INDICATOR;
 

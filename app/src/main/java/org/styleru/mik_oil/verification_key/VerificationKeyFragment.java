@@ -1,4 +1,4 @@
-package org.styleru.mik_oil.verificationkey;
+package org.styleru.mik_oil.verification_key;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

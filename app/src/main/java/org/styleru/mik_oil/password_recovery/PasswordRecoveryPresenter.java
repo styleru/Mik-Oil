@@ -1,4 +1,4 @@
-package org.styleru.mik_oil.passwordrecovery;
+package org.styleru.mik_oil.password_recovery;
 import android.os.Handler;
 import android.os.Looper;
 
