@@ -1,20 +1,27 @@
-package org.styleru.mik_oil;
+package org.styleru.mik_oil.main;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.arellomobile.mvp.MvpAppCompatActivity;
+import com.arellomobile.mvp.presenter.InjectPresenter;
 
-public class MainActivity extends AppCompatActivity implements FragmentNavigator {
+import org.styleru.mik_oil.EntranceFragment;
+import org.styleru.mik_oil.LoginFragment;
+import org.styleru.mik_oil.PasswordRecoveryFragment;
+import org.styleru.mik_oil.R;
+import org.styleru.mik_oil.RegistrationFragment;
+import org.styleru.mik_oil.VerificationKeyFragment;
+
+public class MainActivity extends MvpAppCompatActivity implements MainView {
+
+    @InjectPresenter
+    MainPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-
-        if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
-            goToEntranceFragment();
-        }
     }
 
     @Override
