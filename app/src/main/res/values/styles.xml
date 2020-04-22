@@ -9,6 +9,10 @@
         <item name="fontFamily">@font/muller</item>
     </style>
 
+    <style name="AppTheme.Splash">
+        <item name="android:windowBackground">@drawable/splash</item>
+    </style>
+
     <style name="HelpText" parent="AppTheme">
         <!-- Customize your theme here. -->
         <item name="android:layout_width">0dp</item>
