@@ -2,18 +2,20 @@ package org.styleru.mik_oil.main;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.arellomobile.mvp.MvpAppCompatActivity;
+import com.arellomobile.mvp.presenter.InjectPresenter;
 
-import org.styleru.mik_oil.FragmentNavigator;
 import org.styleru.mik_oil.R;
 import org.styleru.mik_oil.entranceScreen.EntranceFragment;
 import org.styleru.mik_oil.loginScreen.LoginFragment;
 import org.styleru.mik_oil.passwordRecoveryScreen.PasswordRecoveryFragment;
 import org.styleru.mik_oil.registrationScreen.RegistrationFragment;
-import org.styleru.mik_oil.splashScreen.SplashFragment;
 import org.styleru.mik_oil.verificationKeyScreen.VerificationKeyFragment;
 
-public class MainActivity extends AppCompatActivity implements FragmentNavigator {
+public class MainActivity extends MvpAppCompatActivity implements MainView {
+
+    @InjectPresenter
+    MainPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,12 +23,7 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigator
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
-            goToSplashFragment();
-        }
     }
-
 
     @Override
     public void goToLoginFragment() {
@@ -60,15 +57,6 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigator
         VerificationKeyFragment fragment = new VerificationKeyFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment)
-                .addToBackStack(null)
-                .commit();
-    }
-
-    @Override
-    public void goToSplashFragment() {
-        SplashFragment fragment = new SplashFragment();
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.splash_container, fragment)
                 .addToBackStack(null)
                 .commit();
     }
