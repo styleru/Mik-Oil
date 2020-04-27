@@ -26,4 +26,5 @@
     <string name="filling_station">АЗС</string>
     <string name="balance">Баланс: 123</string>
     <string name="card_number">0001234</string>
+    <string name="img_content">avatar</string>
 </resources>
