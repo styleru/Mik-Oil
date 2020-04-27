@@ -11,7 +11,6 @@ import org.styleru.mik_oil.entrance.EntranceFragment;
 import org.styleru.mik_oil.login.LoginFragment;
 import org.styleru.mik_oil.password_recovery.PasswordRecoveryFragment;
 import org.styleru.mik_oil.registration.RegistrationFragment;
-import org.styleru.mik_oil.splashscreen.SplashScreenFragment;
 import org.styleru.mik_oil.verification_key.VerificationKeyFragment;
 
 import butterknife.BindView;
@@ -24,9 +23,6 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     @BindView(R.id.toolbar)
     TextView toolbar;
 
-    private static boolean was = true;
-    //костыль костыльный :(
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
@@ -34,16 +30,6 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-    }
-
-    public void setSplashScreen() {
-        clearBackStack();
-        SplashScreenFragment fragment = new SplashScreenFragment();
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.splashscreen_container, fragment)
-                .addToBackStack(null)
-                .commit();
-        was = false;
     }
 
     @Override
