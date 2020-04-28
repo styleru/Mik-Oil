@@ -14,24 +14,27 @@
         <TextView
             android:id="@+id/profile_name"
             style="@style/UsualText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:text="@string/name"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/logout"
             style="@style/HelpText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="28dp"
+            android:padding="10dp"
             android:text="@string/logout"
-            app:layout_constraintEnd_toEndOf="@+id/card"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -79,14 +82,13 @@
                 android:layout_marginTop="29dp"
                 android:text="@string/score" />
 
-            <ImageView
+            <View
                 android:id="@+id/code"
                 android:layout_width="72dp"
                 android:layout_height="26dp"
                 android:layout_marginStart="19dp"
                 android:layout_marginTop="80dp"
-                android:background="@color/colorBlack"
-                android:contentDescription="@string/add_photo" />
+                android:background="@color/colorBlack"/>
 
             <TextView
                 android:id="@+id/id"
@@ -103,9 +105,10 @@
             android:id="@+id/azs"
             style="@style/Button"
             android:layout_width="0dp"
-            android:layout_height="78dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_height="wrap_content"
+            android:minHeight="78dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="28dp"
             android:gravity="center"
             android:text="@string/azs"
             android:textColor="@color/colorBlack"
@@ -113,26 +116,23 @@
             app:layout_constraintBottom_toTopOf="@+id/communicate_with_us"
             app:layout_constraintEnd_toStartOf="@+id/program"
             app:layout_constraintStart_toStartOf="@id/photo"
-            app:layout_constraintTop_toBottomOf="@+id/card"
+            app:layout_constraintTop_toBottomOf="@+id/add_photo"
             app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintVertical_bias="0.9" />
+            app:layout_constraintVertical_bias="1" />
 
         <Button
             android:id="@+id/program"
             style="@style/Button"
             android:layout_width="0dp"
-            android:layout_height="78dp"
+            android:layout_height="wrap_content"
+            android:minHeight="78dp"
             android:layout_marginStart="26dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
             android:gravity="center"
             android:text="@string/program_loyality"
             android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/communicate_with_us"
+            app:layout_constraintBottom_toBottomOf="@id/azs"
             app:layout_constraintEnd_toEndOf="@id/card"
-            app:layout_constraintStart_toEndOf="@+id/azs"
-            app:layout_constraintTop_toBottomOf="@+id/card"
-            app:layout_constraintVertical_bias="0.9" />
+            app:layout_constraintStart_toEndOf="@+id/azs"/>
 
         <Button
             android:id="@+id/communicate_with_us"
@@ -143,11 +143,10 @@
             android:gravity="center"
             android:text="@string/communicate_with_us"
             android:textSize="20sp"
+            android:layout_marginBottom="38dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/azs"
             app:layout_constraintEnd_toEndOf="@+id/program"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.9"
             app:layout_constraintVertical_chainStyle="packed" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
