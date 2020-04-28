@@ -16,36 +16,35 @@
             style="@style/UsualText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="39dp"
+            android:layout_marginTop="40dp"
             android:text="@string/name"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintVertical_bias="0" />
 
         <TextView
             android:id="@+id/logout"
             style="@style/HelpText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="15dp"
             android:text="@string/logout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/profile_name"
+            app:layout_constraintEnd_toEndOf="@+id/card"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/photo"
             android:layout_width="77dp"
             android:layout_height="77dp"
-            android:layout_marginEnd="49dp"
+            android:layout_marginTop="20dp"
             android:contentDescription="@string/add_photo"
             android:scaleType="centerCrop"
-            app:layout_constraintEnd_toStartOf="@+id/profile_name"
-            app:layout_constraintTop_toTopOf="@+id/profile_name" />
+            app:layout_constraintEnd_toStartOf="@+id/card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_name"
+            app:layout_constraintHorizontal_chainStyle="packed"/>
 
         <TextView
             android:id="@+id/add_photo"
@@ -64,11 +63,12 @@
             android:layout_width="193.5dp"
             android:layout_height="121.5dp"
             android:layout_marginStart="28dp"
-            android:layout_marginTop="41dp"
+            android:layout_marginBottom="20dp"
             app:cardBackgroundColor="@color/colorPrimary"
             app:cardCornerRadius="10dp"
             app:layout_constraintStart_toEndOf="@+id/photo"
-            app:layout_constraintTop_toBottomOf="@+id/profile_name">
+            app:layout_constraintTop_toTopOf="@+id/photo"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <TextView
                 android:id="@+id/score"
@@ -85,7 +85,8 @@
                 android:layout_height="26dp"
                 android:layout_marginStart="19dp"
                 android:layout_marginTop="80dp"
-                android:background="@color/colorBlack" />
+                android:background="@color/colorBlack"
+                android:contentDescription="@string/add_photo" />
 
             <TextView
                 android:id="@+id/id"
@@ -100,53 +101,52 @@
 
         <Button
             android:id="@+id/azs"
-            android:layout_width="131dp"
-            android:layout_height="78dp"
             style="@style/Button"
+            android:layout_width="0dp"
+            android:layout_height="78dp"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:gravity="center"
             android:text="@string/azs"
-            android:textSize="27sp"
             android:textColor="@color/colorBlack"
-            android:layout_marginBottom="26dp"
-            app:layout_constraintRight_toLeftOf="@+id/program"
+            android:textSize="27sp"
+            app:layout_constraintBottom_toTopOf="@+id/communicate_with_us"
+            app:layout_constraintEnd_toStartOf="@+id/program"
             app:layout_constraintStart_toStartOf="@id/photo"
             app:layout_constraintTop_toBottomOf="@+id/card"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/communicate_with_us"
+            app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintVertical_bias="0.9" />
 
         <Button
             android:id="@+id/program"
-            android:layout_width="131dp"
-            android:layout_height="78dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="26dp"
-            android:gravity="center"
             style="@style/Button"
+            android:layout_width="0dp"
+            android:layout_height="78dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
             android:text="@string/program_loyality"
             android:textSize="20sp"
-            android:layout_marginBottom="26dp"
-            app:layout_constraintRight_toRightOf="@+id/logout"
-            app:layout_constraintTop_toBottomOf="@+id/card"
             app:layout_constraintBottom_toTopOf="@+id/communicate_with_us"
             app:layout_constraintEnd_toEndOf="@id/card"
-            app:layout_constraintLeft_toRightOf="@+id/azs"
+            app:layout_constraintStart_toEndOf="@+id/azs"
+            app:layout_constraintTop_toBottomOf="@+id/card"
             app:layout_constraintVertical_bias="0.9" />
 
         <Button
             android:id="@+id/communicate_with_us"
-            android:layout_width="131dp"
-            android:layout_height="78dp"
-            android:text="@string/communicate_with_us"
             style="@style/Button"
-            android:textSize="20sp"
-            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="78dp"
             android:background="@drawable/button"
-            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:text="@string/communicate_with_us"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="@+id/azs"
-            app:layout_constraintRight_toRightOf="@+id/program"
+            app:layout_constraintStart_toStartOf="@+id/azs"
+            app:layout_constraintEnd_toEndOf="@+id/program"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.9"
             app:layout_constraintVertical_chainStyle="packed" />
 

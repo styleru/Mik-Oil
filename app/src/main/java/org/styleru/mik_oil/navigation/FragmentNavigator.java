@@ -12,4 +12,6 @@ public interface FragmentNavigator {
 
     void goToVerificationKeyFragment();
 
+    void goToProfileFragment();
+
 }
