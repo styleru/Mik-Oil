@@ -1,81 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_width="77dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/photo"
+        android:scaleType="fitCenter"
+        android:src="@drawable/plug_photo"
+        app:layout_constraintEnd_toStartOf="@id/card"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="200dp"
+        android:layout_height="120dp"
+        android:layout_marginEnd="37.5dp"
+        android:layout_marginStart="28dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toEndOf="@+id/photo"
+        app:layout_constraintTop_toTopOf="@+id/photo">
+
+        <TextView
+            android:id="@+id/card_balance"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/plug_card_balance"
+            android:textColor="@color/colorBlack"
+            android:textSize="19sp"
+            android:layout_marginTop="29dp"
+            android:layout_marginStart="19dp" />
+
+        <ImageView
+            android:id="@+id/barcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/barcode"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barcode"
+            android:layout_marginTop="80dp"
+            android:layout_marginStart="20dp"
+            />
+
+        <TextView
+            android:id="@+id/card_number"
+            android:gravity="center"
+            android:layout_width="97dp"
+            android:layout_height="wrap_content"
+            android:text="@string/plug_card_number"
+            android:textColor="@color/colorBlack"
+            android:textSize="15sp"
+            android:layout_marginTop="93dp"
+            android:layout_marginStart="96dp"
+            android:layout_marginEnd="0.5dp"/>
+
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/azs_button"
         style="@style/ProfileButton"
-        android:layout_width="131dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginBottom="260dp"
         android:text="@string/azs_text"
         android:textSize="27sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/loyal_button"
+        android:layout_marginTop="74dp"
+        android:layout_marginBottom="138dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_photo" />
 
     <Button
         android:id="@+id/loyal_button"
         style="@style/ProfileButton"
-        android:layout_width="131dp"
-        android:layout_marginStart="172dp"
-        android:layout_marginBottom="108dp"
-        android:text="@string/loyal"
+        android:layout_marginBottom="324dp"
+        android:text="@string/loyalty_pr"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/azs_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.814"
+        app:layout_constraintStart_toEndOf="@id/azs_button"
+        app:layout_constraintTop_toTopOf="@+id/azs_button"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/contact_button"
         style="@style/ProfileButton"
-        android:layout_width="131dp"
-        android:layout_marginBottom="252dp"
+        android:layout_marginTop="40dp"
         android:text="@string/contact"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.885"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/loyal_button"
+        app:layout_constraintStart_toStartOf="@+id/azs_button"
+        app:layout_constraintTop_toBottomOf="@+id/loyal_button" />
 
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="188dp"
-        android:layout_marginTop="52dp"
         android:text="@string/hint_name"
         android:textColor="@color/colorBlack"
         android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/exit" />
 
     <TextView
         android:id="@+id/add_photo"
-
+        android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
-        android:layout_marginEnd="300dp"
         android:text="@string/photo"
         android:textColor="@color/colorBlack"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="13dp"
+        app:layout_constraintEnd_toEndOf="@+id/photo"
+        app:layout_constraintStart_toStartOf="@+id/photo"
+        app:layout_constraintTop_toBottomOf="@+id/photo" />
+
 
     <TextView
         android:id="@+id/exit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="38dp"
         android:text="@string/exit"
         android:textColor="@color/colorBlack"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

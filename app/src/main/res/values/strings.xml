@@ -2,10 +2,13 @@
     <string name="app_name">Mik-Oil</string>
     <string name="splash_text">mik-oil</string>
     <string name="azs_text">АЗС</string>
-    <string name="contact">связаться\nс нами</string>
-    <string name="loyal">программа\nлояльности</string>
+    <string name="contact">связаться с нами</string>
+    <string name="loyalty_pr">программа лояльности</string>
     <string name="exit">выйти</string>
     <string name="photo">добавить\nфото</string>
+    <string name="plug_card_number">8(800)555…</string>
+    <string name="plug_card_balance">Баланс: 0</string>
+    <string name="barcode">штрих код</string>
     <string name="recovery">восстановить</string>
     <string name="fail">Ошибка!..</string>
     <string name="success">Успех!</string>
@@ -16,7 +19,7 @@
     <string name="go">GO</string>
     <string name="hint_login">Логин/Телефон</string>
     <string name="hint_enter_the_key">Введите код</string>
-    <string name="recovery_help_text">Введите номер телефона.\nКод для смены пароля будет выслан по СМС.</string>
+    <string name="recovery_help_text">Введите номер телефона. Код для смены пароля будет выслан по СМС.</string>
     <string name="enter_the_code_help_text">Введите код из СМС.</string>
     <string name="toolbar_text">mik-oil</string>
     <string name="hint_name">Имя</string>
