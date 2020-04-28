@@ -9,11 +9,10 @@
         <item name="fontFamily">@font/muller</item>
     </style>
 
-    <style name="AppTheme.Launcher" parent="AppTheme">
-        <item name="android:background">@color/my_ic_launcher_background</item>
-        <item name="android:foreground">@drawable/my_ic_launcher_foreground</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
+    <style name="AppTheme.Splash">
+        <item name="android:windowBackground">@drawable/splash</item>
     </style>
+
 
     <style name="HelpText" parent="AppTheme">
         <!-- Customize your theme here. -->
