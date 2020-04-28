@@ -6,7 +6,7 @@ import android.os.Bundle;
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 
-import org.styleru.mik_oil.MainActivity;
+import org.styleru.mik_oil.main.MainActivity;
 
 public class SplashActivity extends MvpAppCompatActivity implements  SplashActivityView {
 

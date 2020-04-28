@@ -1,35 +1,27 @@
-package org.styleru.mik_oil;
+package org.styleru.mik_oil.main;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.arellomobile.mvp.MvpAppCompatActivity;
+import com.arellomobile.mvp.presenter.InjectPresenter;
 
+import org.styleru.mik_oil.R;
 import org.styleru.mik_oil.entrance.EntranceFragment;
 import org.styleru.mik_oil.login.LoginFragment;
 import org.styleru.mik_oil.password_recovery.PasswordRecoveryFragment;
 import org.styleru.mik_oil.registration.RegistrationFragment;
 import org.styleru.mik_oil.verification_key.VerificationKeyFragment;
 
-import static org.styleru.mik_oil.splash.SplashActivity.AUTH_INDICATOR;
+public class MainActivity extends MvpAppCompatActivity implements MainView {
 
-public class MainActivity extends AppCompatActivity implements FragmentNavigator {
+    @InjectPresenter
+    MainPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-
-        Intent intent = getIntent();
-        boolean isAuthorized = intent.getBooleanExtra(AUTH_INDICATOR, false);
-
-        if (isAuthorized) {
-            // goToMainFragment();
-        }
-        else {
-            goToEntranceFragment();
-        }
     }
 
     @Override
