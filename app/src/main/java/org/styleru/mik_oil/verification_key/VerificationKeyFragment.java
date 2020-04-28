@@ -1,5 +1,6 @@
 package org.styleru.mik_oil.verification_key;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import androidx.annotation.NonNull;
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 
+import org.styleru.mik_oil.FragmentNavigator;
 import org.styleru.mik_oil.R;
 
 import java.util.Map;
@@ -84,8 +86,10 @@ public class VerificationKeyFragment extends MvpAppCompatFragment implements Ver
 
     @Override
     public void goToMain() {
-        String message = getString(R.string.success);
-        showToast(message);
+        Activity activity = getActivity();
+        if (activity != null) {
+            ((FragmentNavigator) activity).goToProfileFragment();
+        }
     }
 
     @Override

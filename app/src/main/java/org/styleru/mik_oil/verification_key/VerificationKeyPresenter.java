@@ -26,7 +26,7 @@ public class VerificationKeyPresenter extends MvpPresenter<VerificationKeyView> 
             getViewState().setProgressEnabled(true);
             handler.postDelayed(() -> {
                 Random randInt = new Random();
-                int rand = randInt.nextInt(5);
+                int rand = randInt.nextInt(3);
 
                 getViewState().setProgressEnabled(false);
 

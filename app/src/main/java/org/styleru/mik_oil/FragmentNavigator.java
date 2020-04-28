@@ -11,4 +11,6 @@ public interface FragmentNavigator {
     void goToPasswordRecoveryFragment();
 
     void goToVerificationKeyFragment();
+
+    void goToProfileFragment();
 }

@@ -9,6 +9,7 @@ import org.styleru.mik_oil.R;
 import org.styleru.mik_oil.entrance.EntranceFragment;
 import org.styleru.mik_oil.login.LoginFragment;
 import org.styleru.mik_oil.password_recovery.PasswordRecoveryFragment;
+import org.styleru.mik_oil.profile.ProfileFragment;
 import org.styleru.mik_oil.registration.RegistrationFragment;
 import org.styleru.mik_oil.verification_key.VerificationKeyFragment;
 
@@ -29,6 +30,15 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     @Override
     public void goToLoginFragment() {
         LoginFragment fragment = new LoginFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, fragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    @Override
+    public void goToProfileFragment() {
+        ProfileFragment fragment = new ProfileFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment)
                 .addToBackStack(null)
