@@ -31,7 +31,7 @@ public class LoginPresenter extends MvpPresenter<LoginView> {
                 getViewState().setProgressEnabled(false);
 
                 if (rand == 1) {
-                    getViewState().goToMain();
+                    getViewState().goToProfile();
                 } else if (rand == 0) {
                     String failStr = MikOilApplication.getAppContext().getString(R.string.fail);
                     getViewState().showToast(failStr);

@@ -25,7 +25,7 @@ public interface LoginView extends MvpView {
     void showValidationErrors(Map<LoginView.Field, Integer> errors);
 
     @StateStrategyType(OneExecutionStateStrategy.class)
-    void goToMain();
+    void goToProfile();
 
     @StateStrategyType(OneExecutionStateStrategy.class)
     void showToast(String text);
