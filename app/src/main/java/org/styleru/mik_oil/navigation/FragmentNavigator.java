@@ -1,17 +1,26 @@
 package org.styleru.mik_oil.navigation;
 
-public interface FragmentNavigator {
+import com.arellomobile.mvp.MvpView;
+import com.arellomobile.mvp.viewstate.strategy.OneExecutionStateStrategy;
+import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 
-    void goToEntranceFragment();
+public interface FragmentNavigator extends MvpView {
 
+    @StateStrategyType(OneExecutionStateStrategy.class)
     void goToLoginFragment();
 
-    void goToRegistrationFragment();
+    @StateStrategyType(OneExecutionStateStrategy.class)
+    void goToEntranceFragment();
 
+    @StateStrategyType(OneExecutionStateStrategy.class)
     void goToPasswordRecoveryFragment();
 
+    @StateStrategyType(OneExecutionStateStrategy.class)
     void goToVerificationKeyFragment();
 
-    void goToProfileFragment();
+    @StateStrategyType(OneExecutionStateStrategy.class)
+    void goToRegistrationFragment();
 
+    @StateStrategyType(OneExecutionStateStrategy.class)
+    void goToProfileFragment();
 }
