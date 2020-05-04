@@ -1,5 +1,6 @@
 package org.styleru.mik_oil.registration;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 
 import org.styleru.mik_oil.R;
+import org.styleru.mik_oil.navigation.FragmentNavigator;
 
 import java.util.Map;
 
@@ -102,6 +104,10 @@ public class RegistrationFragment extends MvpAppCompatFragment implements Regist
     public void goToMain() {
         String message = getString(R.string.success);
         showToast(message);
+        Activity activity = getActivity();
+        if (activity != null) {
+            ((FragmentNavigator) activity).goToProfileFragment();
+        }
     }
 
     @Override
