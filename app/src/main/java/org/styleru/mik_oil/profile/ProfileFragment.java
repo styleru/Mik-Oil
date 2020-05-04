@@ -1,5 +1,6 @@
 package org.styleru.mik_oil.profile;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -75,13 +76,14 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
         super.onDestroyView();
     }
 
+    @SuppressLint("SetTextI18n")
     private void fillProfile(ProfileFilling filling) {
         Glide.with(this)
                 .load(filling.getAvatarURL())
                 .apply(RequestOptions.circleCropTransform())
                 .into(photo);
         user_name.setText(filling.getUserName());
-        cardBalance.setText(String.valueOf(filling.getCardBalance()));
+        cardBalance.setText("Баланс: " + filling.getCardBalance());
         cardNumber.setText(filling.getCardNumber());
     }
 
