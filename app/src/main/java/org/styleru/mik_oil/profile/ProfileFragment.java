@@ -1,5 +1,6 @@
 package org.styleru.mik_oil.profile;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -31,6 +32,12 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
     TextView addPhoto;
     @BindView(R.id.photo)
     ImageView photo;
+    @BindView(R.id.profile_name)
+    TextView nameClient;
+    @BindView(R.id.score)
+    TextView score;
+    @BindView(R.id.id)
+    TextView card;
 
     private Unbinder unbinder;
 
@@ -55,12 +62,25 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
         spannableStringPhoto.setSpan(new UnderlineSpan(), 0, addPhoto.getText().length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
         addPhoto.setText(spannableStringPhoto);
 
-        Glide.with(this)
-                .load(R.drawable.try2)
-                .apply(RequestOptions.circleCropTransform())
-                .into(photo);
+        fillProfile();
     }
 
+    @SuppressLint("SetTextI18n")
+    @Override
+    public void fillProfile() {
+        ProfileFilling fill = presenter.getProfileFilling();
+
+        Glide.with(this)
+                .load(fill.getUrlPhoto())
+                .apply(RequestOptions
+                        .circleCropTransform()
+                        .error(R.drawable.try2))
+                .into(photo);
+
+        nameClient.setText(fill.getName());
+        score.setText(Double.toString(fill.getScoreCard()));
+        card.setText(fill.getNumberCard());
+    }
 
     @Override
     public void onDestroyView() {
