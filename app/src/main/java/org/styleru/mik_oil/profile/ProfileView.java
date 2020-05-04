@@ -9,4 +9,7 @@ public interface ProfileView extends MvpView {
     @StateStrategyType(OneExecutionStateStrategy.class)
     void fillProfile();
 
+    @StateStrategyType(OneExecutionStateStrategy.class)
+    void goToExit();
+
 }

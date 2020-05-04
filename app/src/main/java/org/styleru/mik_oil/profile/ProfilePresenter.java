@@ -15,7 +15,7 @@ class ProfilePresenter extends MvpPresenter<ProfileView> {
                 "https://sun1-91.userapi.com/futPKVnn2CFgqnSH_12_50ajg1TCyi5bkZipZg/VUkgmPkUm2A.jpg",
                 "https://sun9-71.userapi.com/c622520/v622520168/4198/mJzoIS9lrpw.jpg",
                 "https://sun9-50.userapi.com/c622622/v622622756/2212a/szMXp98s1O8.jpg"};
-        double scoreCard = 2345678;
+        double scoreCard = 123;
 
         ArrayList<ProfileFilling> fillProfile = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
@@ -27,6 +27,5 @@ class ProfilePresenter extends MvpPresenter<ProfileView> {
 
         return fillProfile.get(rand);
     }
-
 
 }
