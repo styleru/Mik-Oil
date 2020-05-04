@@ -33,7 +33,7 @@ public class RegistrationPresenter extends MvpPresenter<RegistrationView> {
                 getViewState().setProgressEnabled(false);
 
                 if (rand == 0) {
-                    getViewState().goToMain();
+                    getViewState().goToProfile();
                 } else {
                     String failStr = MikOilApplication.getAppContext().getString(R.string.fail);
                     getViewState().showToast(failStr);

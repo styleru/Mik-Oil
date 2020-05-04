@@ -25,7 +25,7 @@ public interface RegistrationView extends MvpView {
     void showValidationErrors(Map<Field, Integer> errors);
 
     @StateStrategyType(OneExecutionStateStrategy.class)
-    void goToMain();
+    void goToProfile();
 
     @StateStrategyType(OneExecutionStateStrategy.class)
     void showToast(String text);

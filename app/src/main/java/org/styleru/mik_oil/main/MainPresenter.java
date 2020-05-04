@@ -10,5 +10,6 @@ public class MainPresenter extends MvpPresenter<MainView> {
     protected void onFirstViewAttach() {
         // DB check will be added
         getViewState().goToEntranceFragment();
+        //getViewState().goToProfileFragment();
     }
 }
