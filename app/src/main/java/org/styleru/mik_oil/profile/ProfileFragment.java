@@ -1,6 +1,7 @@
 package org.styleru.mik_oil.profile;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -19,6 +20,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
 import org.styleru.mik_oil.R;
+import org.styleru.mik_oil.navigation.FragmentNavigator;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -63,6 +65,9 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
         addPhoto.setText(spannableStringPhoto);
 
         fillProfile();
+
+        logout.setOnClickListener(v ->
+                goToExit());
     }
 
     @SuppressLint("SetTextI18n")
@@ -78,7 +83,8 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
                 .into(photo);
 
         nameClient.setText(fill.getName());
-        score.setText(Double.toString(fill.getScoreCard()));
+        String totalScore = "Баланс: " + Double.toString(fill.getScoreCard());
+        score.setText(totalScore);
         card.setText(fill.getNumberCard());
     }
 
@@ -86,6 +92,13 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
     public void onDestroyView() {
         unbinder.unbind();
         super.onDestroyView();
+    }
+
+    public void goToExit(){
+        Activity activity = getActivity();
+        if (activity != null) {
+            ((FragmentNavigator) activity).goToEntranceFragment();
+        }
     }
 
 }
