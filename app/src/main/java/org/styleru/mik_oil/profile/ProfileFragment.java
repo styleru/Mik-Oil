@@ -31,6 +31,12 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
     TextView addPhoto;
     @BindView(R.id.photo)
     ImageView photo;
+    @BindView(R.id.profile_name)
+    TextView user_name;
+    @BindView(R.id.score)
+    TextView cardBalance;
+    @BindView(R.id.card_number)
+    TextView cardNumber;
 
     private Unbinder unbinder;
 
@@ -55,12 +61,8 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
         spannableStringPhoto.setSpan(new UnderlineSpan(), 0, addPhoto.getText().length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
         addPhoto.setText(spannableStringPhoto);
 
-        Glide.with(this)
-                .load(R.drawable.try2)
-                .apply(RequestOptions.circleCropTransform())
-                .into(photo);
+        fillProfile(presenter.getProfileFilling());
     }
-
 
     @Override
     public void onDestroyView() {
@@ -68,4 +70,13 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
         super.onDestroyView();
     }
 
+    private void fillProfile(ProfileFilling filling) {
+        Glide.with(this)
+                .load(filling.getAvatarURL())
+                .apply(RequestOptions.circleCropTransform())
+                .into(photo);
+        user_name.setText(filling.getUserName());
+        cardBalance.setText(String.valueOf(filling.getCardBalance()));
+        cardNumber.setText(filling.getCardNumber());
+    }
 }
