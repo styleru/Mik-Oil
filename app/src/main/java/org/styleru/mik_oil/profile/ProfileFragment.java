@@ -14,10 +14,10 @@ import androidx.annotation.NonNull;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import org.styleru.mik_oil.R;
-import org.styleru.mik_oil.picasso_circle.CropCircleTransformation;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -55,11 +55,9 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
         spannableStringPhoto.setSpan(new UnderlineSpan(), 0, addPhoto.getText().length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
         addPhoto.setText(spannableStringPhoto);
 
-        CropCircleTransformation crop = new CropCircleTransformation();
-
-        Picasso.get()
+        Glide.with(this)
                 .load(R.drawable.try2)
-                .transform(crop)
+                .apply(RequestOptions.circleCropTransform())
                 .into(photo);
     }
 
