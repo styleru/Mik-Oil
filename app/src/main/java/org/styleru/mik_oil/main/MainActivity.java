@@ -79,7 +79,8 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     }
 
     @Override
-    public void goToProfileFragment() {
+    public void goToProfileFragment(String login) {
+        presenter.saveLogin(login);
         clearBackStack();
         ProfileFragment fragment = new ProfileFragment();
         getSupportFragmentManager().beginTransaction()

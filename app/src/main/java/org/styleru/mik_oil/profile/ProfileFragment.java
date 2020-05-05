@@ -1,5 +1,6 @@
 package org.styleru.mik_oil.profile;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -17,6 +18,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.squareup.picasso.Picasso;
 
 import org.styleru.mik_oil.R;
+import org.styleru.mik_oil.navigation.FragmentNavigator;
 import org.styleru.mik_oil.picasso_circle.CropCircleTransformation;
 
 import butterknife.BindView;
@@ -61,6 +63,16 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
                 .load(R.drawable.try2)
                 .transform(crop)
                 .into(photo);
+
+        logout.setOnClickListener(
+                v -> {
+                    presenter.makeLogout();
+                    Activity activity = getActivity();
+                    if (activity != null) {
+                        ((FragmentNavigator) activity).goToEntranceFragment();
+                    }
+                }
+        );
     }
 
 

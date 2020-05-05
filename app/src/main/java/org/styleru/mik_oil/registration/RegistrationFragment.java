@@ -105,7 +105,7 @@ public class RegistrationFragment extends MvpAppCompatFragment implements Regist
     public void goToMain() {
         Activity activity = getActivity();
         if (activity != null) {
-            ((FragmentNavigator) activity).goToProfileFragment();
+            ((FragmentNavigator) activity).goToProfileFragment(name.getText().toString());
         }
     }
 

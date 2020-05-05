@@ -116,7 +116,7 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
     public void goToMain() {
         Activity activity = getActivity();
         if (activity != null) {
-            ((FragmentNavigator) activity).goToProfileFragment();
+            ((FragmentNavigator) activity).goToProfileFragment(login.getText().toString());
         }
     }
 }

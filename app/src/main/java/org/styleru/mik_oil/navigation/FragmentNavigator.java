@@ -12,6 +12,6 @@ public interface FragmentNavigator {
 
     void goToVerificationKeyFragment();
 
-    void goToProfileFragment();
+    void goToProfileFragment(String login);
 
 }
