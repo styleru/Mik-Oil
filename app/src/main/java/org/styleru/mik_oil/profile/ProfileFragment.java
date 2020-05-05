@@ -34,6 +34,12 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
     @BindView(R.id.photo)
     ImageView photo;
 
+    @BindView(R.id.profile_name)
+    TextView profile_name;
+
+    @BindView(R.id.score)
+    TextView score;
+
     private Unbinder unbinder;
 
     @InjectPresenter
@@ -73,6 +79,9 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
                     }
                 }
         );
+
+        score.setText(presenter.getBalance());
+        profile_name.setText(presenter.getName());
     }
 
 
