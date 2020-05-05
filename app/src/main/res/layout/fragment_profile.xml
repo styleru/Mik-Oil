@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -85,10 +86,10 @@
                     android:layout_marginStart="19dp"
                     android:layout_marginEnd="19dp"
                     android:layout_marginTop="29dp"
-                    android:text="@string/score"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="@string/balance_format" />
 
                 <View
                     android:id="@+id/code"

@@ -77,7 +77,7 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
                 .into(photo);
 
         nameClient.setText(profile.getName());
-        String totalScore = "Баланс: " + profile.getScoreCard();
+        String totalScore = getString(R.string.balance_format, profile.getScoreCard());
         score.setText(totalScore);
         card.setText(profile.getNumberCard());
     }
