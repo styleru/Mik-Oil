@@ -58,5 +58,25 @@ public class ProfilePresenter extends MvpPresenter<ProfileView> {
             return name;
         }
     }
-    //public  String getImageUrl(){}
-}
+    public  String getImageUrl(){
+        SharedPreferencesHelper spHelper = new SharedPreferencesHelper();
+        Context context = MikOilApplication.getAppContext();
+        String url = spHelper.getImageUrl(context);
+        if (url != null) {
+            return url;
+        } else {
+            String[] possible_names = {
+                    "https://www.belnovosti.by/sites/default/files/article/2019/07/21/0q_0.jpg",
+                    "https://www.e-xecutive.ru/uploads/article/image/1986360/thumb_Smirnova_Marina.jpg",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRLKffAfgtgN8WDHG7NkhMww5J2BueJ7bojjsVSjfZU7ptfpbIu&usqp=CAU",
+                    "https://im.kommersant.ru/Issues.photo/CORP/2019/03/01/KMO_111307_24199_1_t218_162046.jpg"
+            };
+            Random random = new Random();
+            int idx = random.nextInt(possible_names.length);
+            url = possible_names[idx];
+            spHelper.setImageUrl(context, url);
+            return url;
+        }
+    }
+    }
+

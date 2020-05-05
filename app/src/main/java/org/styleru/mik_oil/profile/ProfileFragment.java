@@ -15,6 +15,9 @@ import androidx.annotation.NonNull;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.request.RequestOptions;
 import com.squareup.picasso.Picasso;
 
 import org.styleru.mik_oil.R;
@@ -63,12 +66,6 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
         spannableStringPhoto.setSpan(new UnderlineSpan(), 0, addPhoto.getText().length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
         addPhoto.setText(spannableStringPhoto);
 
-        CropCircleTransformation crop = new CropCircleTransformation();
-
-        Picasso.get()
-                .load(R.drawable.try2)
-                .transform(crop)
-                .into(photo);
 
         logout.setOnClickListener(
                 v -> {
@@ -82,6 +79,11 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
 
         score.setText(presenter.getBalance());
         profile_name.setText(presenter.getName());
+        Glide.with(this)
+                .load(presenter.getImageUrl())
+                .transform(new CircleCrop() )
+                .into(photo);
+
     }
 
 
