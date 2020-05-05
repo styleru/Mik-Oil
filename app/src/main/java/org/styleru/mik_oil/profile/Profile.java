@@ -1,20 +1,13 @@
 package org.styleru.mik_oil.profile;
 
-public class ProfileFilling {
+public class Profile {
 
     private String name;
     private String numberCard;
     private String urlPhoto;
     private double scoreCard;
 
-    ProfileFilling() {
-        name = "name";
-        numberCard = "numberCard";
-        urlPhoto = "urlPhoto";
-        scoreCard = 0;
-    }
-
-    ProfileFilling (String name, String numberCard, String urlPhoto, double scoreCard) {
+    Profile(String name, String numberCard, String urlPhoto, double scoreCard) {
         this.name = name;
         this.numberCard = numberCard;
         this.scoreCard = scoreCard;

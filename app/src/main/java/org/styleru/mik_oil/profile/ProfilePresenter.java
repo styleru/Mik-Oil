@@ -1,13 +1,18 @@
 package org.styleru.mik_oil.profile;
 
+import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-class ProfilePresenter extends MvpPresenter<ProfileView> {
+@InjectViewState
+public class ProfilePresenter extends MvpPresenter<ProfileView> {
 
-    ProfileFilling getProfileFilling () {
+    @Override
+    public void attachView(ProfileView view) {
+        super.attachView(view);
+
         String[] name = {"Данила Павленко", "Панила Давленко", "Даненко Павнила", "Великий", "Тот самый"};
         String[] cardNumber = {"0001234", "0002345", "0003456", "7777777", "0000000"};
         String[] urlPhoto = {"https://sun9-43.userapi.com/c844520/v844520018/1ee61b/E0rlWkwzs9s.jpg",
@@ -17,15 +22,16 @@ class ProfilePresenter extends MvpPresenter<ProfileView> {
                 "https://sun9-50.userapi.com/c622622/v622622756/2212a/szMXp98s1O8.jpg"};
         double scoreCard = 123;
 
-        ArrayList<ProfileFilling> fillProfile = new ArrayList<>();
+        ArrayList<Profile> fillProfile = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            fillProfile.add(new ProfileFilling(name[i], cardNumber[i], urlPhoto[i], scoreCard));
+            fillProfile.add(new Profile(name[i], cardNumber[i], urlPhoto[i], scoreCard));
         }
 
         Random random = new Random();
         int rand = random.nextInt(5);
 
-        return fillProfile.get(rand);
+        Profile profile = fillProfile.get(rand);
+        getViewState().fillProfile(profile);
     }
-
 }
+
