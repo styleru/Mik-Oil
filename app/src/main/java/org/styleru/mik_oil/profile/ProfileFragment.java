@@ -1,6 +1,5 @@
 package org.styleru.mik_oil.profile;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -64,28 +63,23 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
         spannableStringPhoto.setSpan(new UnderlineSpan(), 0, addPhoto.getText().length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
         addPhoto.setText(spannableStringPhoto);
 
-        fillProfile();
-
         logout.setOnClickListener(v ->
-                goToExit());
+                goToEntrance());
     }
 
-    @SuppressLint("SetTextI18n")
     @Override
-    public void fillProfile() {
-        ProfileFilling fill = presenter.getProfileFilling();
-
+    public void fillProfile(Profile profile) {
         Glide.with(this)
-                .load(fill.getUrlPhoto())
+                .load(profile.getUrlPhoto())
                 .apply(RequestOptions
                         .circleCropTransform()
                         .error(R.drawable.try2))
                 .into(photo);
 
-        nameClient.setText(fill.getName());
-        String totalScore = "Баланс: " + Double.toString(fill.getScoreCard());
+        nameClient.setText(profile.getName());
+        String totalScore = "Баланс: " + profile.getScoreCard();
         score.setText(totalScore);
-        card.setText(fill.getNumberCard());
+        card.setText(profile.getNumberCard());
     }
 
     @Override
@@ -94,7 +88,7 @@ public class ProfileFragment extends MvpAppCompatFragment implements ProfileView
         super.onDestroyView();
     }
 
-    public void goToExit(){
+    public void goToEntrance(){
         Activity activity = getActivity();
         if (activity != null) {
             ((FragmentNavigator) activity).goToEntranceFragment();

@@ -7,9 +7,9 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 public interface ProfileView extends MvpView {
 
     @StateStrategyType(OneExecutionStateStrategy.class)
-    void fillProfile();
+    void fillProfile(Profile profile);
 
     @StateStrategyType(OneExecutionStateStrategy.class)
-    void goToExit();
+    void goToEntrance();
 
 }
