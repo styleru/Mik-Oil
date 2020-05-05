@@ -80,10 +80,10 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
 
     @Override
     public void goToProfileFragment() {
+        clearBackStack();
         ProfileFragment fragment = new ProfileFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment)
-                .addToBackStack(null)
                 .commit();
     }
 

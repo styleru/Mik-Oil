@@ -18,7 +18,6 @@ public class RegistrationPresenter extends MvpPresenter<RegistrationView> {
 
     void onRegistrationClicked(String name, String phone,
                                String password, String repeatingPassword) {
-
         Map<RegistrationView.Field, Integer> errors = new HashMap<>();
         checkEmptyFields(name, phone, password, repeatingPassword, errors);
         checkPasswordsEqual(password, repeatingPassword, errors);
